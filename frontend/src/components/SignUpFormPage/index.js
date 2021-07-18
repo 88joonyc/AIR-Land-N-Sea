@@ -124,7 +124,7 @@ export default function SignUpFormPage() {
                         </label>
                     </div>
                     <div className='button-container'>
-                        <button className='submit-button' type='submit'>Next</button>
+                        <button className='submit-button' type='submit'>Sign up</button>
                     </div>
                     <ul className='errors'>
                         {errors.map((err, idx) => (
