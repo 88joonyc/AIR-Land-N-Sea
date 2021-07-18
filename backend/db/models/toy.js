@@ -1,73 +1,24 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Toy extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      Toy.belongsTo(models.User, {foreignKey: "userId"})
-    }
-  };
-  Toy.init({
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-        references: {
-          model: "Users",
-        },
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    year: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    make: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    model: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    level: {
-      type: DataTypes.integer,
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.integer,
-      allowNull: false,
-    },
-  }, {
-    sequelize,
-    modelName: 'Toy',
-  });
-  return Toy;
-};
-
 // 'use strict';
-// // const { Validator } = require('sequelize');
-// // const bcrypt = require('bcryptjs')
-
+// const {
+//   Model
+// } = require('sequelize');
 // module.exports = (sequelize, DataTypes) => {
-//   const User = sequelize.define('Toy', {
+//   class Toy extends Model {
+//     /**
+//      * Helper method for defining associations.
+//      * This method is not a part of Sequelize lifecycle.
+//      * The `models/index` file will call this method automatically.
+//      */
+//     static associate(models) {
+//       Toy.belongsTo(models.User, {foreignKey: "userId"})
+//     }
+//   };
+//   Toy.init({
 //     userId: {
 //       type: DataTypes.INTEGER,
 //       allowNull: false,
 //         references: {
-//           model: {
-//             tableName: "Toys",
-//           },
+//           model: "Users",
 //         },
 //     },
 //     description: {
@@ -97,11 +48,67 @@ module.exports = (sequelize, DataTypes) => {
 //       type: DataTypes.integer,
 //       allowNull: false,
 //     },
+//   }, {
+//     sequelize,
+//     modelName: 'Toy',
 //   });
-//   Toy.associate = function(models) {
+//   return Toy;
+// };
 
-//     Toy.belongsTo(models.User, {foreignKey: "userId"})
-//   };
+'use strict';
+// const { Validator } = require('sequelize');
+// const bcrypt = require('bcryptjs')
+
+module.exports = (sequelize, DataTypes) => {
+  const Toy = sequelize.define('Toy', {
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+        references: {
+          model: {
+            tableName: "Toys",
+          },
+        },
+    },
+    description: {
+      type: DataTypes.STRING,
+    },
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    make: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    model: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    level: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  },
+  {
+    scopes: {
+      currentToy: {
+        attributes: {},
+      },
+    },
+  });
+  Toy.associate = function(models) {
+
+    Toy.belongsTo(models.User, {foreignKey: "userId"})
+  };
 
 //   // User.prototype.toSafeObject = function() {
 //   //   const { id, username, email } = this;
@@ -145,5 +152,5 @@ module.exports = (sequelize, DataTypes) => {
     return await Toy.scope('currentToy').findByPk(toy.id)
   };
 
-//   return Toy;
-// };
+  return Toy;
+};

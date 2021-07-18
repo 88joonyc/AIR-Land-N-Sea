@@ -9,7 +9,7 @@ const toyRouter = require('./toys')
 
 router.use('/session', sessionRouter);
 router.use('/users', userRouter);
-router.use('toys', toyRouter )
+router.use('/toys', toyRouter )
 
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {
 //     const user = await User.findOne({
@@ -29,7 +29,7 @@ router.use('toys', toyRouter )
 //     res.json(req.user)
 // ))
 
-// router.post('/test', function(req, res) {
+// router.get('/test', function(req, res) {
 //     res.json({ requestBody: req.body });
 // });
 
