@@ -9,7 +9,7 @@ const { Toy } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler (async (req, res) => {
-    const toy = await Toy.create({userId, description, year, make, model, type, level, price})
+    const toy = await Toy.findAll()
     return res.json(toy)
 }))
 

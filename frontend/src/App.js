@@ -7,6 +7,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
+import Toys from './pages/ToysPage'
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path='/sign-up'>
           <SignUpFormPage/>
+        </Route>
+        <Route path='/toys'>
+          <Toys/>
         </Route>
       </Switch>
     </>
