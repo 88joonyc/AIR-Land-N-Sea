@@ -17,7 +17,13 @@ export default function Toys () {
     return (
         <>
             {toys.map(toy => {
-                return (<h2>{toy.id}</h2>)
+                return (
+                    <>
+                        <h3>{toy.year}</h3>
+                        <h4>{toy.make}</h4>
+                        <h4>{toy.model}</h4>
+                    </>
+                )
             })}
         </>
     )

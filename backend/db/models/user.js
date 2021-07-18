@@ -2,7 +2,7 @@
 const { Validator } = require('sequelize');
 const bcrypt = require('bcryptjs')
 
-const unknownImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+const unknownImage = '/images/unknown-image.png'
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {

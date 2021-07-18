@@ -33,7 +33,7 @@ export default function ProfileButton({user}) {
         <div className='navigation-tab'>
             <button className='user-button' onClick={openMenu}>
                 <i className='menu menu-circle'>{user.username}</i>
-                <img className='profile-pic' src={user.picture}/>
+                <img className='profile-pic' src='{user.picture}'/>
             </button>
             {showMenu && (
                 <ul className='menu-dropdown'>
