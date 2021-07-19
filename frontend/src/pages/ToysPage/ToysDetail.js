@@ -17,16 +17,19 @@ export default function Bookings () {
 
     return (
         <>
-            {bookings.map(booking => {
-                return (
-                    <>
-                        <h3>{booking.toyId}</h3>
-                        <h3>{booking.userId}</h3>
-                        <h3>{booking.startDate}</h3>
-                        <h3>{booking.endDate}</h3>
-                    </>
-                )
-            })}
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
+            <h2>hello</h2>
         </>
     )
 }
