@@ -16,19 +16,17 @@ const setToys = (toys) => ({
 export const getToys = () => async dispatch => {
     const toyCollection = await fetch('/api/toys')
     const toys = await toyCollection.json();
-    // console.log('toy coll',toyCollection)
 
     dispatch(load(toys))
 };
 
 export const getOneToy = (id) => async dispatch => {
     const toy = await fetch(`/api/toys/${id}`)
-    // console.log('get one toy', toy)
 
     if (toy.ok) {
         const thisToy = await toy.json()
 
-        // console.log('this toy:', thisToy)
+
         dispatch(setToys(thisToy))
     }
 }
@@ -56,8 +54,6 @@ const toysReducer = (state = initialState, action) => {
                 ...state,
                 [action.toys.id]: action.toys
             }
-            // console.log('action toys id', action.toys.id)
-            // console.log('newStatre',newState[action.toys.id])
             return newState[action.toys.id]
 
         default:

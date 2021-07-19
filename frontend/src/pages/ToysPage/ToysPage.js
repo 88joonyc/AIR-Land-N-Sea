@@ -13,11 +13,6 @@ export default function Toys () {
     const dispatch = useDispatch();
     const toys = useSelector((state) => (Object.values(state.toys)))
 
-    // console.log('tp toys',toys)
-
-
-    // console.log('toypage:', toys)
-
     useEffect(() => {
         dispatch(getToys());
     }, [dispatch]);
@@ -26,7 +21,7 @@ export default function Toys () {
         <>
             <div className='toy-grid'>
                 {toys.map(toy => {
-                    console.log(toys)
+                    if (toy.id)
                     return (
                         <Link to={`/toys/${toy.id}`}>
                             <div className='grouper'>
@@ -35,7 +30,6 @@ export default function Toys () {
                                     <h4>{toy.make}</h4>
                                     <h4>{toy.model}</h4>
                                 </div>
-
                             </div>
                         </Link>
                     )
