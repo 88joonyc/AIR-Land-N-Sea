@@ -7,8 +7,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
-import Toys from './pages/ToysPage'
-import Bookings from './pages/BookingPage'
+import Toys from './pages/ToysPage/ToysPage'
+import Bookings from './pages/BookingsPage/BookingPage'
 
 function App() {
 

@@ -1,0 +1,19 @@
+.toy-container{
+    border: 1px solid black;
+    width: 100%;
+}
+
+.grouper {
+    position: relative;
+    top: 150px;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+}
+
+.toy-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
