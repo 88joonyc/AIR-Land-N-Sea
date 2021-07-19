@@ -32,7 +32,7 @@ function App() {
         <Route path='/sign-up'>
           <SignUpFormPage/>
         </Route>
-        <Route path='/toys'>
+        <Route path={['/toys', '/toys/toyId']}>
           <Toys/>
         </Route>
         <Route path='/bookings'>

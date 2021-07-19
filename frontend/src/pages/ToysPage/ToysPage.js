@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Route } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getToys } from '../../store/toys';
+import ToysDetail from './ToysDetail'
+
 import './ToysPage.css'
 
 export default function Toys () {
 
     const dispatch = useDispatch();
     const toys = useSelector((state) => Object.values(state.toys))
-
-    // console.log(toys)
 
     useEffect(() => {
         dispatch(getToys());
@@ -33,6 +34,9 @@ export default function Toys () {
                         </Link>
                     )
                 })}
+                <Route path='/toys/toysId'>
+                    <ToysDetail/>
+                </Route>
             </div>
         </>
     )
