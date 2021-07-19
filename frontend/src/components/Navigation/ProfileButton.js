@@ -33,7 +33,8 @@ export default function ProfileButton({user}) {
 
     return (
         <>
-        <NavLink className='navi-button' to='/toys'>Toys</NavLink>
+        <NavLink className='navi-button' to='/toys'>Browse toys</NavLink>
+        <NavLink className='navi-button' to='/bookings'>Rent a toy</NavLink>
         <div className='navigation-tab'>
             <button className='user-button' onClick={openMenu}>
                 <i className='menu menu-circle'>{user.username}</i>
