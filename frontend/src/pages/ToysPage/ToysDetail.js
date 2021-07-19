@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { createBooking } from '../../store/bookings';
+import { createBooking, getBookings } from '../../store/bookings';
 import { getOneToy } from '../../store/toys';
 
 export default function Bookings () {
     const dispatch = useDispatch();
     const { toyId } = useParams()
-    // const bookings = useSelector((state) => Object.values(state.bookings))
+    const bookings = useSelector((state) => Object.values(state.bookings))
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => Object.values(state)[1])
 
@@ -17,6 +17,7 @@ export default function Bookings () {
     const [endDate, setEnd] = useState('')
 
     useEffect(() => {
+        dispatch(getBookings())
         dispatch(getOneToy(toyId));
     }, [toyId, dispatch]);
 
@@ -30,6 +31,8 @@ export default function Bookings () {
             startDate,
             endDate
         }
+
+        console.log('error', bookings)
 
         dispatch(createBooking(payload))
 

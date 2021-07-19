@@ -64,8 +64,6 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
   };
 
-
-
   Booking.book = async function({ toyId, userId, startDate, endDate }) {
     const booking = await Booking.create({
       toyId,
