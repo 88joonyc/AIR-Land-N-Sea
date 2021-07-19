@@ -92,6 +92,10 @@ module.exports = (sequelize, DataTypes) => {
     level: {
       type: DataTypes.INTEGER,
       allowNull: false,
+        validate: {
+        min: 0,
+        max: 5
+      },
     },
     price: {
       type: DataTypes.INTEGER,

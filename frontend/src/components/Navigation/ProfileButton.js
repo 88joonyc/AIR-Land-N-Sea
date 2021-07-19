@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
 export default function ProfileButton({user}) {
@@ -32,6 +33,7 @@ export default function ProfileButton({user}) {
 
     return (
         <>
+        <NavLink className='navi-button' to='/toys'>Toys</NavLink>
         <div className='navigation-tab'>
             <button className='user-button' onClick={openMenu}>
                 <i className='menu menu-circle'>{user.username}</i>
