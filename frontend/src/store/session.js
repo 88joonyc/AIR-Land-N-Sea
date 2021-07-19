@@ -2,6 +2,8 @@ import { csrfFetch } from "./csrf";
 
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const UPDATE_USER = 'session/UPDATE_USER'
+
 // const RESTORE_USER = 'session/restoreUser';
 
 // what is expected from serssion with an actve user:
@@ -29,11 +31,16 @@ const setUser = (user) => {
 //   user: null
 // }
 
-const removeUser = () => {
+const removeUser = (userId) => {
     return {
         type: REMOVE_USER,
     };
 };
+
+const update = (user) => ({
+    type: UPDATE_USER,
+    user
+})
 
 // login thunk action
 
@@ -67,6 +74,11 @@ const sessionReducer = (state = initialState, action) => {
             newState = Object.assign({}, state);
             newState.user = null;
             return newState;
+        case UPDATE_USER:
+            return {
+                ...state,
+                [action.user.id]: action.user
+            };
         default:
             return state;
     }
@@ -104,6 +116,19 @@ export const loggingOut = () => async dispatch => {
     })
     dispatch(removeUser())
     return logOut
+};
+
+export const editUser = (payload, id) => async dispatch => {
+    const resUser = await csrfFetch(`/api/session/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({payload})
+    });
+
+    const editThisUser = resUser.json()
+
+    if (resUser.ok) return dispatch(update(editThisUser))
+
+    return editThisUser
 };
 
 export default sessionReducer;

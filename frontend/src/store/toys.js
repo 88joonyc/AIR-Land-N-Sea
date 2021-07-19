@@ -8,7 +8,7 @@ const SET_TOYS = 'toys/SET_TOYS';
 const load = (toys) => ({
     type: LOAD,
     toys
-})
+});
 
 const setToys = (toys) => ({
     type: SET_TOYS,
@@ -16,7 +16,7 @@ const setToys = (toys) => ({
 });
 
 export const getToys = () => async dispatch => {
-    const toyCollection = await csrfFetch('/api/toys')
+    const toyCollection = await csrfFetch('/api/toys');
     const toys = await toyCollection.json();
 
     dispatch(load(toys))
@@ -30,8 +30,8 @@ export const getOneToy = (id) => async dispatch => {
 
 
         dispatch(setToys(thisToy))
-    }
-}
+    };
+};
 
 const initialState = {
     toys: [],
@@ -42,7 +42,7 @@ const toysReducer = (state = initialState, action) => {
         case LOAD:
             const allToys = {
                 ...state,
-            }
+            };
             action.toys.forEach((toy) => {
                 allToys[toy.id] = toy;
             });
@@ -53,12 +53,12 @@ const toysReducer = (state = initialState, action) => {
             const newState = {
                 ...state,
                 [action.toys.id]: action.toys
-            }
+            };
         return newState
 
         default:
             return state;
-    }
+    };
 };
 
 export default toysReducer;
