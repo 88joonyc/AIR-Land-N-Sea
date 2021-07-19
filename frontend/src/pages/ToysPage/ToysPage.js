@@ -22,7 +22,7 @@ export default function Toys () {
                 {toys.map(toy => {
                     if (toy.id) {
                     return (
-                        <Link to={`/toys/${toy.id}`}>
+                        <Link key={toy.id} to={`/toys/${toy.id}`}>
                             <div className='grouper'>
                                 <div className='toy-container'>
                                     <h3>{toy.year}</h3>

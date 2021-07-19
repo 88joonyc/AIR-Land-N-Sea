@@ -8,6 +8,10 @@ const { Toy } = require('../../db/models');
 
 const router = express.Router();
 
+// const validateToy = [
+//     check()
+// ]
+
 router.get('/', requireAuth, asyncHandler (async (req, res) => {
     const toy = await Toy.findAll()
     return res.json(toy)

@@ -5,15 +5,24 @@ const { check } = require('express-validator');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Booking } = require('../../db/models');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
+
+const validateBooking = [
+    check("startDate")
+        .exists({checkFalsy: true}),
+    check("endDate")
+        .exists({checkFalsy: true}),
+    handleValidationErrors
+]
 
 router.get('/', requireAuth, asyncHandler (async (req, res) => {
     const booking = await Booking.findAll()
     return res.json(booking)
 }))
 
-router.post('/', requireAuth, asyncHandler (async (req, res) => {
+router.post('/', requireAuth, validateBooking, asyncHandler (async (req, res) => {
     const { toyId, userId, startDate, endDate } = req.body;
 
     console.log('body',req.body)
