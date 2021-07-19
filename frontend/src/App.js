@@ -9,7 +9,7 @@ import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import Toys from './pages/ToysPage/ToysPage'
 import Bookings from './pages/BookingsPage/BookingPage'
-// import ToysDetail from './pages/ToysPage/ToysDetail'
+import ToysDetail from './pages/ToysPage/ToysDetail'
 
 function App() {
 
@@ -33,11 +33,14 @@ function App() {
         <Route path='/sign-up'>
           <SignUpFormPage/>
         </Route>
-        <Route exact path={['/toys', '/toys/:toysId']}>
+        <Route exact path={['/toys']}>
           <Toys/>
         </Route>
         <Route path='/bookings'>
           <Bookings/>
+        </Route>
+        <Route path='/toys/:toyId'>
+          <ToysDetail/>
         </Route>
       </Switch>
     </>
