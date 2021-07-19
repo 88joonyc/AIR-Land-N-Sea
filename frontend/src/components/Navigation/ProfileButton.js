@@ -29,8 +29,6 @@ export default function ProfileButton({user}) {
         dispatch(sessionActions.loggingOut());
     };
 
-    // console.log(user)
-
     return (
         <>
         <NavLink className='navi-button' to='/toys'>Browse toys</NavLink>
@@ -38,7 +36,7 @@ export default function ProfileButton({user}) {
         <div className='navigation-tab'>
             <button className='user-button' onClick={openMenu}>
                 <i className='menu menu-circle'>{user.username}</i>
-                <img className='profile-pic' src={user.picture}/>
+                <img className='profile-pic' alt={user.picture} src={user.picture}/>
             </button>
             {showMenu && (
                 <ul className='menu-dropdown'>
