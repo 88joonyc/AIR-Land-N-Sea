@@ -1,5 +1,5 @@
 const SET_BOOKINGS = 'bookings/SET_BOOKINGS'
-const ADD_BOOKING = 'booking/ADD_BOOKING'
+// const ADD_BOOKING = 'booking/ADD_BOOKING'
 
 const setBookings = (bookings) => ({
     type: SET_BOOKINGS,
@@ -18,6 +18,7 @@ export const getBookings = () => async dispatch => {
 };
 
 export const createBooking = (payload) => async dispatch => {
+
     const thisBooking = await fetch('/api/bookings/', {
         method: 'POST',
         body: JSON.stringify(payload)
@@ -26,6 +27,7 @@ export const createBooking = (payload) => async dispatch => {
     const newBooking = await thisBooking.json();
 
     if (newBooking.ok) dispatch(setBookings(newBooking))
+    console.log(newBooking)
 
     return newBooking;
 };

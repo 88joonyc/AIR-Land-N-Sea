@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Route } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getToys } from '../../store/toys';
-import ToysDetail from './ToysDetail'
+// import ToysDetail from './ToysDetail'
 
 import './ToysPage.css'
 
@@ -21,7 +20,7 @@ export default function Toys () {
         <>
             <div className='toy-grid'>
                 {toys.map(toy => {
-                    if (toy.id)
+                    if (toy.id) {
                     return (
                         <Link to={`/toys/${toy.id}`}>
                             <div className='grouper'>
@@ -33,6 +32,7 @@ export default function Toys () {
                             </div>
                         </Link>
                     )
+                    } else return null
                 })}
             </div>
 

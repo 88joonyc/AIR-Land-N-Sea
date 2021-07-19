@@ -29,8 +29,6 @@ export default function ProfileButton({user}) {
         dispatch(sessionActions.loggingOut());
     };
 
-    // console.log(user)
-
     return (
         <>
         <NavLink className='navi-button' to='/toys'>Browse toys</NavLink>
