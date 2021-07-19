@@ -11,12 +11,11 @@ const router = express.Router();
 
 const validateBooking = [
     check("startDate")
-        .exists({checkFalsy: true}),
+        .exists({checkFalsy: true})
+        .withMessage('Please specify a start date'),
     check("endDate")
-        .exists({checkFalsy: true}),
-    check("bookedVals")
-
-    ,
+        .exists({checkFalsy: true})
+        .withMessage('Please specifgy an end date'),
     handleValidationErrors
 ]
 

@@ -7,11 +7,13 @@ const sessionRouter  = require('./session');
 const userRouter = require('./users');
 const toyRouter = require('./toys');
 const bookingRouter = require('./bookings');
+const imageRouter = require('./images')
 
 router.use('/session', sessionRouter);
 router.use('/users', userRouter);
 router.use('/toys', toyRouter );
 router.use('/bookings', bookingRouter );
+router.use('/images', imageRouter)
 
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {
 //     const user = await User.findOne({

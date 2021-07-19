@@ -5,12 +5,6 @@ const router = express.Router();
 
 router.use('/api', apiRouter)
 
-// router.get('/hello/world', function (req, res) {
-//     res.cookie('XSRF-TOKEN', req.csrfToken());
-//     res.send('Hello World!');
-// });
-
-// static routes
 if (process.env.NODE_ENV === 'production') {
     const path = require('path');
 

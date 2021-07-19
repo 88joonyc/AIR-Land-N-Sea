@@ -33,4 +33,12 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
     })
 }))
 
+router.put('/:id', requireAuth, asyncHandler (async(req, res) => {
+    const id = await Toy.update(req.body);
+    const toy = await Toy.one(id)
+    return res.json(toy)
+}))
+
+// router.delete()
+
 module.exports = router;

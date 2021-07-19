@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { createBooking, getBookings } from '../../store/bookings';
+import { createBooking, getOneBooking } from '../../store/bookings';
 import { getOneToy } from '../../store/toys';
 
 export default function Bookings () {
@@ -11,13 +11,14 @@ export default function Bookings () {
     const { toyId } = useParams()
     const bookings = useSelector((state) => Object.values(state.bookings))
     const sessionUser = useSelector(state => state.session.user);
-    const toy = useSelector((state) => Object.values(state)[1])
+    const toy = useSelector((state) => state.toys[toyId])
+    console.log(toyId)
 
     const [startDate, setStart] = useState('')
     const [endDate, setEnd] = useState('')
 
     useEffect(() => {
-        dispatch(getBookings())
+        dispatch(getOneBooking(toyId))
         dispatch(getOneToy(toyId));
     }, [toyId, dispatch]);
 
@@ -32,21 +33,32 @@ export default function Bookings () {
             endDate
         }
 
-        console.log('error', bookings)
+        console.log('error', bookings[0])
+        const bookedStart = bookings[0].startDate;
+        const bookedEnd = bookings[0].endDate;
 
-        dispatch(createBooking(payload))
+        console.log(bookedStart)
+
+        const bookdate = Date(bookedEnd)
+        const start = Date(startDate)
+        console.log(start > bookdate, start)
+        if (startDate > endDate) return console.error('date error')
+
+        if (start > bookdate ) {
+            return dispatch(createBooking(payload))
+        } else  return console.error('date is booked!!')
 
     };
 
     return (
         <>
             <div className='info-container'>
-                <h2>{toy.id}</h2>
-                <h2>{toy.description}</h2>
-                <h2>{toy.year}</h2>
-                <h2>{toy.make}</h2>
-                <h2>{toy.model}</h2>
-                <h2>{toy.id}</h2>
+                <h2>{toy?.id}</h2>
+                <h2>{toy?.description}</h2>
+                <h2>{toy?.year}</h2>
+                <h2>{toy?.make}</h2>
+                <h2>{toy?.model}</h2>
+                <h2>{toy?.id}</h2>
             </div>
             <div className='booking-form'>
                 <form
@@ -65,7 +77,7 @@ export default function Bookings () {
                         onChange={(e) => setEnd(e.target.value)}
                     />
                     <div>price</div>
-                    <div>{toy.price}</div>
+                    <div>{toy?.price}</div>
                     <button type='submit'>Reserve</button>
                 </form>
             </div>

@@ -1,7 +1,9 @@
 // this is where thunks will be created for toys
 
-const LOAD = 'toys/LOAD'
-const SET_TOYS = 'toys/SET_TOYS'
+import { csrfFetch } from "./csrf";
+
+const LOAD = 'toys/LOAD';
+const SET_TOYS = 'toys/SET_TOYS';
 
 const load = (toys) => ({
     type: LOAD,
@@ -14,14 +16,14 @@ const setToys = (toys) => ({
 });
 
 export const getToys = () => async dispatch => {
-    const toyCollection = await fetch('/api/toys')
+    const toyCollection = await csrfFetch('/api/toys')
     const toys = await toyCollection.json();
 
     dispatch(load(toys))
 };
 
 export const getOneToy = (id) => async dispatch => {
-    const toy = await fetch(`/api/toys/${id}`)
+    const toy = await csrfFetch(`/api/toys/${id}`)
 
     if (toy.ok) {
         const thisToy = await toy.json()
@@ -36,8 +38,6 @@ const initialState = {
 };
 
 const toysReducer = (state = initialState, action) => {
-
-
     switch (action.type) {
         case LOAD:
             const allToys = {
@@ -54,7 +54,7 @@ const toysReducer = (state = initialState, action) => {
                 ...state,
                 [action.toys.id]: action.toys
             }
-            return newState[action.toys.id]
+        return newState
 
         default:
             return state;
