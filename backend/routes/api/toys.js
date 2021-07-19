@@ -13,6 +13,11 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
     return res.json(toy)
 }))
 
+router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
+    const toy = await Toy.findByPk(req.params.id)
+    return res.json(toy)
+}))
+
 router.post('/', requireAuth, asyncHandler (async (req, res) => {
     const { userId, description, year, make, model, type, level, price } = req.body
     const toy = await Toy.create({ userId, description, year, make, model, type, level, price })

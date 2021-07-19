@@ -11,7 +11,9 @@ import './ToysPage.css'
 export default function Toys () {
 
     const dispatch = useDispatch();
-    const toys = useSelector((state) => Object.values(state.toys))
+    const toys = useSelector((state) => (Object.values(state.toys)))
+
+    console.log('toypage:', toys)
 
     useEffect(() => {
         dispatch(getToys());

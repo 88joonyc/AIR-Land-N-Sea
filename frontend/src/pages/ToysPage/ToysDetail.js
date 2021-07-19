@@ -9,18 +9,19 @@ import { getOneToy } from '../../store/toys';
 export default function Bookings () {
 
     const dispatch = useDispatch();
-    const { toysId } = useParams()
-    const bookings = useSelector((state) => Object.values(state.bookings))
-    const toys = useSelector((state) => Object.values(state.toys))
+    const { toyId } = useParams()
+    // const bookings = useSelector((state) => Object.values(state.bookings))
+    const toys = useSelector((state) => Object.values(state.toys[toyId]))
 
-    // console.log(toysId)
+    // console.log(toyId)
+    console.log('detail toys:', toys)
 
     // console.log(bookings)
 
     useEffect(() => {
-        dispatch(createBooking());
-        dispatch(getOneToy(toysId));
-    }, [dispatch]);
+        // dispatch(createBooking());
+        dispatch(getOneToy(toyId));
+    }, [toyId]);
 
     return (
         <>
