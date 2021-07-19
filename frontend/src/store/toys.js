@@ -14,6 +14,15 @@ export const getToys = () => async dispatch => {
     dispatch(setToys(toys))
 };
 
+export const getOneToy = (id) => async dispatch => {
+    const toy = await fetch(`/api/toys/${id}`)
+
+    if (toy.ok) {
+        const thisToy = await toy.json()
+        dispatch(setToys(thisToy))
+    }
+}
+
 const initialState = {};
 
 const toysReducer = (state = initialState, action) => {

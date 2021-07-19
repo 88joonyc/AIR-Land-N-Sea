@@ -34,7 +34,7 @@ export default function Toys () {
                         </Link>
                     )
                 })}
-                <Route path='/toys/:toysId'>
+                <Route path='/toys/:toyId'>
                     <ToysDetail/>
                 </Route>
             </div>

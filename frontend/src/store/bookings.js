@@ -35,7 +35,10 @@ const initialState = {};
 const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_BOOKINGS:
-            const newState = {...state}
+            const newState = {
+                ...state,
+                [action.booking.id]: action.booking,
+            }
             action.bookings.forEach((booking) => {
                 newState[booking.id] = booking;
             });
