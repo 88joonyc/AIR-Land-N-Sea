@@ -14,15 +14,10 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
 }))
 
 router.post('/', requireAuth, asyncHandler (async (req, res) => {
-    const { toyId, userId,startDate, endDate } = req.body;
-    const booked = await Booking.createBooking({ toyId, userId,startDate, endDate });
+    const { toyId, userId, startDate, endDate } = req.body;
 
-    const token = req.token
-    console.log(token)
-
-    await setTokenCookie(res, userId);
-
-    console.log('token',res)
+    console.log('body',req.body)
+    const booked = await Booking.book({ toyId, userId,startDate, endDate });
 
     return res.json({
         booked,

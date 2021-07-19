@@ -74,7 +74,7 @@ module.exports = (sequelize, DataTypes) => {
       endDate
     })
 
-    return await Booking.scope('currentBooking').findByPk(booking.id)
+    return await Booking.findByPk(booking.id)
   }
 
   Booking.delete = async function ({bookingId}) {

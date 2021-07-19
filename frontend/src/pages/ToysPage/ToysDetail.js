@@ -24,8 +24,10 @@ export default function Bookings () {
         e.preventDefault()
         const userId = sessionUser.id
 
+
+
         const payload = {
-            toyId,
+            toyId: Number(toyId),
             userId,
             startDate,
             endDate
