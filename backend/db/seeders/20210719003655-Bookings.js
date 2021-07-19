@@ -38,12 +38,3 @@ module.exports = {
      await queryInterface.bulkDelete('Bookings', null, {});
   }
 };
-
-Booking.book = async function({ toyId, userId, startDate, endDate }) {
-  const booking = await Booking.create({
-    toyId,
-    userId,
-    startDate,
-    endDate
-  })
-}

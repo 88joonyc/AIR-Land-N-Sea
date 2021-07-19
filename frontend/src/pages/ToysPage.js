@@ -8,7 +8,7 @@ export default function Toys () {
     const dispatch = useDispatch();
     const toys = useSelector((state) => Object.values(state.toys))
 
-    console.log(toys)
+    // console.log(toys)
 
     useEffect(() => {
         dispatch(getToys());

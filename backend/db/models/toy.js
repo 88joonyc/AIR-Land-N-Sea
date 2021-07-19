@@ -156,5 +156,15 @@ module.exports = (sequelize, DataTypes) => {
     return await Toy.scope('currentToy').findByPk(toy.id)
   };
 
+  Toy.delete = async function ({toyId}) {
+    const toy = Toy.findByPk(toyId);
+    if (!toy) throw new Error('This toy does not exist!');
+
+    await Toy.destroy({
+      where: {id : toyId}
+    })
+    return toy.id
+  };
+
   return Toy;
 };

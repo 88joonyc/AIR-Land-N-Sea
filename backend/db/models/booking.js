@@ -63,5 +63,30 @@ module.exports = (sequelize, DataTypes) => {
   Booking.associate = function (models) {
     // associations can be defined here
   };
+
+
+
+  Booking.book = async function({ toyId, userId, startDate, endDate }) {
+    const booking = await Booking.create({
+      toyId,
+      userId,
+      startDate,
+      endDate
+    })
+
+    return await Booking.scope('currentBooking').findByPk(booking.id)
+  }
+
+  Booking.delete = async function ({bookingId}) {
+    const booking = Booking.findByPk(bookingId);
+    if (!booking) throw new Error('Booking does not exist!');
+
+    await Booking.destroy({
+      where: {id : bookingId}
+    })
+    return booking.id
+  };
+
+
   return Booking;
 };
