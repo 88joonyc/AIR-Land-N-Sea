@@ -2,7 +2,7 @@
 const { Validator } = require('sequelize');
 const bcrypt = require('bcryptjs')
 
-const unknownImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+const unknownImage = 'https://cdn.landesa.org/wp-content/uploads/default-user-image.png'
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -67,8 +67,8 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.prototype.toSafeObject = function() {
-    const { id, username, email } = this;
-    return { id, username, email }
+    const { id, firstName, lastName, username, email, picture } = this;
+    return { id, firstName, lastName, username, email, picture }
   }
 
   User.prototype.validatePassword = function(password) {

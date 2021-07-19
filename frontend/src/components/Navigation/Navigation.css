@@ -75,6 +75,8 @@
 .home-img {
     width: 45px;
     border-radius: 40px;
+    display: flex;
+    justify-items: center;
 }
 
 .active {
@@ -88,4 +90,7 @@
     align-self: center;
 }
 
-.home-container {}
+.home-container {
+    align-self: center;
+
+}

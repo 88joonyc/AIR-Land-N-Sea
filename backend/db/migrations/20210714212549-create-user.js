@@ -1,6 +1,6 @@
 'use strict';
 
-const unknownImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+const unknownImage = 'https://cdn.landesa.org/wp-content/uploads/default-user-image.png'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
