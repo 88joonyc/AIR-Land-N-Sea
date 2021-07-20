@@ -14,11 +14,23 @@ const setImage = (images) => ({
     images
 });
 
-export const getImages = () => async dispatch => {
+export const getImages = (toyId) => async dispatch => {
     const img = await csrfFetch('/api/images');
-    const images = await img.json();
 
-    dispatch(load(images));
+    // console.log(toyId)
+    const images = await img.json();
+    // let loadImg = []
+    // images.forEach(i => {
+        // console.log('imgagg', i.toyId)
+        // if (i.toyId === Number(toyId)) {
+        //     loadImg.push(i)
+        // }
+        // console.log('load',loadImg)
+    // })
+    // dispatch(load(loadImg));
+
+    // console.log('img', images)
+
 };
 
 // export const getOneImage = (id) => async dispatch => {

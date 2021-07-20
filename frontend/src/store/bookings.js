@@ -27,11 +27,12 @@ export const getBookings = () => async dispatch => {
 
 export const getOneBooking = (id) => async dispatch => {
     const book = await csrfFetch(`/api/bookings/${id}`)
-
-    if (book.ok) {
-        const booking = await book.json()
-        dispatch(setBookings(booking))
-    }
+        if (book.ok) {
+            const booking = await book.json()
+            if (booking) {
+                dispatch(setBookings(booking))
+            }
+        }
 }
 
 export const createBooking = (payload) => async dispatch => {

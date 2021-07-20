@@ -56,8 +56,6 @@
 // };
 
 'use strict';
-// const { Validator } = require('sequelize');
-// const bcrypt = require('bcryptjs')
 
 module.exports = (sequelize, DataTypes) => {
   const Toy = sequelize.define('Toy', {
@@ -110,15 +108,15 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   Toy.associate = function(models) {
-
     Toy.belongsTo(models.User, {foreignKey: "userId"})
+    Toy.hasMany(models.Image, {foreignKey: 'toyId'})
   };
 
   Toy.getCurrentToyById = async function(id) {
     return await Toy.scope('currentToy').findByPk(id)
   }
 
-  Toy.create = async function({ userId, description, year, make, model, type, level, price }) {
+  Toy.make = async function({ userId, description, year, make, model, type, level, price }) {
     const toy = await Toy.create({
       userId,
       description,
@@ -129,7 +127,7 @@ module.exports = (sequelize, DataTypes) => {
       level,
       price,
     });
-    return await Toy.scope('currentToy').findByPk(toy.id)
+    return await Toy.findByPk(toy.id)
   };
 
   Toy.delete = async function ({toyId}) {

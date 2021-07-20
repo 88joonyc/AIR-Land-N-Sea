@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { createToy } from '../../store/toys';
 
 import './HostPage.css'
 
 export default function Hosting () {
 
     const dispatch = useDispatch();
+    const history = useHistory()
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -17,19 +20,34 @@ export default function Hosting () {
     const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
 
-    useEffect(() => {
-
-    }, [dispatch]);
-
     const handleSubmit = async (e) => {
+        e.preventDefault();
+        const userId = sessionUser.id
 
+        const payload = {
+            userId,
+            description,
+            year,
+            make,
+            model,
+            type,
+            level,
+            price
+        };
+
+
+        let createdToy = dispatch(createToy(payload))
+
+        if (createdToy) {
+            history.push('/images')
+        }
     }
 
     return (
         <>
             <div className='hosts-container'>
                 <div className='host-form-container'>
-                    <form className='host-form'>
+                    <form onSubmit={handleSubmit} className='host-form'>
                         <label>Year
                             <input
                                 type='number'

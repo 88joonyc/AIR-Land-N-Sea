@@ -19,6 +19,8 @@ export const getToys = () => async dispatch => {
     const toyCollection = await csrfFetch('/api/toys');
     const toys = await toyCollection.json();
 
+    console.log('toys',toys)
+
     dispatch(load(toys))
 };
 
@@ -27,8 +29,6 @@ export const getOneToy = (id) => async dispatch => {
 
     if (toy.ok) {
         const thisToy = await toy.json()
-
-
         dispatch(setToys(thisToy))
     };
 };
@@ -65,6 +65,7 @@ export const createToy = (payload) => async dispatch => {
 
     const thisToy = await csrfFetch('/api/toys', {
         method: 'POST',
+        header: {"Content-Type": 'application/json'},
         body: JSON.stringify(payload)
     });
 
