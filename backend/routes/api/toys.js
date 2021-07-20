@@ -30,7 +30,7 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
     const { userId, description, year, make, model, type, level, price } = req.body
     const toy = await Toy.make({ userId, description, year, make, model, type, level, price })
 
-    await setTokenCookie(res, toy)
+    // await setTokenCookie(res, toy)
 
     return res.json({
         toy

@@ -61,7 +61,8 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Booking.associate = function (models) {
-    // associations can be defined here
+    Booking.belongsTo(models.User, {foreignKey: "userId"})
+    Booking.belongsTo(models.Toy, {foreignKey: "toyId"})
   };
 
   Booking.book = async function({ toyId, userId, startDate, endDate }) {
