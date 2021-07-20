@@ -8,6 +8,8 @@ import { getOneToy } from '../../store/toys';
 
 import * as actionImage from '../../store/images'
 
+import './ToysDetail.css'
+
 export default function Bookings () {
     const dispatch = useDispatch();
     const { toyId } = useParams()
@@ -15,6 +17,8 @@ export default function Bookings () {
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
     const images = useSelector((state) => state.images)
+
+    console.log(images)
 
     const [startDate, setStart] = useState('')
     const [endDate, setEnd] = useState('')
@@ -60,46 +64,45 @@ export default function Bookings () {
 
     return (
         <>
-            <div className='info-container'>
-                <h2>{toy?.id}</h2>
-                <h2>{toy?.description}</h2>
+            <div className='image-container'>
+                <img className='image-sorurce' src='https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/tlSB-BlTTCarQTY1p9ToHA.1440x700.jpg'/>
+            </div>
+            <div className='top-info-container'>
                 <h2>{toy?.year}</h2>
                 <h2>{toy?.make}</h2>
                 <h2>{toy?.model}</h2>
                 <h2>{toy?.id}</h2>
             </div>
-            <div className='image-container'>
-                {/* {imgSet?.forEach(img => (
-                    <img className='ii' alt={img?.id} src={img?.url} width="100px" height="100px"/>
-                    console.log(img.url)
-                ))} */}
-                {    images.images.forEach(img => {
-                    if (img.toyId === Number(toyId)) (
-                        // <img src={img.url}/>
-                        console.log(img.url)
-                    )})
-                }
-            </div>
             <div className='booking-form'>
                 <form
                     onSubmit={handleSubmit}
-                >
-                    <label
-                        htmlFor='start'
-                        >Start rental</label>
-                    <input
-                        type='date'
-                        onChange={(e) => setStart(e.target.value)}
-                    />
-                    <label htmlFor='end'>End rental</label>
-                    <input
-                        type='date'
-                        onChange={(e) => setEnd(e.target.value)}
-                    />
-                    <div>price</div>
+                    >
                     <div>{toy?.price}</div>
-                    <button type='submit'>Reserve</button>
+                    <div className='date-area'>
+                        <label
+                            htmlFor='start'
+                            >Start rental</label>
+                        <input
+                            type='date'
+                            value={startDate}
+                            onChange={(e) => setStart(e.target.value)}
+                        />
+                        <label htmlFor='end'>End rental</label>
+                        <input
+                            type='date'
+                            value={endDate}
+                            onChange={(e) => setEnd(e.target.value)}
+                        />
+                        <button className='reserve-button' type='submit'>Reserve</button>
+                    </div>
                 </form>
+            </div>
+            <div className='bot-info-container'>
+                <h2>{toy?.description}</h2>
+                <h2>{toy?.year}</h2>
+                <h2>{toy?.make}</h2>
+                <h2>{toy?.model}</h2>
+                <h2>{toy?.id}</h2>
             </div>
         </>
     )

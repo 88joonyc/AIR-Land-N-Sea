@@ -1,0 +1,42 @@
+.image-container {
+    border: 1px solid black;
+    position: relative;
+    top: 200px;
+}
+
+.image-sorurce {
+    width: 100%;
+}
+
+.top-info-container {
+    border: 1px solid black;
+    background-color: white;
+    position: relative;
+    top: 100px;
+}
+
+.booking-form {
+    position: sticky;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    background-color: white;
+}
+
+.date-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.reserve-button {
+    background-color: red;
+    font-size: x-large;
+}
+
+.bot-info-container {
+    position: relative;
+    background-color: white;
+}
