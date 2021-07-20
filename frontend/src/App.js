@@ -8,9 +8,10 @@ import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import Toys from './pages/ToysPage/ToysPage'
-import Bookings from './pages/BookingsPage/BookingPage'
+// import Bookings from './pages/Host/BookingPage'
 import ToysDetail from './pages/ToysPage/ToysDetail'
 import EditToys from "./pages/UsersToy/UsersToy";
+import Hosting from "./pages/HostPage/HostPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,8 +38,8 @@ function App() {
         <Route exact path='/toys'>
           <Toys/>
         </Route>
-        <Route path='/bookings'>
-          <Bookings/>
+        <Route path='/hosting'>
+          <Hosting/>
         </Route>
         <Route exact path='/toys/:toyId'>
           <ToysDetail/>

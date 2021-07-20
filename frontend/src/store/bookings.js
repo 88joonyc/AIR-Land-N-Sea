@@ -45,7 +45,6 @@ export const createBooking = (payload) => async dispatch => {
     const newBooking = await thisBooking.json();
 
     if (newBooking.ok) dispatch(setBookings(newBooking))
-    console.log(newBooking)
 
     return newBooking;
 };

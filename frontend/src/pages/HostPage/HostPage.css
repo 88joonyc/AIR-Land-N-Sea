@@ -1,0 +1,40 @@
+.host-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 20%;
+    background-color: white;
+    width: 500px;
+    border-radius: 15px;
+    padding: 60px;
+}
+
+.host-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hosts-container {}
+
+.host-texarea {
+    resize: none;
+    width: 95%;
+    height: 80px;
+    font-size: large;
+}
+
+.host-input {
+    width: 95%;
+    height: 40px;
+    font-size: large;
+}
+
+.host-submit {
+    width: 97%;
+    border: none;
+    background-color: teal;
+    border-radius: 15px;
+    font-size: large;
+    color: white;
+}

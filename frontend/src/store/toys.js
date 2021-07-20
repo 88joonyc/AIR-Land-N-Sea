@@ -61,6 +61,20 @@ const toysReducer = (state = initialState, action) => {
     };
 };
 
+export const createToy = (payload) => async dispatch => {
+
+    const thisToy = await csrfFetch('/api/toys', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+    });
+
+    const newToy = await thisToy.json();
+
+    if (thisToy.ok) dispatch(setToys(newToy));
+
+    return newToy;
+};
+
 export default toysReducer;
 
 
