@@ -73,8 +73,8 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Review.associate = function (models) {
-    Review.belongsTo(models.User, {foreignKey: "userId"})
-    Review.belongsTo(models.Toy, {foreignKey: "toyId"})
+    // Review.belongsTo(models.User, {foreignKey: "userId"})
+    // Review.belongsTo(models.Toy, {foreignKey: "toyId"})
   };
 
   Review.make = async function({ userId, toyId, review, stars }) {

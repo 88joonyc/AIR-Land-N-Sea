@@ -110,7 +110,7 @@ module.exports = (sequelize, DataTypes) => {
   Toy.associate = function(models) {
     Toy.belongsTo(models.User, {foreignKey: "userId"})
     Toy.hasMany(models.Image, {foreignKey: 'toyId'})
-    Toy.hasMany(models.Review, {foreignKey: "toyId"})
+    // Toy.hasMany(models.Review, {foreignKey: "toyId"})
   };
 
   Toy.getCurrentToyById = async function(id) {
