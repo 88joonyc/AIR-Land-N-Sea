@@ -16,12 +16,10 @@ export default function EditToys () {
 
     useEffect(() => {
         dispatch(getToys());
-
     }, [dispatch]);
 
     return (
         <>
-
 
         </>
     )

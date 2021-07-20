@@ -16,30 +16,28 @@ const setImage = (images) => ({
 
 export const getImages = (toyId) => async dispatch => {
     const img = await csrfFetch('/api/images');
-
-    // console.log(toyId)
     const images = await img.json();
-    // let loadImg = []
-    // images.forEach(i => {
-        // console.log('imgagg', i.toyId)
-        // if (i.toyId === Number(toyId)) {
-        //     loadImg.push(i)
-        // }
-        // console.log('load',loadImg)
-    // })
-    // dispatch(load(loadImg));
-
-    // console.log('img', images)
-
 };
 
-// export const getOneImage = (id) => async dispatch => {
 
-// };
 
 const initialState = {
     images: []
 }
+
+export const createAlbum = (payload) => async dispatch => {
+    const album = await csrfFetch('/api/images', {
+        method: 'POST',
+        header: {"Content-Type": 'application/json'},
+        body: JSON.stringify(payload)
+    });
+
+    const albumSet = await album.json();
+
+    if (album.ok) dispatch(setImage(albumSet));
+
+    return albumSet;
+};
 
 const imageReducer = (state = initialState, action) => {
 

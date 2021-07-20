@@ -1,0 +1,19 @@
+.image-form-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 20%;
+    background-color: white;
+    width: 500px;
+    border-radius: 15px;
+    padding: 60px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.image-input{
+    width: 100%;
+}

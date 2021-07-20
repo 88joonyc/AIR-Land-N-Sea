@@ -39,7 +39,7 @@ export default function Hosting () {
         let createdToy = dispatch(createToy(payload))
 
         if (createdToy) {
-            history.push('/images')
+            history.push(`/images/`)
         }
     }
 
