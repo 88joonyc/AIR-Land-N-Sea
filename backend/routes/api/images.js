@@ -9,12 +9,13 @@ const { Image } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler (async (req, res) => {
-    const image = await Image.findAll();
+    const image = await Image.findAll({});
+
     return res.json(image)
 }))
 
 router.post('/', requireAuth, asyncHandler (async (req, res) => {
-    const { toyId, url } = req.body
+    const { toysId, url } = req.body
     const image = Image.create({ toyId, url })
 
     return res.json({

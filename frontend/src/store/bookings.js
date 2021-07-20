@@ -32,7 +32,6 @@ export const getOneBooking = (id) => async dispatch => {
         const booking = await book.json()
         dispatch(setBookings(booking))
     }
-
 }
 
 export const createBooking = (payload) => async dispatch => {
@@ -51,9 +50,7 @@ export const createBooking = (payload) => async dispatch => {
     return newBooking;
 };
 
-const initialState = {
-
-};
+const initialState = {};
 
 const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {

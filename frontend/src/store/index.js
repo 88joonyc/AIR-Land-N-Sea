@@ -4,12 +4,14 @@ import bookingsReducer from './bookings';
 
 import sessionReducer from './session';
 import toysReducer from './toys'
+import imageReducer from './images';
 
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     toys: toysReducer,
     bookings: bookingsReducer,
+    images: imageReducer,
 });
 
 let enhancer;
@@ -28,5 +30,3 @@ const configureStore = (preloadedState) => {
 };
 
 export default configureStore;
-
-//updates?

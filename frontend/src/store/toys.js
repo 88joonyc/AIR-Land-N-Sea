@@ -54,7 +54,7 @@ const toysReducer = (state = initialState, action) => {
                 ...state,
                 [action.toys.id]: action.toys
             };
-        return newState
+        return newState;
 
         default:
             return state;
