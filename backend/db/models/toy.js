@@ -131,6 +131,19 @@ module.exports = (sequelize, DataTypes) => {
     return await Toy.findByPk(toy.id)
   };
 
+  Toy.update = async function (details) {
+    const toy = details.id
+    delete details.id
+    await Toy.update(details, {
+      where: { toy },
+      returning: true,
+      plain
+    })
+
+    return await Toy.findByPk(toy)
+  }
+
+
   Toy.delete = async function ({toyId}) {
     const toy = Toy.findByPk(toyId);
     if (!toy) throw new Error('This toy does not exist!');

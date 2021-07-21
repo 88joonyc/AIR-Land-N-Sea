@@ -52,8 +52,8 @@ function App() {
         <Route path='/images'>
           <AddImages/>
         </Route>
-        <Route exact path='/user/edit'>
-          <UsersPage/>
+        <Route exact path='/user/:userId'>
+          {isLoaded &&  <UsersPage/>}
         </Route>
       </Switch>
     </>

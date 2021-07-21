@@ -43,7 +43,7 @@ export default function ProfileButton({user}) {
                     <li className='dropdown-items'>{user.email}</li>
                     <li>
                         <NavLink className='navi-button' to='/toy/edit'>Edit toy</NavLink>
-                        <NavLink className='navi-button' to='/user/edit'>Edit user</NavLink>
+                        <NavLink className='navi-button' to={`/user/${user.id}`}>Edit user</NavLink>
                         <button className='logout-button' onClick={logout}>Log out</button>
                     </li>
                 </ul>

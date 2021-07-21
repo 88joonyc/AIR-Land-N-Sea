@@ -119,9 +119,10 @@ export const loggingOut = () => async dispatch => {
 };
 
 export const editUser = (payload, id) => async dispatch => {
+    console.log('pay', payload)
     const resUser = await csrfFetch(`/api/session/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({payload})
+        body: JSON.stringify(payload)
     });
 
     const editThisUser = resUser.json();

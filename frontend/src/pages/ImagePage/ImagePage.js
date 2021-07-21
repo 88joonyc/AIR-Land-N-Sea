@@ -7,6 +7,7 @@ import './ImagePage.css'
 
 export default function AddImages () {
 
+    // const [toyId] = toyId
     const dispatch = useDispatch();
     const history = useHistory();
 
