@@ -13,6 +13,7 @@ import ToysDetail from './pages/ToysPage/ToysDetail'
 import EditToys from "./pages/UsersToy/UsersToy";
 import Hosting from "./pages/HostPage/HostPage";
 import AddImages from "./pages/ImagePage/ImagePage";
+import UsersPage from "./pages/UsersPage/UsersPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,11 +46,14 @@ function App() {
         <Route exact path='/toys/:toyId'>
           <ToysDetail/>
         </Route>
-        <Route path='/edit'>
+        <Route path='/toys/edit'>
           <EditToys/>
         </Route>
         <Route path='/images'>
           <AddImages/>
+        </Route>
+        <Route exact path='/user/edit'>
+          <UsersPage/>
         </Route>
       </Switch>
     </>

@@ -39,10 +39,25 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
 
 router.put('/edit/:id', requireAuth, asyncHandler (async(req, res) => {
     const id = await Toy.update(req.body);
-    const toy = await Toy.one(id)
+    // const toy = await Toy.one(id)
     return res.json(toy)
 }))
 
-// router.delete()
+router.delete('/:id', asyncHandler(async function (req, res) {
+    const toyId = await Toy.findByPk(req.params.id);
+
+    await Toy.destroy({where: {
+        id: toy.Id
+    }})
+    return res,json({toyId})
+}))
+
+// export const deleteToy = async (toyId) => {
+//     const toy = await Toy.findByPk(toyId);
+
+//     await toy.destroy({where: {
+//         id: toy.id
+//     }})
+// }
 
 module.exports = router;

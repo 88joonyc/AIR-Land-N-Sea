@@ -4,6 +4,8 @@ import { csrfFetch } from "./csrf";
 
 const LOAD = 'toys/LOAD';
 const SET_TOYS = 'toys/SET_TOYS';
+const UPDATE_TOY = 'toys/UPDATE_TOY';
+const REMOVE_TOY = 'toys/REMOVE_TOY'
 
 const load = (toys) => ({
     type: LOAD,
@@ -14,6 +16,16 @@ const setToys = (toys) => ({
     type: SET_TOYS,
     toys
 });
+
+const update = (toy) => ({
+    type: UPDATE_TOY,
+    toy
+})
+
+const remove = (toyId) => ({
+    type: REMOVE_TOY,
+    toyId
+})
 
 export const getToys = () => async dispatch => {
     const toyCollection = await csrfFetch('/api/toys');
@@ -56,6 +68,18 @@ const toysReducer = (state = initialState, action) => {
             };
         return newState;
 
+        case REMOVE_TOY: {
+            const newState = {...state};
+            delete newState[action.toyId]
+        };
+
+        case UPDATE_TOY: {
+            return {
+                ...state,
+                [action.toy.id]: action.toy
+            }
+        }
+
         default:
             return state;
     };
@@ -76,138 +100,19 @@ export const createToy = (payload) => async dispatch => {
     return newToy;
 };
 
+const updateToy = (payload, id) => async dispatch => {
+    const toy = await csrfFetch(`/api/toys/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({payload})
+    });
+
+    const editToy = toy.json();
+
+    if (toy.ok) return dispatch(update(editToy));
+
+    return editToy;
+}
+
+
+
 export default toysReducer;
-
-
-// // this is where thunks will be created for toys
-
-// const SET_TOYS = 'toys/setToys'
-
-// const setToys = (toys) => ({
-//     type: SET_TOYS,
-//     toys
-// });
-
-// export const getToys = () => async dispatch => {
-//     const toyCollection = await fetch('/api/toys')
-//     const toys = await toyCollection.json();
-
-//     dispatch(setToys(toys))
-// };
-
-// export const getOneToy = (id) => async dispatch => {
-//     const toy = await fetch(`/api/toys/${id}`)
-
-//     if (toy.ok) {
-//         const thisToy = await toy.json()
-//         dispatch(setToys(thisToy))
-//     }
-// }
-
-// const initialState = {
-
-// };
-
-// const toysReducer = (state = initialState, action) => {
-
-//     // console.log(action.id)
-
-//     switch (action.type) {
-//         case SET_TOYS:
-//             // if (!state[action.toy.id]) {
-//                 const newState = {
-//                     ...state,
-//                     [action.toy.id]: action.toy
-//                 };
-//                 action.toys.forEach((toy) => {
-//                     newState[toy.id] = toy;
-//                 });
-
-//                 return newState;
-//             // }
-//             default:
-//                 return {
-//                     ...state,
-//                     [action.toy.id]: {
-//                         ...state[action.toy.id],
-//                         ...action.toy
-//                     }
-//                 };
-//     }
-// };
-
-// export default toysReducer;
-
-
-
-
-
-
-
-
-// // this is where thunks will be created for toys
-
-// const LOAD = 'toys/LOAD'
-// const SET_TOYS = 'toys/SET_TOYS'
-
-// const load = (toys) => ({
-//     type: LOAD,
-//     payload: toys
-// })
-
-// const setToys = (toys) => ({
-//     type: SET_TOYS,
-//     payload: toys
-// });
-
-// export const getToys = () => async dispatch => {
-//     const toyCollection = await fetch('/api/toys')
-//     const toys = await toyCollection.json();
-
-//     dispatch(load(toys))
-// };
-
-// export const getOneToy = (id) => async dispatch => {
-//     const toy = await fetch(`/api/toys/${id}`)
-
-
-//     if (toy.ok) {
-//         const thisToy = await toy.json()
-
-//         console.log('this toy:', thisToy)
-//         dispatch(setToys(thisToy))
-//     }
-// }
-
-// const initialState = {toys: []};
-
-// const toysReducer = (state = initialState, action) => {
-
-//     console.log('this action:', action)
-
-//  switch (action.type) {
-//         case SET_TOYS:
-//             if (!state[action.toys.id]) {
-//                 const newState = {
-//                     ...state,
-//                     [action.toys.id]: action.toy
-//                 };
-//                 action.toys.forEach((toy) => {
-//                     newState[toy.id] = toy;
-//                 });
-//                 return newState;
-//             }
-//             return {
-//                 ...state,
-//                 [action.toy.id]: {
-//                     ...state[action.toy.id],
-//                     ...action.toy
-//                 }
-//             };
-//             default:
-//                 return state
-
-//     }
-// };
-
-// export default toysReducer;

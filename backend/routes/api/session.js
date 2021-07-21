@@ -3,7 +3,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
-const { setTokenCookie, restoreUser } = require('../../utils/auth')
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth')
 const { User } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation')
 
@@ -49,6 +49,12 @@ router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
         user,
     });
 }));
+
+router.put('/;id', requireAuth, asyncHandler (async (req, res) => {
+    const id = await User.update(req.body);
+    // const user = await User.
+
+}))
 
 router.delete('/', (_req, res) => {
     res.clearCookie('token');

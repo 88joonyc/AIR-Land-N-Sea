@@ -124,11 +124,11 @@ export const editUser = (payload, id) => async dispatch => {
         body: JSON.stringify({payload})
     });
 
-    const editThisUser = resUser.json()
+    const editThisUser = resUser.json();
 
     if (resUser.ok) return dispatch(update(editThisUser))
 
-    return editThisUser
+    return editThisUser;
 };
 
 export default sessionReducer;
