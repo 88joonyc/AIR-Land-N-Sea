@@ -52,7 +52,6 @@ export default function EditUserToy({toyId, hideForm}) {
 
         if (updatedToy) {
             window.alert('updated!!')
-            // history.push(`/images/${updatedToy.toy.id}`)
             history.push(`/toy/edit`)
             history.go(0)
         }
