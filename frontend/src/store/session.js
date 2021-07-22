@@ -1,5 +1,6 @@
 import { csrfFetch } from "./csrf";
 
+const LOAD = 'session/LOAD'
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const UPDATE_USER = 'session/UPDATE_USER'
@@ -17,6 +18,11 @@ const UPDATE_USER = 'session/UPDATE_USER'
 //     updatedAt
 //   }
 // }
+
+const load = (user) => ({
+    type: LOAD,
+    user
+});
 
 const setUser = (user) => {
     return {
@@ -66,6 +72,11 @@ const initialState = { user: null };
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch(action.type) {
+        case LOAD:
+            const user = {
+                ...state,
+            };
+            console.log('action this sessipn',action)
         case SET_USER:
             newState = Object.assign({}, state);
             newState.user = action.payload;
@@ -131,5 +142,13 @@ export const editUser = (payload, id) => async dispatch => {
 
     return editThisUser;
 };
+
+export const getSession = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/session/${id}`)
+    console.log('thios is res in session', res)
+    const user = await res.json();
+
+    dispatch(setUser(user))
+}
 
 export default sessionReducer;

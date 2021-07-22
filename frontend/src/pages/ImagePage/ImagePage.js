@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { createAlbum } from '../../store/images';
 
 import './ImagePage.css'
 
 export default function AddImages () {
 
-    // const [toyId] = toyId
     const dispatch = useDispatch();
     const history = useHistory();
+    let {toyId} = useParams()
 
     const [url, setUrl] = useState('')
 
@@ -17,9 +17,19 @@ export default function AddImages () {
         e.preventDefault();
 
         const payLoad = {
+            toyId,
             url
         }
-        dispatch(createAlbum(payLoad))
+
+        let createdAlbum = dispatch(createAlbum(payLoad))
+
+        if (createdAlbum) {
+            window.alert("image has been added!")
+        }
+    }
+
+    const handleBack = () => {
+        history.push('/')
     }
 
     return (

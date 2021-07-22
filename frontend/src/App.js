@@ -46,11 +46,11 @@ function App() {
         <Route exact path='/toys/:toyId'>
           <ToysDetail/>
         </Route>
-        <Route path='/toys/edit'>
-          <EditToys/>
+        <Route path='/toy/edit'>
+          {isLoaded && <EditToys/>}
         </Route>
-        <Route path='/images'>
-          <AddImages/>
+        <Route path='/images/:toyId'>
+          <AddImages props/>
         </Route>
         <Route exact path='/user/:userId'>
           {isLoaded &&  <UsersPage/>}

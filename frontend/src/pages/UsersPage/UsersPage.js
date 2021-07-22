@@ -15,7 +15,6 @@ export default function UsersPage () {
     const dispatch = useDispatch();
     // const { userId } = useParams()
 
-
     const sessionUser = useSelector(state => state.session.user)
 
     const [ picture, setPicture ] = useState(sessionUser.picture);
@@ -31,8 +30,6 @@ export default function UsersPage () {
     let [ showEditUser, setShowEditUser ] = useState(false);
 
     // if (sessionUser) return <Redirect to='/'/>;
-
-    console.log(sessionUser)
 
     let content = null
 

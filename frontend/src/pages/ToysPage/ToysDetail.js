@@ -16,15 +16,17 @@ export default function Bookings () {
     const bookings = useSelector((state) => Object.values(state.bookings))
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
+
+    console.log('this is the ty',toy)
     // const images = useSelector((state) => state.images)
 
     const [startDate, setStart] = useState('')
     const [endDate, setEnd] = useState('')
 
     useEffect(() => {
-        dispatch(actionImage.getImages(toyId))
-        dispatch(getOneToy(toyId));
-        dispatch(getOneBooking(toyId))
+        // dispatch(actionImage.getImages(toyId))
+        // dispatch(getOneToy(toyId));
+        // dispatch(getOneBooking(toyId))
     }, [dispatch, toyId]);
 
     const handleSubmit = async (e) => {

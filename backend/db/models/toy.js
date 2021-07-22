@@ -113,9 +113,9 @@ module.exports = (sequelize, DataTypes) => {
     // Toy.hasMany(models.Review, {foreignKey: "toyId"})
   };
 
-  Toy.getCurrentToyById = async function(id) {
-    return await Toy.scope('currentToy').findByPk(id)
-  }
+  // Toy.getCurrentToyById = async function(id) {
+  //   return await Toy.scope('currentToy').findByPk(id)
+  // }
 
   Toy.make = async function({ userId, description, year, make, model, type, level, price }) {
     const toy = await Toy.create({

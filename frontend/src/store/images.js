@@ -34,6 +34,8 @@ export const createAlbum = (payload) => async dispatch => {
 
     const albumSet = await album.json();
 
+    console.log('this album',albumSet)
+
     if (album.ok) dispatch(setImage(albumSet));
 
     return albumSet;
@@ -50,11 +52,11 @@ const imageReducer = (state = initialState, action) => {
                 newState[image.id] = image;
             });
         case SET_IMAGES:
+            console.log('this is action.cimages',action.images)
             const imageState = {
                 ...state,
                 [action.images]: action.images
             }
-            action.images.forEach(img => state.images.push(img))
         return imageState;
 
         default:

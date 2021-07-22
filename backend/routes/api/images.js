@@ -16,7 +16,7 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
 }))
 
 router.post('/', requireAuth, asyncHandler (async (req, res) => {
-    const { toysId, url } = req.body
+    const { toyId, url } = req.body
     const image = Image.create({ toyId, url })
 
     return res.json({

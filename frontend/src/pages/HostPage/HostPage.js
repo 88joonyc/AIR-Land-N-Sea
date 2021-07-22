@@ -38,11 +38,11 @@ export default function Hosting () {
 
         let createdToy = await dispatch(createToy(payload))
 
-        console.log('createdtoy', createdToy, createdToy.toy.id)
-
         if (createdToy) {
-            history.push(`/images/`, {toyId: createdToy.id})
+            // console.log(createdToy.toy.id)
+            history.push(`/images/${createdToy.toy.id}`)
         }
+
     }
 
     return (

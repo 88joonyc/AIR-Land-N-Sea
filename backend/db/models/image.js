@@ -50,6 +50,7 @@ module.exports = (sequelize, DataTypes) => {
   Image.associate = function (models) {
     Image.belongsTo(models.Toy, {foreignKey: "toyId"})
   };
+
   Image.add = async function({ toyId, url }) {
     const image = await Image.create({
       toyId,

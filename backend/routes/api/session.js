@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth')
-const { User } = require('../../db/models');
+const { User, Toy } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation')
 
 const router = express.Router();
@@ -29,6 +29,15 @@ router.get('/', restoreUser, ( req, res ) => {
     } else return res.json({});
 
 })
+
+
+router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const user = await User.findByPk(req.params.id, {
+        include: Toy
+    })
+
+    return res.json(user)
+}))
 
 router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
     const { credential, password } = req.body;
