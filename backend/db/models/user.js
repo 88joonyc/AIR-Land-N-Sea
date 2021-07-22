@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
   {
     defaultScope: {
       attributes: {
-        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
+        exclude: ['hashedPassword', 'createdAt', 'updatedAt'],
       },
     },
     scopes: {
@@ -63,7 +63,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Toy, {foreignKey: 'userId'})
+    User.hasMany(models.Booking, {foreignKey: 'userId'})
   };
 
   User.prototype.toSafeObject = function() {
@@ -105,6 +106,19 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope('currentUser').findByPk(user.id)
   };
+
+  // User.update = async function (details) {
+  //   // console.log('details', details )
+  //   const user = details.id
+  //   delete details.id
+  //   await User.update(details, {
+  //     where: { id: user },
+  //     returning: true,
+  //     plain: true
+  //   })
+
+  //   return await User.findByPk(user)
+  // }
 
   return User;
 };

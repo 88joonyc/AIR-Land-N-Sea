@@ -30,19 +30,29 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
     const { userId, description, year, make, model, type, level, price } = req.body
     const toy = await Toy.make({ userId, description, year, make, model, type, level, price })
 
-    await setTokenCookie(res, toy)
-
     return res.json({
         toy
     })
 }))
 
-router.put('/edit/:id', requireAuth, asyncHandler (async(req, res) => {
-    const id = await Toy.update(req.body);
-    const toy = await Toy.one(id)
-    return res.json(toy)
+router.put('/:id', requireAuth, asyncHandler (async(req, res) => {
+
+    const id = await Toy.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    });
+
+    return res.json(id)
 }))
 
-// router.delete()
+router.delete('/:id', asyncHandler(async function (req, res) {
+    const toy = await Toy.findByPk(req.params.id);
+
+    await Toy.destroy({where: {
+        id: req.params.id
+    }})
+    return res.json({toy})
+}))
 
 module.exports = router;

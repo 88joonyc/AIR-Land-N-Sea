@@ -1,5 +1,6 @@
 import { csrfFetch } from "./csrf";
 
+const LOAD = 'session/LOAD'
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const UPDATE_USER = 'session/UPDATE_USER'
@@ -18,6 +19,11 @@ const UPDATE_USER = 'session/UPDATE_USER'
 //   }
 // }
 
+const load = (user) => ({
+    type: LOAD,
+    user
+});
+
 const setUser = (user) => {
     return {
         type: SET_USER,
@@ -31,7 +37,7 @@ const setUser = (user) => {
 //   user: null
 // }
 
-const removeUser = (userId) => {
+const removeUser = () => {
     return {
         type: REMOVE_USER,
     };
@@ -66,6 +72,10 @@ const initialState = { user: null };
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch(action.type) {
+        case LOAD:
+            const user = {
+                ...state,
+            };
         case SET_USER:
             newState = Object.assign({}, state);
             newState.user = action.payload;
@@ -121,14 +131,27 @@ export const loggingOut = () => async dispatch => {
 export const editUser = (payload, id) => async dispatch => {
     const resUser = await csrfFetch(`/api/session/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({payload})
+        body: JSON.stringify(payload)
     });
-
-    const editThisUser = resUser.json()
+    const editThisUser = resUser.json();
 
     if (resUser.ok) return dispatch(update(editThisUser))
 
-    return editThisUser
+    return editThisUser;
 };
+
+export const getSession = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/session/${id}`)
+    const user = await res.json();
+
+    dispatch(setUser(user))
+}
+
+export const getBooking = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/session/booking/${id}`)
+    const user = await res.json();
+
+    dispatch(setUser(user))
+}
 
 export default sessionReducer;

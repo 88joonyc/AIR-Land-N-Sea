@@ -6,12 +6,13 @@ import * as sessionActions from './store/session'
 import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
-import Home from './components/Home'
+import Home from "./pages/HomePage/HomePage";
 import Toys from './pages/ToysPage/ToysPage'
-// import Bookings from './pages/Host/BookingPage'
 import ToysDetail from './pages/ToysPage/ToysDetail'
 import EditToys from "./pages/UsersToy/UsersToy";
 import Hosting from "./pages/HostPage/HostPage";
+import AddImages from "./pages/ImagePage/ImagePage";
+import UsersPage from "./pages/UsersPage/UsersPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function App() {
       <Navigation isLoaded={isLoaded}></Navigation>
       <Switch>
         <Route exact path='/'>
-          <Home/>
+          {isLoaded && <Home/>}
         </Route>
         <Route path='/login'>
           <LoginFormPage/>
@@ -44,8 +45,14 @@ function App() {
         <Route exact path='/toys/:toyId'>
           <ToysDetail/>
         </Route>
-        <Route path='/edit'>
-          <EditToys/>
+        <Route path='/toy/edit'>
+          {isLoaded && <EditToys/>}
+        </Route>
+        <Route path='/images/:toyId'>
+          <AddImages props/>
+        </Route>
+        <Route exact path='/user/:userId'>
+          {isLoaded &&  <UsersPage/>}
         </Route>
       </Switch>
     </>

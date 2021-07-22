@@ -1,24 +1,37 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { createToy } from '../../store/toys';
+import * as toyActions from '../../store/toys';
 
-import './HostPage.css'
 
-export default function Hosting () {
+import './EditUsersToy.css'
+
+
+export default function EditUserToy({toyId, hideForm}) {
 
     const dispatch = useDispatch();
     const history = useHistory()
-
+    const toy = useSelector((state) => state.toys[toyId])
     const sessionUser = useSelector(state => state.session.user);
 
-    const [year, setYear] = useState('')
-    const [make, setMake] = useState('')
-    const [model, setModel] = useState('')
-    const [type, setType] = useState('')
-    const [level, setLevel] = useState('')
-    const [price, setPrice] = useState('')
-    const [description, setDescription] = useState('')
+    const [year, setYear] = useState(toy.year)
+    const [make, setMake] = useState(toy.make)
+    const [model, setModel] = useState(toy.model)
+    const [type, setType] = useState(toy.type)
+    const [level, setLevel] = useState(toy.level)
+    const [price, setPrice] = useState(toy.price)
+    const [description, setDescription] = useState(toy.description)
+
+    const updateYear = (e) => setYear(e.target.value)
+    const updateMake = (e) => setMake(e.target.value)
+    const updateModel = (e) => setModel(e.target.value)
+    const updateType = (e) => setType(e.target.value)
+    const updateLevel = (e) => setLevel(e.target.value)
+    const updatePrice = (e) => setPrice(e.target.value)
+    const updateDescription = (e) => setDescription(e.target.value)
+
+
+    let updatedToy;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,13 +48,30 @@ export default function Hosting () {
             price
         };
 
+        updatedToy = await dispatch(toyActions.updateToy(payload, toyId))
 
-        let createdToy = await dispatch(createToy(payload))
-
-        if (createdToy) {
-            history.push(`/images/${createdToy.toy.id}`)
+        if (updatedToy) {
+            window.alert('updated!!')
+            history.push(`/toy/edit`)
+            history.go(0)
         }
 
+    }
+
+
+    function handleCancel(e) {
+        e.preventDefault();
+        hideForm();
+    }
+
+    function deleteToy (e) {
+        e.preventDefault();
+        let deleteed = dispatch(toyActions.deleteToy(toyId))
+        if (deleteed) {
+            window.alert('toy has been sucessfully deleted')
+            history.push('/toy/edit')
+            history.go(0)
+        }
     }
 
     return (
@@ -56,7 +86,7 @@ export default function Hosting () {
                                 required
                                 value={year}
                                 className="host-input"
-                                onChange={(e) => setYear(e.target.value)}
+                                onChange={updateYear}
                             />
                         </label>
                         <label>Make
@@ -66,7 +96,7 @@ export default function Hosting () {
                                 required
                                 value={make}
                                 className="host-input"
-                                onChange={(e) => setMake(e.target.value)}
+                                onChange={updateMake}
                             />
                         </label>
                         <label>Model
@@ -76,7 +106,7 @@ export default function Hosting () {
                                 required
                                 value={model}
                                 className="host-input"
-                                onChange={(e) => setModel(e.target.value)}
+                                onChange={updateModel}
                             />
                         </label>
                         <label>Type
@@ -86,7 +116,7 @@ export default function Hosting () {
                                 required
                                 value={type}
                                 className="host-input"
-                                onChange={(e) => setType(e.target.value)}
+                                onChange={updateType}
                             />
                         </label>
                         <label>Level of difficulty
@@ -98,7 +128,7 @@ export default function Hosting () {
                                 max='5'
                                 value={level}
                                 className="host-input"
-                                onChange={(e) => setLevel(e.target.value)}
+                                onChange={updateLevel}
                             />
                         </label>
                         <label>Price
@@ -108,7 +138,7 @@ export default function Hosting () {
                                 required
                                 value={price}
                                 className="host-input"
-                                onChange={(e) => setPrice(e.target.value)}
+                                onChange={updatePrice}
                             />
                         </label>
                         <label>Description
@@ -117,12 +147,15 @@ export default function Hosting () {
                                 placeholder='Place your description here'
                                 required
                                 value={description}
-                                onChange={(e) => setDescription(e.target.value)}
+                                onChange={updateDescription}
                             ></textarea>
                         </label>
                         <button className='host-submit' type='submit'>Next</button>
+                        <button className='' onClick={handleCancel} type='button'>cancel</button>
+                        <button className='' onClick={deleteToy} type='button'>delete</button>
                     </form>
                 </div>
+
             </div>
         </>
     )

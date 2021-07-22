@@ -1,60 +1,3 @@
-// 'use strict';
-// const {
-//   Model
-// } = require('sequelize');
-// module.exports = (sequelize, DataTypes) => {
-//   class Toy extends Model {
-//     /**
-//      * Helper method for defining associations.
-//      * This method is not a part of Sequelize lifecycle.
-//      * The `models/index` file will call this method automatically.
-//      */
-//     static associate(models) {
-//       Toy.belongsTo(models.User, {foreignKey: "userId"})
-//     }
-//   };
-//   Toy.init({
-//     userId: {
-//       type: DataTypes.INTEGER,
-//       allowNull: false,
-//         references: {
-//           model: "Users",
-//         },
-//     },
-//     description: {
-//       type: DataTypes.STRING,
-//     },
-//     year: {
-//       type: DataTypes.INTEGER,
-//       allowNull: false,
-//     },
-//     make: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//     },
-//     model: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//     },
-//     type: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//     },
-//     level: {
-//       type: DataTypes.integer,
-//       allowNull: false,
-//     },
-//     price: {
-//       type: DataTypes.integer,
-//       allowNull: false,
-//     },
-//   }, {
-//     sequelize,
-//     modelName: 'Toy',
-//   });
-//   return Toy;
-// };
-
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
@@ -110,11 +53,9 @@ module.exports = (sequelize, DataTypes) => {
   Toy.associate = function(models) {
     Toy.belongsTo(models.User, {foreignKey: "userId"})
     Toy.hasMany(models.Image, {foreignKey: 'toyId'})
+    Toy.hasMany(models.Booking, {foreignKey: 'toyId'})
+    // Toy.hasMany(models.Review, {foreignKey: "toyId"})
   };
-
-  Toy.getCurrentToyById = async function(id) {
-    return await Toy.scope('currentToy').findByPk(id)
-  }
 
   Toy.make = async function({ userId, description, year, make, model, type, level, price }) {
     const toy = await Toy.create({

@@ -3,9 +3,10 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
-const { setTokenCookie, restoreUser } = require('../../utils/auth')
-const { User } = require('../../db/models');
-const { handleValidationErrors } = require('../../utils/validation')
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth')
+const { User, Toy, Booking } = require('../../db/models');
+const { handleValidationErrors } = require('../../utils/validation');
+
 
 const router = express.Router();
 
@@ -30,6 +31,23 @@ router.get('/', restoreUser, ( req, res ) => {
 
 })
 
+
+router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const user = await User.findByPk(req.params.id, {
+        include: Toy
+    })
+
+    return res.json(user)
+}))
+
+router.get('/booking/:id', requireAuth, asyncHandler(async (req, res) => {
+    const user = await User.findByPk(req.params.id, {
+        include: Booking
+    })
+
+    return res.json(user)
+}))
+
 router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
     const { credential, password } = req.body;
 
@@ -49,6 +67,17 @@ router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
         user,
     });
 }));
+
+router.put('/:id', requireAuth, asyncHandler (async (req, res ) => {
+    const id = await User.update(req.body,
+        {
+            where: { id: req.params.id },
+        }
+      )
+
+    return res.json(id)
+
+}))
 
 router.delete('/', (_req, res) => {
     res.clearCookie('token');
