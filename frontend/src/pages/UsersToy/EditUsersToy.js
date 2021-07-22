@@ -14,7 +14,6 @@ export default function EditUserToy({toyId, hideForm}) {
     const toy = useSelector((state) => state.toys[toyId])
     const sessionUser = useSelector(state => state.session.user);
 
-
     const [year, setYear] = useState(toy.year)
     const [make, setMake] = useState(toy.make)
     const [model, setModel] = useState(toy.model)
