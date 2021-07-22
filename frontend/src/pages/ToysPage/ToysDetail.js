@@ -17,9 +17,6 @@ export default function Bookings () {
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
 
-    console.log('this is the ty',toy)
-    // const images = useSelector((state) => state.images)
-
     const [startDate, setStart] = useState('')
     const [endDate, setEnd] = useState('')
 

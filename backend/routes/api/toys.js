@@ -37,19 +37,24 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
     })
 }))
 
-router.put('/edit/:id', requireAuth, asyncHandler (async(req, res) => {
-    const id = await Toy.update(req.body);
-    // const toy = await Toy.one(id)
-    return res.json(toy)
+router.put('/:id', requireAuth, asyncHandler (async(req, res) => {
+
+    const id = await Toy.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    });
+
+    return res.json(id)
 }))
 
 router.delete('/:id', asyncHandler(async function (req, res) {
-    const toyId = await Toy.findByPk(req.params.id);
+    const toy = await Toy.findByPk(req.params.id);
 
     await Toy.destroy({where: {
-        id: toy.Id
+        id: req.params.id
     }})
-    return res,json({toyId})
+    return res.json({toy})
 }))
 
 // export const deleteToy = async (toyId) => {

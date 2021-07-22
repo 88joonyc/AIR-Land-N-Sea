@@ -17,21 +17,23 @@ export default function EditToys () {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const [shoeEditForm, setShowEditForm] = useState(false)
+    const [elementId, setElementId] = useState(null)
     const toys = sessionUser?.Toys
 
     useEffect(() => {
         dispatch(getSession(sessionUser.id));
+        dispatch(getToys())
         setShowEditForm(false)
-
     }, [dispatch]);
 
     let content = null;
 
-    if (shoeEditForm) {
+    if (elementId) {
         content = (
             <EditUserToy
+                toyId={elementId}
                 toys={toys}
-                hideForm={() => setShowEditForm(false)}
+                hideForm={() => setElementId(null)}
             />
         )
     }
@@ -46,8 +48,13 @@ export default function EditToys () {
                         <h2>{el.year}</h2>
                         <h2>{el.make}</h2>
                         <h2>{el.model}</h2>
-                        <button onClick={() => setShowEditForm(true)}>edit</button>
+                        <button
+                            onClick={() => setElementId(el.id)
+                        }>edit</button>
                     {/* </Link> */}
+                    <div>
+                        {content}
+                    </div>
                 </div>
                 </>
             ))}

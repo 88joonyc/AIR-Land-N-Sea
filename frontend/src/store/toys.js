@@ -30,15 +30,11 @@ const remove = (toyId) => ({
 export const getToys = () => async dispatch => {
     const toyCollection = await csrfFetch('/api/toys');
     const toys = await toyCollection.json();
-
-    console.log('toys',toys)
-
     dispatch(load(toys))
 };
 
 export const getOneToy = (id) => async dispatch => {
     const toy = await csrfFetch(`/api/toys/${id}`)
-
     if (toy.ok) {
         const thisToy = await toy.json()
         dispatch(setToys(thisToy))
@@ -100,10 +96,12 @@ export const createToy = (payload) => async dispatch => {
     return newToy;
 };
 
-const updateToy = (payload, id) => async dispatch => {
+export const updateToy = (payload, id) => async dispatch => {
+
+    console.log('chjeck this updatetoy id', payload, id)
     const toy = await csrfFetch(`/api/toys/${id}`, {
         method: "PUT",
-        body: JSON.stringify({payload})
+        body: JSON.stringify(payload)
     });
 
     const editToy = toy.json();

@@ -76,7 +76,6 @@ const sessionReducer = (state = initialState, action) => {
             const user = {
                 ...state,
             };
-            console.log('action this sessipn',action)
         case SET_USER:
             newState = Object.assign({}, state);
             newState.user = action.payload;
@@ -130,12 +129,10 @@ export const loggingOut = () => async dispatch => {
 };
 
 export const editUser = (payload, id) => async dispatch => {
-    console.log('pay', payload)
     const resUser = await csrfFetch(`/api/session/${id}`, {
         method: 'PUT',
         body: JSON.stringify(payload)
     });
-
     const editThisUser = resUser.json();
 
     if (resUser.ok) return dispatch(update(editThisUser))
@@ -145,7 +142,6 @@ export const editUser = (payload, id) => async dispatch => {
 
 export const getSession = (id) => async dispatch => {
     const res = await csrfFetch(`/api/session/${id}`)
-    console.log('thios is res in session', res)
     const user = await res.json();
 
     dispatch(setUser(user))

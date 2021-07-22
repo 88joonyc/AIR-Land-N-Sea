@@ -60,15 +60,12 @@ router.post('/', validateLogin, asyncHandler(async(req, res, next) => {
 }));
 
 router.put('/:id', requireAuth, asyncHandler (async (req, res ) => {
-    console.log('put req.bo', req.body)
     const id = await User.update(req.body,
         {
-        where: { id: req.params.id },
-    //   returning: true,
-    //   plain: true
-    }
+            where: { id: req.params.id },
+        }
       )
-    // const user = await User.
+
     return res.json(id)
 
 }))
