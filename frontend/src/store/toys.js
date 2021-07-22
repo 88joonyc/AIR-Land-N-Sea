@@ -22,7 +22,7 @@ const update = (toy) => ({
     toy
 })
 
-const remove = (toyId) => ({
+const remove = () => ({
     type: REMOVE_TOY,
 })
 
@@ -67,7 +67,6 @@ const toysReducer = (state = initialState, action) => {
             const newState = {...state};
             delete newState[action.toyId]
         };
-
         case UPDATE_TOY: {
             return {
                 ...state,
@@ -97,7 +96,6 @@ export const createToy = (payload) => async dispatch => {
 
 export const updateToy = (payload, id) => async dispatch => {
 
-    console.log('chjeck this updatetoy id', payload, id)
     const toy = await csrfFetch(`/api/toys/${id}`, {
         method: "PUT",
         body: JSON.stringify(payload)

@@ -147,4 +147,11 @@ export const getSession = (id) => async dispatch => {
     dispatch(setUser(user))
 }
 
+export const getBooking = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/session/booking/${id}`)
+    const user = await res.json();
+
+    dispatch(setUser(user))
+}
+
 export default sessionReducer;

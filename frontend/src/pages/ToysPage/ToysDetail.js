@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
-import { createBooking, getOneBooking } from '../../store/bookings';
-import { getOneToy } from '../../store/toys';
-
-import * as actionImage from '../../store/images'
+import { createBooking } from '../../store/bookings';
 
 import './ToysDetail.css'
 
 export default function Bookings () {
     const dispatch = useDispatch();
     const { toyId } = useParams()
-    const bookings = useSelector((state) => Object.values(state.bookings))
+    const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
 
+    const history = useHistory();
     const [startDate, setStart] = useState('')
     const [endDate, setEnd] = useState('')
 
@@ -39,19 +37,35 @@ export default function Bookings () {
 
         //clean this upp!
         // const bookedStart = bookings[0].startDate;
-        const bookedEnd = bookings[0].endDate;
-        const bookdate = Date(bookedEnd)
-        const start = Date(startDate)
-        if (startDate > endDate) return console.error('date error')
-        if (start > bookdate ) {
-            return dispatch(createBooking(payload))
-        } else  return console.error('date is booked!!')
+
+        if (bookings) {
+            const bookedEnd = bookings.endDate;
+            const bookdate = Date(bookedEnd)
+            console.log('this is booked end',bookedEnd)
+            console.log('this is new book start',startDate)
+            console.log('this is booked compare',startDate > bookedEnd)
+            const start = Date(startDate)
+            if (startDate > endDate) return console.error('date error')
+            if (startDate > endDate ) {
+                dispatch(createBooking(payload))
+                window.alert('Booking made!')
+                history.go(0)
+            } else  return window.alert('date is already booked!')
+        } else {
+            dispatch(createBooking(payload))
+            window.alert('booking made!')
+            history.go(0)
+        }
     };
 
     return (
         <>
             {toy?.Images.map(img => {
-                return <img key={img.id} src={img.url} alt='toy car plane'/>
+                return (
+                    <div className='img-container'>
+                        <img key={img.id} src={img.url} alt='toy car plane'/>
+                    </div>
+                )
             })}
                 <>
                     <div className='top-info-container'>

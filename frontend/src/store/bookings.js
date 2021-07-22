@@ -2,7 +2,8 @@ import { csrfFetch } from "./csrf";
 
 const SET_BOOKINGS = 'bookings/SET_BOOKINGS';
 const LOAD = 'bookings/LOAD';
-// const ADD_BOOKING = 'booking/ADD_BOOKING'
+const UPDATE_BOOKING = 'bookings/UPDATE_BOOKING';
+const DELETE = 'bookings/DELETE';
 
 const load = (bookings) => ({
     type: LOAD,
@@ -14,13 +15,22 @@ const setBookings = (bookings) => ({
     bookings
 });
 
-// const addABooking = (booking) => ({
-//     type:
-// });
+const update = (bookings) => ({
+    type: UPDATE_BOOKING,
+    bookings
+});
+
+const remove = () => ({
+    type: DELETE
+});
 
 export const getBookings = () => async dispatch => {
     const books = await csrfFetch('/api/bookings')
-    const bookings = await books.json();
+    const bookings = await books.json({
+        // where: {
+        //     include: User
+        // }
+    });
 
     dispatch(load(bookings))
 };
@@ -69,9 +79,41 @@ const bookingsReducer = (state = initialState, action) => {
                 [action.bookings.id]: action.bookings
             }
             return newState;
+
+            case UPDATE_BOOKING: {
+                return {
+                    ...state,
+                    [action.bookings.id]: action.bookings
+                }
+            }
+
+            case DELETE: {
+                const newState = {...state};
+                delete newState[action.bookings.id]
+            }
         default:
             return state;
     }
+};
+
+export const updateBooking = (payload, id) => async dispatch => {
+
+    const book = await csrfFetch(`/api/booking/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(payload)
+    })
+    const edited = book.json();
+
+    if(book.ok) return dispatch(update(edited));
+    return edited;
+};
+
+export const deleteBooking = (id) => async dispatch => {
+    const deleting = await csrfFetch(`/api/booking/${id}`, {
+        method: "DELETE",
+    });
+    dispatch(remove())
+    return deleting
 };
 
 export default bookingsReducer;

@@ -6,9 +6,8 @@ import * as sessionActions from './store/session'
 import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
-import Home from './components/Home'
+import Home from "./pages/HomePage/HomePage";
 import Toys from './pages/ToysPage/ToysPage'
-// import Bookings from './pages/Host/BookingPage'
 import ToysDetail from './pages/ToysPage/ToysDetail'
 import EditToys from "./pages/UsersToy/UsersToy";
 import Hosting from "./pages/HostPage/HostPage";
@@ -29,7 +28,7 @@ function App() {
       <Navigation isLoaded={isLoaded}></Navigation>
       <Switch>
         <Route exact path='/'>
-          <Home/>
+          {isLoaded && <Home/>}
         </Route>
         <Route path='/login'>
           <LoginFormPage/>

@@ -14,11 +14,11 @@
 .menu-circle {}
 
 .menu-dropdown {
+    position: absolute;
     background-color: white;
     border-radius: 7px;
     padding: 10px 10px;
     margin-top: 15px;
-    position: absolute;
     overflow-y: auto;
 }
 

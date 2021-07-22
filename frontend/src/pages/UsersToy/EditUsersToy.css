@@ -1,6 +1,6 @@
 
 .edit-form-popup-container {
-    position: absolute;
+    position: sticky;
     top: 200px;
     right: 500px;
     background-color: white;

@@ -30,8 +30,6 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
     const { userId, description, year, make, model, type, level, price } = req.body
     const toy = await Toy.make({ userId, description, year, make, model, type, level, price })
 
-    // await setTokenCookie(res, toy)
-
     return res.json({
         toy
     })
@@ -56,13 +54,5 @@ router.delete('/:id', asyncHandler(async function (req, res) {
     }})
     return res.json({toy})
 }))
-
-// export const deleteToy = async (toyId) => {
-//     const toy = await Toy.findByPk(toyId);
-
-//     await toy.destroy({where: {
-//         id: toy.id
-//     }})
-// }
 
 module.exports = router;

@@ -39,7 +39,6 @@ export default function Hosting () {
         let createdToy = await dispatch(createToy(payload))
 
         if (createdToy) {
-            // console.log(createdToy.toy.id)
             history.push(`/images/${createdToy.toy.id}`)
         }
 
@@ -124,7 +123,6 @@ export default function Hosting () {
                         <button className='host-submit' type='submit'>Next</button>
                     </form>
                 </div>
-
             </div>
         </>
     )

@@ -6,6 +6,7 @@ const { check } = require('express-validator');
 const { requireAuth } = require('../../utils/auth');
 const { Booking } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation');
+const booking = require('../../db/models/booking');
 
 const router = express.Router();
 
@@ -37,6 +38,26 @@ router.post('/', requireAuth, validateBooking, asyncHandler (async (req, res) =>
     return res.json({
         booked,
     })
+}))
+
+router.put('/:id', requireAuth, asyncHandler (async (req, res) => {
+
+    const book = await Booking.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+
+    return res.json(book)
+}))
+
+router.delete('/:id', asyncHandler (async (req, res) => {
+    const book = await Booking.findByPk(req.params.id)
+
+    await Booking.destroy({where: {
+        id: req.params.id
+    }})
+    return res.json({book})
 }))
 
 module.exports = router;

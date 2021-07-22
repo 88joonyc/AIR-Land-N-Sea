@@ -1,0 +1,7 @@
+.user-upload {
+    display: flex;
+    justify-self: center;
+    border-radius: 500px;
+    width: 500px;
+    padding: 20px;
+}

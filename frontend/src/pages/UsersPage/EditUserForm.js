@@ -4,18 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
 import { useHistory } from 'react-router';
 
-
-// import ToysDetail from './ToysDetail'
-
-// import './ToysPage.css'
+import './UsersPage.css'
 
 export default function EditUserForm () {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
-    const [ picture, setPicture ] = useState(sessionUser.picture);
-    const [ email, setEmail ] = useState(sessionUser.email);
-    const [ firstName, setFirstName ] = useState(sessionUser.firstName);
+    const [ picture, setPicture ] = useState(sessionUser?.picture);
+    const [ email, setEmail ] = useState(sessionUser?.email);
+    const [ firstName, setFirstName ] = useState(sessionUser?.firstName);
     const [ lastName, setLastName ] = useState(sessionUser.lastName);
     const [ username, setUsername ] = useState(sessionUser.username);
     // const [ password, setPassword ] = useState('');
@@ -33,18 +30,12 @@ export default function EditUserForm () {
     const history = useHistory()
     let updatedUser
 
+    // useEffect(() => {
+    //     dispatch(sessionActions.restoreUser())
+    // }, [dispatch])
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // if (password === confirmPassword) {
-        //     setErrors([]);;
-        //     return dispatch(sessionActions.editUser({picture, firstName, lastName, email, username, password}))
-        //         .catch(async (res) => {
-        //             const data = await res.json();
-        //             if ( data && data.errors ) setErrors(data.errors);
-        //         });
-        // };
-        // return setErrors(['Passwords fields must match!'])
-
         updatedUser = await dispatch(sessionActions.editUser({ picture, firstName, lastName, email, username }, sessionUser.id ))
 
         if (updatedUser) {
@@ -57,17 +48,14 @@ export default function EditUserForm () {
         return <Redirect to={`/user/${updatedUser.user.id}`}/>
     }
 
-    // useEffect(() => {
-
-    // })
 
     return (
         <form
             onSubmit={handleSubmit}
         >
             <div className='container'>
-            <div>
-                <img src={picture}/>
+            <div className='img-container'>
+                <img className='user-upload' src={picture}/>
             </div>
                 <div className='form-container'>
                     <div className='email-conmtainer container-lot'>
@@ -78,7 +66,6 @@ export default function EditUserForm () {
                                         type='text'
                                         value={picture}
                                         onChange={updatePic}
-                                        // onChange={(e) => setPicture(e.target.value)}
                                         className='input-area'
                                     />
                                 </div>

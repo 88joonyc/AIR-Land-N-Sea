@@ -49,22 +49,17 @@ export default function EditUserToy({toyId, hideForm}) {
             price
         };
 
-        console.log('this toy id isnt going througj', toyId)
-
         updatedToy = await dispatch(toyActions.updateToy(payload, toyId))
 
         if (updatedToy) {
             window.alert('updated!!')
             // history.push(`/images/${updatedToy.toy.id}`)
-            history.push(`/`)
+            history.push(`/toy/edit`)
             history.go(0)
         }
 
     }
 
-    // useEffect(() => {
-    //     dispatch(createToy(payload))
-    // }, [dispatch])
 
     function handleCancel(e) {
         e.preventDefault();
@@ -76,7 +71,7 @@ export default function EditUserToy({toyId, hideForm}) {
         let deleteed = dispatch(toyActions.deleteToy(toyId))
         if (deleteed) {
             window.alert('toy has been sucessfully deleted')
-            history.push('/')
+            history.push('/toy/edit')
             history.go(0)
         }
     }
@@ -157,9 +152,6 @@ export default function EditUserToy({toyId, hideForm}) {
                                 onChange={updateDescription}
                             ></textarea>
                         </label>
-                        {/* <Link>
-
-                        </Link> */}
                         <button className='host-submit' type='submit'>Next</button>
                         <button className='' onClick={handleCancel} type='button'>cancel</button>
                         <button className='' onClick={deleteToy} type='button'>delete</button>
