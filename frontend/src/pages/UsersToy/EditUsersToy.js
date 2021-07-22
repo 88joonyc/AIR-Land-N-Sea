@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {updateToy } from '../../store/toys';
+import * as toyActions from '../../store/toys';
 
 
 import './EditUsersToy.css'
@@ -51,7 +51,7 @@ export default function EditUserToy({toyId, hideForm}) {
 
         console.log('this toy id isnt going througj', toyId)
 
-        updatedToy = await dispatch(updateToy(payload, toyId))
+        updatedToy = await dispatch(toyActions.updateToy(payload, toyId))
 
         if (updatedToy) {
             window.alert('updated!!')
@@ -69,6 +69,16 @@ export default function EditUserToy({toyId, hideForm}) {
     function handleCancel(e) {
         e.preventDefault();
         hideForm();
+    }
+
+    function deleteToy (e) {
+        e.preventDefault();
+        let deleteed = dispatch(toyActions.deleteToy(toyId))
+        if (deleteed) {
+            window.alert('toy has been sucessfully deleted')
+            history.push('/')
+            history.go(0)
+        }
     }
 
     return (
@@ -147,8 +157,12 @@ export default function EditUserToy({toyId, hideForm}) {
                                 onChange={updateDescription}
                             ></textarea>
                         </label>
+                        {/* <Link>
+
+                        </Link> */}
                         <button className='host-submit' type='submit'>Next</button>
                         <button className='' onClick={handleCancel} type='button'>cancel</button>
+                        <button className='' onClick={deleteToy} type='button'>delete</button>
                     </form>
                 </div>
 

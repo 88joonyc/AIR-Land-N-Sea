@@ -24,7 +24,6 @@ const update = (toy) => ({
 
 const remove = (toyId) => ({
     type: REMOVE_TOY,
-    toyId
 })
 
 export const getToys = () => async dispatch => {
@@ -111,6 +110,13 @@ export const updateToy = (payload, id) => async dispatch => {
     return editToy;
 }
 
+export const deleteToy = (id) => async dispatch => {
+    const deleting = await csrfFetch(`/api/toys/${id}`, {
+        method: "DELETE",
+    })
+    dispatch(remove())
+    return deleting
+};
 
 
 export default toysReducer;

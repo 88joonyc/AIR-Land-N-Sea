@@ -37,7 +37,7 @@ const setUser = (user) => {
 //   user: null
 // }
 
-const removeUser = (userId) => {
+const removeUser = () => {
     return {
         type: REMOVE_USER,
     };
