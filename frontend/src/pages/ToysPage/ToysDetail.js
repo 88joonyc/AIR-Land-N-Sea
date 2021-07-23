@@ -27,6 +27,10 @@ export default function Bookings () {
     const [startDate, setStart] = useState(calEnd)
     const [endDate, setEnd] = useState('')
 
+    // console.log(sessionUser.id === toy.)
+    // console.log(toy?.map(el => console.log(el)))
+
+
     useEffect(() => {
         dispatch(getUsers())
         dispatch(getReviews(toyId))
@@ -66,6 +70,11 @@ export default function Bookings () {
 
     console.log(reviews)
 
+    function handleDelete(e) {
+        e.preventDefault();
+        console.log('rthis is the targert',e)
+    }
+
 
 
     const starsRating = () => {
@@ -85,19 +94,21 @@ export default function Bookings () {
 
     return (
         <>
-            {toy?.Images.map((img, idx) => {
-                return (
-                    <div className={`img-container`}>
-                        <img className='this-img' key={img.id} src={img.url} alt='toy car plane'/>
-                    </div>
-                )
-            })}
+            <div className='image-wrapper'>
+                {toy?.Images.map((img, idx) => {
+                    return (
+                        <div className={`img-container${-idx}`}>
+                            <img className='this-img' key={img.id} src={img.url} alt='toy car plane'/>
+                        </div>
+                    )
+                })}
+            </div>
                 <>
                     <div className='top-info-container'>
-                        <h2>{toy?.year}</h2>
-                        <h2>{toy?.make}</h2>
-                        <h2>{toy?.model}</h2>
-                        <h2>{toy?.id}</h2>
+                        <h2 className='toys-top'>{toy?.year}</h2>
+                        <h2 className='toys-top'>{toy?.make}</h2>
+                        <h2 className='toys-top'>{toy?.model}</h2>
+                        <h2 className='toys-top'>{toy?.id}</h2>
                         <button onClick={starsRating}>stars rating</button>
                     </div>
                     <div className='booking-form'>
@@ -124,25 +135,44 @@ export default function Bookings () {
                             </div>
                         </form>
                     </div>
-                    <div className='bot-info-container'>
-                        <h2>{toy?.description}</h2>
-                        <h2>{toy?.year}</h2>
-                        <h2>{toy?.make}</h2>
-                        <h2>{toy?.model}</h2>
-                        <h2>{toy?.id}</h2>
+                    <div className='bot-info-container bottom-info'>
+                        <h1>Hosted by</h1>
+                        <br />
+                        <div className='bot-grid'>
+                            <img className='toys-user-img'src={toy?.User.picture} /> car
+                            <h2 className='toys-bot bot-grid'>{toy?.User.firstName}</h2> car
+                            Reach them by: <h2 className='toys-bot '>{toy?.User.username}</h2> car
+                        </div>
+                        Send a message: <p className='toys-descript'>{toy?.User.email}</p>
+
+
+                        <h2 className='toy-title'>Description of the car:</h2>
+                        <p className='toys-desc'>{toy?.description}</p>
+                        <h2 className='toys'>{toy?.year}</h2>
+                        <h2 className='toys'>{toy?.make}</h2>
+                        <h2 className='toys'>{toy?.model}</h2>
+                        <h2 className='toys'>{toy?.id}</h2>
                     </div>
                 </>
-                    {reviews?.map(review => {
-                return (
-                    <div className='review-container'>
-                        <h1>Review by {`${review.id}`}</h1>
-                        <h2>{review?.id}</h2>
-                        <h2>{review?.review}</h2>
-                        <h2>{review?.stars}</h2>
-                        <h2>{review?.userId}</h2>
-                    </div>
-                )
-            })}
+
+                <div className='reviews-cont'>
+                        {reviews?.map(review => {
+                    return (
+                        <div className='review-container'>
+                            <h1>Reviewd by {`${review.id}`}</h1>
+                            <h2>{review?.id}</h2>
+                            <p
+                                className='review-box'
+                            >{review?.review}</p>
+                            <button onClick={handleDelete} className='deleteButton'>delete</button>
+                            <h2
+                                className='stars'
+                            >user {review?.userId} gave this a {review?.stars} star review!!</h2>
+                            <h2>{review?.userId}</h2>
+                        </div>
+                    )
+                })}
+                </div>
         </>
     )
 }
