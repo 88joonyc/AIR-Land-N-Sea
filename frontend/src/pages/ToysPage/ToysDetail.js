@@ -113,7 +113,7 @@ export default function Bookings () {
                                 <div className='toy-slides'>
                                     <div className='di-image toy-slide-txt'> {idx + 1} / {toy?.Images.length}
                                         {/* <img className='toy-detail-img' key={img.id} src={img.url} onClick={increment(`${img.id}`)} alt='toy car plane'/> */}
-                                        <img className='toy-detail-img' key={img.id} src={img.url} onClick={increment()} alt='toy car plane'/>
+                                        <img className='toy-detail-img' key={img.id} src={img.url} onClick={increment(setCurrentSlide)} alt='toy car plane'/>
                                     </div>
                                 </div>
                             </div>
