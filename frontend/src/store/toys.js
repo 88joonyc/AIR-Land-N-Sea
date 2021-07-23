@@ -45,6 +45,7 @@ const initialState = {
 };
 
 const toysReducer = (state = initialState, action) => {
+    console.log("this is toy action", action)
     switch (action.type) {
         case LOAD:
             const allToys = {

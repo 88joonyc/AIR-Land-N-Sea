@@ -8,9 +8,6 @@ import * as bookAction from '../../store/bookings';
 
 export default function EditBookings ({bookId, booking, hideForm}) {
 
-    console.log(bookId)
-
-    // console.log('these are booking props',booking.user.Bookings)
     const dispatch = useDispatch();
     const { toyId } = useParams()
 
@@ -46,7 +43,7 @@ export default function EditBookings ({bookId, booking, hideForm}) {
         // const bookedStart = bookings[0].startDate;
 
         let update = dispatch(bookAction.updateBooking(payload, bookId))
-        console.log("update", update)
+
         window.alert('Update is made!')
         history.go(0)
 
@@ -76,7 +73,6 @@ export default function EditBookings ({bookId, booking, hideForm}) {
         e.preventDefault();
         let deleted = dispatch(bookAction.deleteBooking(bookId))
 
-        console.log(deleted)
         if (deleted) {
             window.alert('Booking has been sucessfully deleted')
             history.push('/')

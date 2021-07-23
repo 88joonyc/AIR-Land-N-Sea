@@ -30,6 +30,7 @@ export default function ProfileButton({user}) {
         event.preventDefault();
         dispatch(sessionActions.loggingOut());
         history.push('/')
+        history.go(0)
     };
 
     return (
@@ -45,9 +46,11 @@ export default function ProfileButton({user}) {
                 <ul className='menu-dropdown'>
                     <li className='dropdown-items'>{user.email}</li>
                     <li>
-                        <NavLink className='navi-button' to='/toy/edit'>Edit toy</NavLink>
-                        <NavLink className='navi-button' to={`/user/${user.id}`}>Edit user</NavLink>
-                        <button className='logout-button' onClick={logout}>Log out</button>
+                        <div className='edit-container'>
+                            <NavLink className='edit-button-drop' to='/toy/edit'>Edit toy</NavLink>
+                            <NavLink className='edit-button-drop' to={`/user/${user.id}`}>Edit user</NavLink>
+                        </div>
+                        <button className='logout-button-b edit-button-drop' onClick={logout}>Log out</button>
                     </li>
                 </ul>
             )}

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { createBooking } from '../../store/bookings';
+import { getReviews } from '../../store/reviews';
+import { getUsers } from '../../store/users';
 
 import './ToysDetail.css'
 
@@ -13,16 +15,22 @@ export default function Bookings () {
     const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
+    const reviews = toy?.Reviews
+
+    const users = useSelector((state) => Object.values(state.users))
+
+    const calStart = bookings?.startDate.split("T")[0]
+    const calEnd = bookings?.endDate.split("T")[0]
 
     const history = useHistory();
-    const [startDate, setStart] = useState('')
+
+    const [startDate, setStart] = useState(calEnd)
     const [endDate, setEnd] = useState('')
 
     useEffect(() => {
-        // dispatch(actionImage.getImages(toyId))
-        // dispatch(getOneToy(toyId));
-        // dispatch(getOneBooking(toyId))
-    }, [dispatch, toyId]);
+        dispatch(getUsers())
+        dispatch(getReviews(toyId))
+    }, [dispatch]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -41,29 +49,46 @@ export default function Bookings () {
         if (bookings) {
             const bookedEnd = bookings.endDate;
             const bookdate = Date(bookedEnd)
-            console.log('this is booked end',bookedEnd)
-            console.log('this is new book start',startDate)
-            console.log('this is booked compare',startDate > bookedEnd)
             const start = Date(startDate)
-            if (startDate > endDate) return console.error('date error')
-            if (startDate > endDate ) {
+
+            // if (startDate > endDate) return window.alert('That date is booked. Please try anothersds')
+            if (startDate < endDate ) {
                 dispatch(createBooking(payload))
-                window.alert('Booking made!')
+                window.alert('Booking has been made!')
                 history.go(0)
-            } else  return window.alert('date is already booked!')
+            } else  return window.alert('That date is booked by another user. Please try anotherwsdeaw')
         } else {
             dispatch(createBooking(payload))
-            window.alert('booking made!')
+            window.alert('Booking has been successfully made. Enjoy!')
             history.go(0)
         }
     };
 
+    console.log(reviews)
+
+
+
+    const starsRating = () => {
+        const arr =[]
+        reviews?.map(review => {
+
+            console.log('this is what i get for review', review)
+            review.stars?.map(el=> console.log('this is el', el))
+            // console.log('this is'. review)
+
+            // console.log(review)
+            // const average = review?.stars.map(el => console.log('this are numbers ',el))
+
+            // console.log('wjat is theis acverafge', average)
+        })
+    }
+
     return (
         <>
-            {toy?.Images.map(img => {
+            {toy?.Images.map((img, idx) => {
                 return (
-                    <div className='img-container'>
-                        <img key={img.id} src={img.url} alt='toy car plane'/>
+                    <div className={`img-container`}>
+                        <img className='this-img' key={img.id} src={img.url} alt='toy car plane'/>
                     </div>
                 )
             })}
@@ -73,6 +98,7 @@ export default function Bookings () {
                         <h2>{toy?.make}</h2>
                         <h2>{toy?.model}</h2>
                         <h2>{toy?.id}</h2>
+                        <button onClick={starsRating}>stars rating</button>
                     </div>
                     <div className='booking-form'>
                         <form
@@ -106,6 +132,17 @@ export default function Bookings () {
                         <h2>{toy?.id}</h2>
                     </div>
                 </>
+                    {reviews?.map(review => {
+                return (
+                    <div className='review-container'>
+                        <h1>Review by {`${review.id}`}</h1>
+                        <h2>{review?.id}</h2>
+                        <h2>{review?.review}</h2>
+                        <h2>{review?.stars}</h2>
+                        <h2>{review?.userId}</h2>
+                    </div>
+                )
+            })}
         </>
     )
 }

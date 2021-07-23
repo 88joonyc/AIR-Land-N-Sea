@@ -1,10 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import bookingsReducer from './bookings';
 
+import bookingsReducer from './bookings';
 import sessionReducer from './session';
 import toysReducer from './toys'
 import imageReducer from './images';
+import reviewReducer from './reviews'
+import usersReducer from './users'
 
 
 const rootReducer = combineReducers({
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
     toys: toysReducer,
     bookings: bookingsReducer,
     images: imageReducer,
+    reviews: reviewReducer,
+    users: usersReducer,
 });
 
 let enhancer;

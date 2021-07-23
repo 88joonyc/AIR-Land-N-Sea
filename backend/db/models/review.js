@@ -1,32 +1,3 @@
-// 'use strict';
-// const {
-//   Model
-// } = require('sequelize');
-// module.exports = (sequelize, DataTypes) => {
-//   class Review extends Model {
-//     /**
-//      * Helper method for defining associations.
-//      * This method is not a part of Sequelize lifecycle.
-//      * The `models/index` file will call this method automatically.
-//      */
-//     static associate(models) {
-//       // define association here
-//     }
-//   };
-//   Review.init({
-//     userId: DataTypes.INTEGER,
-//     toyId: DataTypes.INTEGER,
-//     review: DataTypes.STRING,
-//     stars: DataTypes.INTEGER
-//   }, {
-//     sequelize,
-//     modelName: 'Review',
-//   });
-//   return Review;
-// };
-
-
-
 "use strict";
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define( "Review",
@@ -60,14 +31,6 @@ module.exports = (sequelize, DataTypes) => {
           min: 1,
           max: 5
         }
-      },
-      startDate: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-      endDate: {
-        type: DataTypes.DATE,
-        allowNull: false,
       },
     },
     {}

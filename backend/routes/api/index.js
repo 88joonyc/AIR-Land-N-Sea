@@ -8,14 +8,14 @@ const userRouter = require('./users');
 const toyRouter = require('./toys');
 const bookingRouter = require('./bookings');
 const imageRouter = require('./images')
-// const reviewRouter = require('/reviews')
+const reviewRouter = require('./reviews')
 
 router.use('/session', sessionRouter);
 router.use('/users', userRouter);
 router.use('/toys', toyRouter );
 router.use('/bookings', bookingRouter );
 router.use('/images', imageRouter)
-// router.use('/reviews', reviewRouter)
+router.use('/reviews', reviewRouter)
 
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {
 //     const user = await User.findOne({

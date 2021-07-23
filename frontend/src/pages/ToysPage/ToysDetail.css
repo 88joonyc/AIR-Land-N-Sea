@@ -15,10 +15,23 @@
     top: 100px;
 }
 
+.this-img {
+    border: black;
+    width: 200px;
+}
+
+.img-container-1
+.img-container-2
+.img-container-3
+.img-container-4
+.img-container-5
+
+
 .booking-form {
     position: sticky;
+    width: 30%;
     bottom: 20px;
-    right: 20px;
+    left: 90%;
     border: 1px solid black;
     border-radius: 10px;
     padding: 20px;
@@ -38,5 +51,9 @@
 
 .bot-info-container {
     position: relative;
+    background-color: white;
+}
+
+.review-container {
     background-color: white;
 }
