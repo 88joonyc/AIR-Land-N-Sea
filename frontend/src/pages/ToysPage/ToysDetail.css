@@ -15,6 +15,18 @@
     top: 100px;
 }
 
+.this-img {
+    border: black;
+    width: 200px;
+}
+
+.img-container-1
+.img-container-2
+.img-container-3
+.img-container-4
+.img-container-5
+
+
 .booking-form {
     position: sticky;
     width: 30%;

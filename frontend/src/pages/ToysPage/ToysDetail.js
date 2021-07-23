@@ -85,10 +85,10 @@ export default function Bookings () {
 
     return (
         <>
-            {toy?.Images.map(img => {
+            {toy?.Images.map((img, idx) => {
                 return (
-                    <div className='img-container'>
-                        <img key={img.id} src={img.url} alt='toy car plane'/>
+                    <div className={`img-container`}>
+                        <img className='this-img' key={img.id} src={img.url} alt='toy car plane'/>
                     </div>
                 )
             })}
