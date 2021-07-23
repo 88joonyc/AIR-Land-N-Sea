@@ -39,17 +39,20 @@ export default function EditToys () {
             {toys?.map(el => (
                 <>
                 <div className='each-toy' >
+                    <div className='edit-toy-container'>
                         <h2>{el?.id}</h2>
                         <h2>{el?.year}</h2>
                         <h2>{el?.make}</h2>
                         <h2>{el?.model}</h2>
+                    </div>
                         <button
-                            onClick={() => setElementId(el.id)
-                        }>edit</button>
+                                onClick={() => setElementId(el.id)}
+                                className='edit-booking-button'
+                            >edit</button>
                     <div>
-                        {content}
                     </div>
                 </div>
+                {content}
                 </>
             ))}
         </>

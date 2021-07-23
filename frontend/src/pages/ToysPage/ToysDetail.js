@@ -8,6 +8,7 @@ import { getReviews } from '../../store/reviews';
 import { getUsers } from '../../store/users';
 
 import './ToysDetail.css'
+import './ToysDetailImages.css'
 
 export default function Bookings () {
     const dispatch = useDispatch();
@@ -29,6 +30,18 @@ export default function Bookings () {
 
     // console.log(sessionUser.id === toy.)
     // console.log(toy?.map(el => console.log(el)))
+
+
+    const [currentSlide, setCurrentSlide] = useState(0)
+
+    function increment(id) {
+        // let current
+        // if (id <= 6 && id > 0) {
+        //     current = id + 1
+        // }
+        // setCurrentSlide(current)
+    }
+
 
 
     useEffect(() => {
@@ -68,13 +81,10 @@ export default function Bookings () {
         }
     };
 
-    console.log(reviews)
-
     function handleDelete(e) {
         e.preventDefault();
         console.log('rthis is the targert',e)
     }
-
 
 
     const starsRating = () => {
@@ -95,13 +105,39 @@ export default function Bookings () {
     return (
         <>
             <div className='image-wrapper'>
+                <div className='img-slides-col'>
                 {toy?.Images.map((img, idx) => {
                     return (
-                        <div className={`img-container${-idx}`}>
-                            <img className='this-img' key={img.id} src={img.url} alt='toy car plane'/>
-                        </div>
+                        <>
+                            <div className={`img-container${idx}`}>
+                                <div className='toy-slides'>
+                                    <div className='di-image toy-slide-txt'> {idx + 1} / {toy?.Images.length}
+                                        {/* <img className='toy-detail-img' key={img.id} src={img.url} onClick={increment(`${img.id}`)} alt='toy car plane'/> */}
+                                        <img className='toy-detail-img' key={img.id} src={img.url} onClick={increment()} alt='toy car plane'/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <div className={`img-slides-row`}>
+
+                                        <img className='toy-detail-img' key={img.id} src={img.url} onClick={increment(`${img.id}`)} alt='toy car plane'/>
+
+                                </div> */}
+                        </>
                     )
                 })}
+                </div>
+
+                <a className='prev-img-button'
+                    // onClick={handlePrevImage}
+                >
+
+                </a>
+                <a className='prev-img-button'
+                    // onClick={handlePrevImage}
+                >
+
+                </a>
             </div>
                 <>
                     <div className='top-info-container'>
