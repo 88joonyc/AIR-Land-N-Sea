@@ -17,15 +17,12 @@ export default function Bookings () {
     const toy = useSelector((state) => state.toys[toyId])
     const reviews = toy?.Reviews
 
-    const users = useSelector((state) => state.users)
+    const users = useSelector((state) => Object.values(state.users))
 
     const calStart = bookings?.startDate.split("T")[0]
     const calEnd = bookings?.endDate.split("T")[0]
 
     const history = useHistory();
-
-
-
 
     const [startDate, setStart] = useState(calEnd)
     const [endDate, setEnd] = useState('')
@@ -67,6 +64,25 @@ export default function Bookings () {
         }
     };
 
+    console.log(reviews)
+
+
+
+    const starsRating = () => {
+        const arr =[]
+        reviews?.map(review => {
+
+            console.log('this is what i get for review', review)
+            review.stars?.map(el=> console.log('this is el', el))
+            // console.log('this is'. review)
+
+            // console.log(review)
+            // const average = review?.stars.map(el => console.log('this are numbers ',el))
+
+            // console.log('wjat is theis acverafge', average)
+        })
+    }
+
     return (
         <>
             {toy?.Images.map(img => {
@@ -82,6 +98,7 @@ export default function Bookings () {
                         <h2>{toy?.make}</h2>
                         <h2>{toy?.model}</h2>
                         <h2>{toy?.id}</h2>
+                        <button onClick={starsRating}>stars rating</button>
                     </div>
                     <div className='booking-form'>
                         <form
