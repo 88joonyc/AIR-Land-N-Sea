@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import { createBooking } from '../../store/bookings';
 import { getReviews } from '../../store/reviews';
+import { getUsers } from '../../store/users';
 
 import './ToysDetail.css'
 
@@ -15,6 +16,8 @@ export default function Bookings () {
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
     const reviews = toy?.Reviews
+
+    const users = useSelector((state) => state.users)
 
     const calStart = bookings?.startDate.split("T")[0]
     const calEnd = bookings?.endDate.split("T")[0]
@@ -28,6 +31,7 @@ export default function Bookings () {
     const [endDate, setEnd] = useState('')
 
     useEffect(() => {
+        dispatch(getUsers())
         dispatch(getReviews(toyId))
     }, [dispatch]);
 

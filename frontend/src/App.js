@@ -25,7 +25,8 @@ function App() {
   }, [dispatch])
 
   if (isLoaded === false) {
-    history.push('/login')
+    // history.push('/login')
+    // history.go(0)
   }
 
   return (

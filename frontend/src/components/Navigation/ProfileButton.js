@@ -30,6 +30,7 @@ export default function ProfileButton({user}) {
         event.preventDefault();
         dispatch(sessionActions.loggingOut());
         history.push('/')
+        history.go(0)
     };
 
     return (

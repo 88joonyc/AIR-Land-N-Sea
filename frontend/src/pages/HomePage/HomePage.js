@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getBookings } from '../../store/bookings';
 import { getBooking } from '../../store/session';
+import { getUsers } from '../../store/users';
 import EditBookings from './EditBookings';
 
 import './HomePage.css'
@@ -43,10 +44,12 @@ export default function Home () {
         <>
             {userBooked?.map(book =>(
                 <>
-                    <h2>{book?.id}</h2>
-                    <h2>{book?.startDate}</h2>
-                    <h2>{book?.endDate}</h2>
-                    <button onClick={()=> setElementId(book?.id)}>edit booking</button>
+                    <div className='booking-container'>
+                        <h2>{book?.id}</h2>
+                        <h2>{book?.startDate}</h2>
+                        <h2>{book?.endDate}</h2>
+                        <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
+                    </div>
                 </>
             ))}
             {content}
