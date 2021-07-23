@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     Toy.belongsTo(models.User, {foreignKey: "userId"})
     Toy.hasMany(models.Image, {foreignKey: 'toyId'})
     Toy.hasMany(models.Booking, {foreignKey: 'toyId'})
-    // Toy.hasMany(models.Review, {foreignKey: "toyId"})
+    Toy.hasMany(models.Review, {foreignKey: "toyId"})
   };
 
   Toy.make = async function({ userId, description, year, make, model, type, level, price }) {

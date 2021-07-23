@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { createBooking } from '../../store/bookings';
+import { getReviews } from '../../store/reviews';
 
 import './ToysDetail.css'
 
@@ -13,16 +14,16 @@ export default function Bookings () {
     const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
+    const reviews = toy?.Reviews
 
     const history = useHistory();
     const [startDate, setStart] = useState('')
     const [endDate, setEnd] = useState('')
 
+
     useEffect(() => {
-        // dispatch(actionImage.getImages(toyId))
-        // dispatch(getOneToy(toyId));
-        // dispatch(getOneBooking(toyId))
-    }, [dispatch, toyId]);
+        dispatch(getReviews(toyId))
+    }, [dispatch]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -41,9 +42,6 @@ export default function Bookings () {
         if (bookings) {
             const bookedEnd = bookings.endDate;
             const bookdate = Date(bookedEnd)
-            console.log('this is booked end',bookedEnd)
-            console.log('this is new book start',startDate)
-            console.log('this is booked compare',startDate > bookedEnd)
             const start = Date(startDate)
             if (startDate > endDate) return console.error('date error')
             if (startDate > endDate ) {
@@ -106,6 +104,17 @@ export default function Bookings () {
                         <h2>{toy?.id}</h2>
                     </div>
                 </>
+                    {reviews?.map(review => {
+                return (
+                    <div className='review-container'>
+                        <h1>Review by {`${review.id}`}</h1>
+                        <h2>{review?.id}</h2>
+                        <h2>{review?.review}</h2>
+                        <h2>{review?.stars}</h2>
+                        <h2>{review?.userId}</h2>
+                    </div>
+                )
+            })}
         </>
     )
 }
