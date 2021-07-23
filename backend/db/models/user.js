@@ -107,19 +107,5 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope('currentUser').findByPk(user.id)
   };
-
-  // User.update = async function (details) {
-  //   // console.log('details', details )
-  //   const user = details.id
-  //   delete details.id
-  //   await User.update(details, {
-  //     where: { id: user },
-  //     returning: true,
-  //     plain: true
-  //   })
-
-  //   return await User.findByPk(user)
-  // }
-
   return User;
 };

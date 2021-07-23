@@ -49,12 +49,13 @@ export default function Bookings () {
             const bookedEnd = bookings.endDate;
             const bookdate = Date(bookedEnd)
             const start = Date(startDate)
-            if (startDate > endDate) return window.alert('That date is booked. Please try another')
-            if (startDate > endDate ) {
+
+            // if (startDate > endDate) return window.alert('That date is booked. Please try anothersds')
+            if (startDate < endDate ) {
                 dispatch(createBooking(payload))
                 window.alert('Booking has been made!')
                 history.go(0)
-            } else  return window.alert('That date is booked by another user. Please try another.')
+            } else  return window.alert('That date is booked by another user. Please try anotherwsdeaw')
         } else {
             dispatch(createBooking(payload))
             window.alert('Booking has been successfully made. Enjoy!')

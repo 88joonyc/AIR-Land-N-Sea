@@ -33,6 +33,7 @@ router.get('/', restoreUser, ( req, res ) => {
 
 
 router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
+
     const user = await User.findByPk(req.params.id, {
         include: Toy
     })
