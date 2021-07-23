@@ -16,10 +16,16 @@ export default function Bookings () {
     const toy = useSelector((state) => state.toys[toyId])
     const reviews = toy?.Reviews
 
-    const history = useHistory();
-    const [startDate, setStart] = useState('')
-    const [endDate, setEnd] = useState('')
+    const calStart = bookings?.startDate.split("T")[0]
+    const calEnd = bookings?.endDate.split("T")[0]
 
+    const history = useHistory();
+
+
+
+
+    const [startDate, setStart] = useState(calEnd)
+    const [endDate, setEnd] = useState('')
 
     useEffect(() => {
         dispatch(getReviews(toyId))
@@ -43,15 +49,15 @@ export default function Bookings () {
             const bookedEnd = bookings.endDate;
             const bookdate = Date(bookedEnd)
             const start = Date(startDate)
-            if (startDate > endDate) return console.error('date error')
+            if (startDate > endDate) return window.alert('That date is booked. Please try another')
             if (startDate > endDate ) {
                 dispatch(createBooking(payload))
-                window.alert('Booking made!')
+                window.alert('Booking has been made!')
                 history.go(0)
-            } else  return window.alert('date is already booked!')
+            } else  return window.alert('That date is booked by another user. Please try another.')
         } else {
             dispatch(createBooking(payload))
-            window.alert('booking made!')
+            window.alert('Booking has been successfully made. Enjoy!')
             history.go(0)
         }
     };
