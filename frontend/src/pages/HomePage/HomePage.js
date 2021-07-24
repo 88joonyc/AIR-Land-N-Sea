@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getBookings } from '../../store/bookings';
+import { getBookings, getOneBooking } from '../../store/bookings';
 import { getBooking } from '../../store/session';
 import { getUsers } from '../../store/users';
 import EditBookings from './EditBookings';
@@ -38,6 +38,7 @@ export default function Home () {
     useEffect(() => {
         dispatch(getBooking(sessionUser.id));
         dispatch(getBookings())
+        dispatch(getOneBooking(bookings.id))
     }, [dispatch]);
 
     return (

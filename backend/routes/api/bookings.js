@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { requireAuth } = require('../../utils/auth');
-const { Booking } = require('../../db/models');
+const { Booking, Toy, User } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation');
 const booking = require('../../db/models/booking');
 
@@ -25,8 +25,15 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
     return res.json(booking)
 }))
 
+// router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
+//     const booking = await Booking.findAll()
+//     return res.json(booking)
+// }))
+
 router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
-    const booking = await Booking.findByPk(req.params.id)
+    const booking = await Booking.findByPk(req.params.id, {
+        include: [User, Toy]
+    })
     return res.json(booking)
 }))
 
