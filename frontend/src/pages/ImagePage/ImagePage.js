@@ -38,15 +38,15 @@ export default function AddImages () {
                 <form
                     className='image-form-container'
                     onSubmit={handleSubmit}
-                >
+                    >
                 <img src={url}/>
-                    <label>Add an image
+                    <button type="submit" className='add-picture' >Add an image</button>
                         <input
                             className='image-input'
                             onChange={(e) => setUrl(e.target.value)}
+                            placeholder={'URL ADDRESS'}
                         />
-                    </label>
-                    <button type="submit">Add picture</button>
+                    <button className='cancel-picture' onClick={handleBack} type="button">Add picture</button>
                 </form>
             </div>
         </>

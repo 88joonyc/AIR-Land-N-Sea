@@ -35,6 +35,8 @@ export default function Home () {
         e.preventDefault();
     }
 
+    console.log('this is bookings',bookings)
+
     useEffect(() => {
         dispatch(getBooking(sessionUser.id));
         dispatch(getBookings())
@@ -43,17 +45,19 @@ export default function Home () {
 
     return (
         <>
-            {userBooked?.map(book =>(
-                <>
-                    <div className='booking-container'>
-                        <h2>{book?.id}</h2>
-                        <h2>{book?.startDate}</h2>
-                        <h2>{book?.endDate}</h2>
-                        <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
-                    </div>
-                </>
-            ))}
-            {content}
+        <div className='bookings-container'>
+                {userBooked?.map(book =>(
+                    <>
+                        <div className='booking-container'>
+                            Booking for <h2>{book?.id}</h2>
+                            <h2>{book?.startDate}</h2>
+                            <h2>{book?.endDate}</h2>
+                            <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
+                        </div>
+                    </>
+                ))}
+                {content}
+        </div>
         </>
     )
 }

@@ -120,7 +120,7 @@ export default function Hosting () {
                                 onChange={(e) => setDescription(e.target.value)}
                             ></textarea>
                         </label>
-                        <button className='host-submit' type='submit'>Next</button>
+                        <button className='host-submit' type='submit'>Add pictures</button>
                     </form>
                 </div>
             </div>

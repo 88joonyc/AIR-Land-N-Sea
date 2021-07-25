@@ -125,21 +125,76 @@ export default function Bookings () {
                 <div className='image-wrapper'>
                         <img className='slide-image' src={toy?.Images[slideNum]?.url} />
                     <div className='img-slide-control'>
-                        <button className='slide-img-next' onClick={() => counter()} >>></button>
+                        <button className='slide-img-next' onClick={() => counter()} >{">>"}</button>
                     </div>
 
                 </div>
                     <>
                         <div className='top-info-container'>
-                            <h2 className='toys-top'>{toy?.year}</h2>
                             <h2 className='toys-top'>{toy?.make}</h2>
                             <h2 className='toys-top'>{toy?.model}</h2>
-                            <h2 className='toys-top'>{toy?.id}</h2>
-                            <button onClick={starsRating}>Click to see stars rating </button> {average}
-                            <repeat n={`${average}`}></repeat>
+                            <h2 className='toys-top'>{toy?.year}</h2>
+
+
                         </div>
+
+
+                        <form
+                                onSubmit={handleSubmit}
+                                >
+                                <div className='details-price-fo'>
+                                    $ <div className="details-price-form">{toy?.price}</div> / day
+                                </div>
+                                <div className='date-area-grid'>
+                                    <label
+                                        htmlFor='start'
+                                        >Start rental</label>
+                                    <label htmlFor='end'>Check-in</label>
+                                    <input
+                                        type='date'
+                                        value={startDate}
+                                        onChange={(e) => setStart(e.target.value)}
+                                    />
+                                    <input
+                                        type='time'
+                                        value={endDate}
+                                        className='form-booking-input'
+                                        onChange={(e) => setEnd(e.target.value)}
+                                    />
+                                    <label
+                                        htmlFor='end'
+                                        >End rental</label>
+                                    <label htmlFor='end'>Check-out</label>
+                                    <input
+                                        type='date'
+                                        value={endDate}
+                                        className='form-booking-input'
+                                        onChange={(e) => setEnd(e.target.value)}
+                                    />
+                                        <input
+                                            type='time'
+                                            className='form-booking-input'
+                                            value={startDate}
+                                            onChange={(e) => setStart(e.target.value)}
+                                        />
+                                </div>
+                                    <button className='reserve-button reserve-form' type='submit'>Reserve Now</button>
+                            </form>
+
+
                         <div className='bot-info-container bottom-info'>
-                            <h1>Hosted by</h1>
+                            <div className="bs-info">
+                                <h3>👍</h3>
+                                <h3>Free Cancellation</h3>
+                                <p></p>
+                                <h4>Full refund for the next 1 hour</h4>
+                            </div>
+                            <div className="bs-info">
+                                <h3>Insurance and protection</h3>
+                                <p></p>
+                                <h4>Insurance via Liberty Mutual ⭕️</h4>
+                                ------
+                            </div>
                             <br />
                             <div className='bot-grid'>
                                 <img className='toys-user-img'src={toy?.User.picture} /> car
@@ -147,7 +202,9 @@ export default function Bookings () {
                                 Reach them by: <h2 className='toys-bot '>{toy?.User.username}</h2> car
                             </div>
                             Send a message: <p className='toys-descript'>{toy?.User.email}</p>
-
+                            <div className='star-button'>
+                                <button onClick={starsRating}>Stars </button> {Math.floor(average)}/5 <repeat n={`${Math.floor(average)}`}></repeat>
+                            </div>
 
                             <h2 className='toy-title'>Description of the car:</h2>
                             <p className='toys-desc'>{toy?.description}</p>
