@@ -4,21 +4,43 @@
 }
 
 .review-box {
-    font-size: xx-large;
+    font-size: medium;
     padding: 20px;
+    border-bottom: 1px solid lightgrey;
+    width: 50%;
 }
 
 .review-container {
     background-color: white;
 }
 
-.reviews-title {
-    /* font-size: ; */
+.grid-cont-small  {
+    display: flex;
+}
+
+.split {
+    display: flex;
+    padding-top: 20px;
+}
+
+.splitter {
+    padding-left: 20px;
+}
+
+.date-time {
+    font-size: xx-small;
+    display: flex;
+    padding-left: 20px;
+
+}
+
+.review-title {
+    font-weight: 900;
 }
 
 repeat {
     display: block;
-    font-size: 20px;;
+    font-size: 20px;
 }
 
 repeat[n="1"]:before {
@@ -39,4 +61,10 @@ repeat[n="4"]:before {
 
 repeat[n="5"]:before {
     content: "⭐️⭐️⭐️⭐️⭐️";
+}
+
+.reviewer-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
 }

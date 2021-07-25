@@ -34,6 +34,7 @@ export default function Bookings () {
     const [endDate, setEnd] = useState('')
     const [average, setAverage] = useState('')
     const [averageRound, setAverageRound] = useState('')
+    const [isLoaded, setLoaded] = useState(true)
 
     // console.log(sessionUser.id === toy.)
     // console.log(toy?.map(el => console.log(el)))
@@ -131,11 +132,11 @@ export default function Bookings () {
                 </div>
                     <>
                         <div className='top-info-container'>
+
+                            <h2 className='toys-top-fn'>{toy?.User.firstName}'s</h2>
                             <h2 className='toys-top'>{toy?.make}</h2>
                             <h2 className='toys-top'>{toy?.model}</h2>
                             <h2 className='toys-top'>{toy?.year}</h2>
-
-
                         </div>
 
 
@@ -197,21 +198,40 @@ export default function Bookings () {
                             </div>
                             <br />
                             <div className='bot-grid'>
-                                <img className='toys-user-img'src={toy?.User.picture} /> car
-                                <h2 className='toys-bot bot-grid'>{toy?.User.firstName}</h2> car
-                                Reach them by: <h2 className='toys-bot '>{toy?.User.username}</h2> car
+                                <div className='bot-user-cont'>
+                                    <img className='toys-user-img'src={toy?.User.picture} />
+                                    <div className='user-row-info'>
+                                        <h2 className='toys-bot bot-info-text'>{toy?.User.firstName}</h2>
+                                        <h4 className='bot-info-text'>🏆  All-star host</h4>
+                                        <h4 className='bot-info-text'>{reviews.length} Trips * </h4>
+                                        <h2 className='toys-bot bot-into-text'>user: {toy?.User.username}</h2>
+                                        {/* <h2 className='toys-bot bot-into-text'>{toy?.User.createdAt}</h2> */}
+                                    </div>
+                                </div>
                             </div>
-                            Send a message: <p className='toys-descript'>{toy?.User.email}</p>
+                            <div className='horizontal'>
+                                <h4 className='prize'>🏆  </h4>
+                                <p className='user-describe'>All-Star Hosts like {toy?.User.firstName} are the top-rated and most experienced hosts on Air-land-n-sea.</p>
+                            </div>
+                                <a href='/'>Learn more</a>
+
+                            <div className='horizontal'>
+                                <h4 className='prize'>🏆 </h4>
+                                <p className='user-describe'>{toy?.User.firstName} has completed the training on enhanced cleaning and disinfection practices. </p>
+                            </div>
+                                <a href='/'>Learn more</a>
+
                             <div className='star-button'>
                                 <button onClick={starsRating}>Stars </button> {Math.floor(average)}/5 <repeat n={`${Math.floor(average)}`}></repeat>
                             </div>
 
-                            <h2 className='toy-title'>Description of the car:</h2>
+                            <h2 className='toy-title'>Description</h2>
+                            <div className='toy-title-cont'>
+                                <h4 className='toys'>{toy?.year}</h4>
+                                <h4 className='toys'>{toy?.make}</h4>
+                                <h4 className='toys'>{toy?.model}</h4>
+                            </div>
                             <p className='toys-desc'>{toy?.description}</p>
-                            <h2 className='toys'>{toy?.year}</h2>
-                            <h2 className='toys'>{toy?.make}</h2>
-                            <h2 className='toys'>{toy?.model}</h2>
-                            <h2 className='toys'>{toy?.id}</h2>
                         </div>
                         <div className='booking-form'>
                             <form
@@ -251,20 +271,21 @@ export default function Bookings () {
                                 if (review.toyId == toyId) {
                                     return (
                                         <div className='review-container'>
-                                            <h1>Stars: {`${review?.stars}`}</h1>
-                                            <repeat n={`${review?.stars}`} ></repeat>
+                                            <div className='split'>
+                                                <img className='reviewer-picture' src={`${review?.User.picture}`}/>
 
-                                            <h1>Date: {`${review?.createdAt.split("T")}`}</h1>
-                                            <h1>This was reviewed by: {`${review?.User.firstName}`}</h1>
-                                            <h2>{review?.id}</h2>
+                                                <div className='splitter'>
+                                                    <repeat n={`${review?.stars}`} />
+                                                    <div className='grid-cont-small'>
+                                                        <p>{review?.User.firstName}</p>
+                                                        <p className='date-time'>{`${(Date(review?.createdAt)).split("GMT-")}`}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <p
                                                 className='review-box'
                                             >{review?.review}</p>
-                                            <button onClick={handleDelete} className='deleteButton'>delete</button>
-                                            <h2
-                                                className='stars'
-                                            >user {review?.User.firstName} gave this a {review?.stars} star review!!</h2>
-                                            <h2>{review?.userId}</h2>
+                                            {isLoaded && <button onClick={handleDelete} className='deleteButton'>delete</button>}
                                         </div>
                                     )
                                 }

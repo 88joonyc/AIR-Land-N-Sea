@@ -26,7 +26,7 @@
 
 .bot-grid {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .this-img {
@@ -35,11 +35,57 @@
 }
 
 .toys-desc {
-    padding: 3%;
+    padding: 0 10%;
+    padding-right: 50%;
+    /* width: 200px; */
+}
+
+.prize {
+    padding-left: 20px;
+    padding-right: 30px;
 }
 
 .toys-user-img {
-    width: 100px;
+    border-radius: 100px;
+    width: 80px;
+    height: 80px;
+    overflow-y: auto;
+}
+
+.horizontal {
+    display: flex;
+}
+
+.user-describe {
+    font-size: 15px;
+    width: 50%;
+}
+
+.user-row-info {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    margin-left: 3%;
+    margin-top: -10px;
+}
+
+.toy-title-cont {
+    display: flex;
+}
+
+.bot-into-text {
+
+}
+
+.bot-user-cont {
+    display: flex;
+    /* grid-row: 1fr 1fr; */
+    /* padding: ; */
+}
+
+.bot-username {}
+
+.bot-firstname {
+    padding: 0 20px;
 }
 
 .toys-descript {
@@ -70,12 +116,16 @@
 }
 
 .toys {
-    /* padding: 20px; */
+    padding: 0 5px;
 }
 
 .toys-top {
-    padding: 0 2px;
+    padding: 0 .5%;
     font-size: 20px;
+}
+
+.toys-top-fn {
+    color: rgb(77, 2, 2);
 }
 
 .stars {
@@ -110,7 +160,6 @@
 .date-area {
     display: flex;
     flex-direction: column;
-
 }
 
 .reserve-button {
