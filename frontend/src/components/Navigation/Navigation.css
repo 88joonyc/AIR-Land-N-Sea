@@ -5,10 +5,11 @@
 .navi-container {
     width: 100%;
     background-color: rgb(250 250 250);
-    position: absolute;
+    position: fixed;
+    z-index: 0;
     left: 0;
     top: 0;
-    border-bottom: 1px solid purple
+    border-bottom: 1px solid purple;
 }
 
 .menu-circle {}

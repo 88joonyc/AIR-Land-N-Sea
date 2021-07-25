@@ -6,6 +6,12 @@
 
 .img-slides-row {}
 
-.img-slides-col{
+.img-slides-col {}
 
+.slide-image {
+    width: 100%;
+}
+
+.details-page-container {
+    /* background-color: black; */
 }

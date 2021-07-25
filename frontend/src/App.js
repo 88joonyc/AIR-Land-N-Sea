@@ -25,7 +25,7 @@ function App() {
   }, [dispatch])
 
   if (isLoaded === false) {
-    // history.push('/login')
+    history.push('/login')
     // history.go(0)
   }
 
@@ -49,7 +49,7 @@ function App() {
           <Hosting/>
         </Route>
         <Route exact path='/toys/:toyId'>
-          <ToysDetail/>
+          {isLoaded && <ToysDetail/>}
         </Route>
         <Route path='/toy/edit'>
           {isLoaded && <EditToys/>}

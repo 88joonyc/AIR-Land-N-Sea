@@ -24,25 +24,37 @@ const remove = () => ({
     type: REMOVE_REVIEW,
 })
 
-const initialState = {
-    reviews: []
-}
+
+// export const getReviews = () => async dispatch => {
+//     const res = await csrfFetch(`/api/reviews/`)
+//     const review = res.json();
+//     dispatch(load(review))
+//     // if (res.ok) {
+//     // }
+// };
 
 export const getReviews = (id) => async dispatch => {
-//     const res = await csrfFetch(`/api/toys/${id}`)
-//     const review = res.json();
-//     // if (res.ok) {
-//         dispatch(load(review))
-//     // }
+    console.log('this is an id IDDID', id)
+    const res = await csrfFetch(`/api/reviews/${id}`)
+    const review = await res.json();
+    dispatch(load(review))
+    // if (res.ok) {
+    // }
 };
 
+const initialState = {
+    reviews: null
+}
+
 const reviewReducer = (state = initialState, action) => {
-    console.log('this si an action',action)
+
     switch (action.type) {
         case LOAD:
+            console.log('what is twrong with this action',action)
             const thisReview = {
                 ...state,
             };
+            console.log('this is revriw action', action)
             action.reviews.forEach((review) => {
                 thisReview[review.id] = review;
             });

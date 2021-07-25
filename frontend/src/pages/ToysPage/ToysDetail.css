@@ -1,7 +1,7 @@
 .image-container {
     top: 1000px;
     border: 1px solid black;
-    position: relative;
+    /* position: relative; */
 }
 
 .image-sorurce {
@@ -11,7 +11,7 @@
 .top-info-container {
     border: 1px solid black;
     background-color: white;
-    position: relative;
+    /* position: relative; */
     top: 100px;
     padding: 0 20px;
     display: flex;
@@ -60,8 +60,8 @@
 
 .image-wrapper {
     display: grid;
-    position: relative;
-    top: 100px;
+    /* position: relative; */
+    margin-top: 100px;
     /* grid-row: 6; */
     /* grid-template-columns: auto; */
     /* grid-template: "a b c e f" 100px / 1fr 1fr 1fr 2fr 1fr; */
@@ -115,14 +115,21 @@
 
 .booking-form {
     position: sticky;
+    float: right;
     width: 30%;
-    bottom: 20px;
-    left: 90%;
+    /* bottom: 0px; */
+    /* left: 90%; */
     border: 1px solid black;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 2px 2px 2px 2px lightgray;
     background-color: white;
+    top:200px
+}
+
+.details-price {
+    display: flex;
+    font-size: 150%;
 }
 
 .date-area {
@@ -136,7 +143,7 @@
 }
 
 .bot-info-container {
-    position: relative;
+    /* position: relative; */
     background-color: white;
 }
 

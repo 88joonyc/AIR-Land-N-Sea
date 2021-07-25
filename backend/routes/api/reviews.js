@@ -8,11 +8,22 @@ const { Review, Toy, User } = require('../../db/models');
 
 const router = express.Router();
 
-router.get('/', requireAuth, asyncHandler (async (req, res) => {
-    const review = await Review.findAll({
-        include: Toy
+// router.get('/', requireAuth, asyncHandler (async (req, res) => {
+//     const review = await Review.findAll({
+//         include: [User, Toy]
+//     })
+//     return res.json(review)
+// }))
+
+router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
+    const reviews = await Review.findAll( {
+        where: {
+            toyId: req.params.id
+        },
+        include: User
     })
-    return res.json(review)
+    // reviews.map(el=> { return res.json(el)})
+    return res.json(reviews)
 }))
 
 
