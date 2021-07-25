@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { createBooking } from '../../store/bookings';
-import { getReviews } from '../../store/reviews';
+import * as reviewAction from '../../store/reviews';
 import { getUsers } from '../../store/users';
 
 import './ToysDetail.css'
@@ -45,7 +45,7 @@ export default function Bookings () {
     const [slideNum, setSlideNum] = useState(1);
 
     useEffect(() => {
-        dispatch(getReviews(toyId))
+        dispatch(reviewAction.getReviews(toyId))
         dispatch(getUsers())
 
     }, [dispatch, toyId]);
@@ -82,20 +82,61 @@ export default function Bookings () {
         }
     };
 
-    function handleDelete(e) {
-        e.preventDefault();
-        // console.log('rthis is the targert',e)
+    function handleDelete(number) {
+        // e.preventDefault();
+        let confirmDelete = window.confirm("Are you sure you want to delete this?")
+        if(confirmDelete) {
+            dispatch(reviewAction.deleteReview(number))
+            window.alert("deleted!")
+            history.push(`/toys/${toyId}`)
+            history.go(0)
+        } else {
+            window.alert("did not delete!")
+        }
     }
 
     function handleEdit(e) {
         e.preventDefault();
-        // console.log('rthis is the targert',e)
+           history.push(`/toys/${toyId}`)
+            history.go(0)
+
+    }
+
+    function leaveAComment() {
+        content = (
+            <>
+
+                <form
+                    onSubmit={handleSubmit}
+                    >
+                    <div className='details-price'>
+                        $ <div>{toy?.price}</div> / day
+                    </div>
+                    <div className='date-area'>
+                        <label
+                            htmlFor='start'
+                            >Start rental</label>
+                        <input
+                            type='date'
+                            value={startDate}
+                            onChange={(e) => setStart(e.target.value)}
+                        />
+                        <label htmlFor='end'>End rental</label>
+                        <input
+                            type='date'
+                            value={endDate}
+                            onChange={(e) => setEnd(e.target.value)}
+                        />
+                        <button className='reserve-button' type='submit'>Reserve</button>
+                    </div>
+                </form>
+
+            </>
+        )
     }
 
     function counter() {
         let counter = slideNum;
-        console.log(counter)
-
         if (counter < toy?.Images.length - 1) {
             counter = slideNum + 1
             setSlideNum(Number(counter))
@@ -205,6 +246,32 @@ export default function Bookings () {
                                 <h4>Insurance via Liberty Mutual ⭕️</h4>
                                 ------
                             </div>
+                        <div className='booking-form'>
+                            <form
+                                onSubmit={handleSubmit}
+                                >
+                                <div className='details-price'>
+                                    $ <div>{toy?.price}</div> / day
+                                </div>
+                                <div className='date-area'>
+                                    <label
+                                        htmlFor='start'
+                                        >Start rental</label>
+                                    <input
+                                        type='date'
+                                        value={startDate}
+                                        onChange={(e) => setStart(e.target.value)}
+                                    />
+                                    <label htmlFor='end'>End rental</label>
+                                    <input
+                                        type='date'
+                                        value={endDate}
+                                        onChange={(e) => setEnd(e.target.value)}
+                                    />
+                                    <button className='reserve-button' type='submit'>Reserve</button>
+                                </div>
+                            </form>
+                        </div>
                             <br />
                             <div className='bot-grid'>
                                 <div className='bot-user-cont'>
@@ -245,38 +312,13 @@ export default function Bookings () {
                             <p hidden={hidden} className='toys-desc'>{toy?.description}</p>
                             {/* <button type='button'  className={`button`} onClick={() => setHidden(false)} >see more</button> */}
                         </div>
-                        <div className='booking-form'>
-                            <form
-                                onSubmit={handleSubmit}
-                                >
-                                <div className='details-price'>
-                                    $ <div>{toy?.price}</div> / day
-                                </div>
-                                <div className='date-area'>
-                                    <label
-                                        htmlFor='start'
-                                        >Start rental</label>
-                                    <input
-                                        type='date'
-                                        value={startDate}
-                                        onChange={(e) => setStart(e.target.value)}
-                                    />
-                                    <label htmlFor='end'>End rental</label>
-                                    <input
-                                        type='date'
-                                        value={endDate}
-                                        onChange={(e) => setEnd(e.target.value)}
-                                    />
-                                    <button className='reserve-button' type='submit'>Reserve</button>
-                                </div>
-                            </form>
-                        </div>
                     </>
 
                     <div className='reviews-cont'>
                             <div className='review-title'>Ratings and reviews</div>
 
                             ( {reviews.length} ratings total )
+                            <button type='button' onClick={leaveAComment} className='leave-a-comment'>Leave a comment</button>
                             {
 
                             reviews?.map(review => {
@@ -299,8 +341,8 @@ export default function Bookings () {
                                             <p
                                                 className='review-box'
                                                 >{review?.review}
-                                                {sessionUser.id === review.userId ? <button onClick={handleDelete} className='deleteButton'>delete</button> : null  }
                                                 {sessionUser.id === review.userId ? <button onClick={handleEdit} className='deleteButton'>edit</button> : null  }
+                                                {sessionUser.id === review.userId ? <button onClick={() => handleDelete(review.id)} className='deleteButton'>delete</button> : null  }
                                                 </p>
                                         </div>
                                     )
