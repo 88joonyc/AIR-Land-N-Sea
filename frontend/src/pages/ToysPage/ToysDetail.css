@@ -1,9 +1,10 @@
 .image-container {
     border: none;
+    width: 100%;
 }
 
 .image-sorurce {
-    width: 100%;
+    width: 10%;
 }
 
 .top-info-container {
@@ -37,7 +38,16 @@
 .toys-desc {
     padding: 0 10%;
     padding-right: 50%;
-    /* width: 200px; */
+    height: auto;
+    overflow-y: none;
+}
+
+.toys-desc {
+    /* padding: 0 10%; */
+    padding-left: 5%;
+    padding-right: 60%;
+    font-size: large;
+
 }
 
 .prize {

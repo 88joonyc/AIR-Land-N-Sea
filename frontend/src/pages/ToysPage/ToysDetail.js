@@ -35,6 +35,8 @@ export default function Bookings () {
     const [average, setAverage] = useState('')
     const [averageRound, setAverageRound] = useState('')
     const [isLoaded, setLoaded] = useState(true)
+    const [hidden, setHidden] = useState(false)
+
 
     // console.log(sessionUser.id === toy.)
     // console.log(toy?.map(el => console.log(el)))
@@ -85,6 +87,11 @@ export default function Bookings () {
         // console.log('rthis is the targert',e)
     }
 
+    function handleEdit(e) {
+        e.preventDefault();
+        // console.log('rthis is the targert',e)
+    }
+
     function counter() {
         let counter = slideNum;
         console.log(counter)
@@ -124,9 +131,11 @@ export default function Bookings () {
         <>
             <div className='details-page-container'>
                 <div className='image-wrapper'>
+                    <div className='img-slide-container'>
                         <img className='slide-image' src={toy?.Images[slideNum]?.url} />
+                    </div>
                     <div className='img-slide-control'>
-                        <button className='slide-img-next' onClick={() => counter()} >{">>"}</button>
+                        <button className='slide-img-next' onClick={() => counter()} >{">"}</button>
                     </div>
 
                 </div>
@@ -225,13 +234,16 @@ export default function Bookings () {
                                 <button onClick={starsRating}>Stars </button> {Math.floor(average)}/5 <repeat n={`${Math.floor(average)}`}></repeat>
                             </div>
 
+                            <h2 className='toy-title'>Features</h2>
+                            <p className='toys-desc'>Must be 21+ to book</p>
                             <h2 className='toy-title'>Description</h2>
                             <div className='toy-title-cont'>
                                 <h4 className='toys'>{toy?.year}</h4>
                                 <h4 className='toys'>{toy?.make}</h4>
                                 <h4 className='toys'>{toy?.model}</h4>
                             </div>
-                            <p className='toys-desc'>{toy?.description}</p>
+                            <p hidden={hidden} className='toys-desc'>{toy?.description}</p>
+                            {/* <button type='button'  className={`button`} onClick={() => setHidden(false)} >see more</button> */}
                         </div>
                         <div className='booking-form'>
                             <form
@@ -263,6 +275,8 @@ export default function Bookings () {
 
                     <div className='reviews-cont'>
                             <div className='review-title'>Ratings and reviews</div>
+
+                            ( {reviews.length} ratings total )
                             {
 
                             reviews?.map(review => {
@@ -284,8 +298,10 @@ export default function Bookings () {
                                             </div>
                                             <p
                                                 className='review-box'
-                                            >{review?.review}</p>
-                                            {isLoaded && <button onClick={handleDelete} className='deleteButton'>delete</button>}
+                                                >{review?.review}
+                                                {sessionUser.id === review.userId ? <button onClick={handleDelete} className='deleteButton'>delete</button> : null  }
+                                                {sessionUser.id === review.userId ? <button onClick={handleEdit} className='deleteButton'>edit</button> : null  }
+                                                </p>
                                         </div>
                                     )
                                 }
