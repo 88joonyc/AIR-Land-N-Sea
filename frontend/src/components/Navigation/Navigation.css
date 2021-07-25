@@ -6,7 +6,7 @@
     width: 100%;
     background-color: rgb(250 250 250);
     position: fixed;
-    z-index: 0;
+    z-index: 990;
     left: 0;
     top: 0;
     border-bottom: 1px solid purple;

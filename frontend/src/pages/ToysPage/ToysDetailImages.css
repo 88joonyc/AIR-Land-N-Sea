@@ -4,7 +4,7 @@
 
 .image-wrapper {
     display: grid;
-    /* position: relative; */
+    position: relative;
     margin-top: 8%;
     border: none;
 }
@@ -17,11 +17,14 @@
 
 .slide-image {
     width: 100%;
-    /* height: 100%; */
+    /* height: 800px; */
+    /* height: 375px; */
 }
 
 .details-page-container {
     background-color: white;
+    z-index: 950;
+
     /* padding: 0 10px; */
 }
 

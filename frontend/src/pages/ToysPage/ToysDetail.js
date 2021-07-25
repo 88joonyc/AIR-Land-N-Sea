@@ -23,9 +23,9 @@ export default function Bookings () {
 
     // console.log('finally got the reviews',reviews2)
 
-    const users = useSelector((state) => Object.values(state.users))
+    // const users = useSelector((state) => Object.values(state.users))
 
-    const calStart = bookings?.startDate.split("T")[0]
+    // const calStart = bookings?.startDate.split("T")[0]
     const calEnd = bookings?.endDate.split("T")[0]
 
     const history = useHistory();
@@ -34,14 +34,14 @@ export default function Bookings () {
     const [endDate, setEnd] = useState('')
     const [average, setAverage] = useState('')
     const [averageRound, setAverageRound] = useState('')
-    const [isLoaded, setLoaded] = useState(true)
+    // const [isLoaded, setLoaded] = useState(true)
     const [hidden, setHidden] = useState(false)
 
 
     // console.log(sessionUser.id === toy.)
     // console.log(toy?.map(el => console.log(el)))
 
-    const [currentSlide, setCurrentSlide] = useState(0)
+    // const [currentSlide, setCurrentSlide] = useState(0)
     const [slideNum, setSlideNum] = useState(1);
 
     useEffect(() => {
@@ -147,8 +147,6 @@ export default function Bookings () {
     }
 
     let content = null
-
-
 
     const starAvg = []
 

@@ -1,7 +1,40 @@
-
 .edit-form-popup-container {
-    position: sticky;
+    /* position: inherit; */
     top: 200px;
     right: 500px;
     background-color: white;
+}
+
+.details-page-container {
+    position: absolute;
+}
+
+.edit-toy-container {
+    position: relative;
+}
+
+.host-form-container {}
+
+.edit-form {}
+
+.user-canceled {
+    border: none;
+    font-size: 200%;
+    position: inherit;
+    float: left;
+    background-color: rgba(0, 0, 0, 0);
+    align-self: flex-end;
+}
+
+.user-canceled:hover {
+    cursor: pointer;
+}
+
+.mod-buttons  {
+    width: 100%;
+}
+
+.buttons-container {
+    width: 97%;
+    display: flex;
 }

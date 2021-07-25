@@ -2,12 +2,13 @@
     /* padding: 20px;
     border: 1px solid black;
     width: 10%; */
-    position: absolute;
+    /* position: sticky; */
     background-color: white;
     border-radius: 25px;
     top: 100px;
     width: 20%;
     padding: 10px 40px;
+    margin-top: 10px;
 
 }
 
@@ -16,11 +17,16 @@
     border-radius: 100px;
     background-color: red;
     color: white;
-    font-size: 50px;
+    font-size: 25px;
 }
 
 .edit-toy-container {
     /* position: relative; */
+
     /* top: 100px; */
     /* background-color: white; */
+}
+
+.users-toys {
+    margin-top: 100px;
 }

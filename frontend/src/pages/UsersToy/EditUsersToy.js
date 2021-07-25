@@ -76,9 +76,10 @@ export default function EditUserToy({toyId, hideForm}) {
 
     return (
         <>
-            <div className='hosts-container'>
-                <div className='host-form-container'>
+            <div className='edit-toy-container'>
+                <div className='host-form-container edit-form'>
                     <form onSubmit={handleSubmit} className='host-form'>
+                        <button className='user-canceled' onClick={handleCancel} type='button'>X</button>
                         <label>Year
                             <input
                                 type='number'
@@ -150,9 +151,11 @@ export default function EditUserToy({toyId, hideForm}) {
                                 onChange={updateDescription}
                             ></textarea>
                         </label>
-                        <button className='host-submit' type='submit'>Next</button>
-                        <button className='' onClick={handleCancel} type='button'>cancel</button>
-                        <button className='' onClick={deleteToy} type='button'>delete</button>
+                            <button className='host-submit' type='submit'>Update</button>
+                        <div className='buttons-container'>
+                            <button className='mod-buttons' onClick={()=> history.push(`/images/${toyId}`)} type='button'>Add pictures</button>
+                            <button className='mod-buttons' onClick={deleteToy} type='button'>delete</button>
+                        </div>
                     </form>
                 </div>
 
