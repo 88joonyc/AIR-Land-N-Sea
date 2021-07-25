@@ -103,6 +103,7 @@ export default function Bookings () {
     }
 
     function leaveAComment() {
+
         content = (
             <>
 
