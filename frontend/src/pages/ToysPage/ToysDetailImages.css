@@ -15,3 +15,27 @@
 .details-page-container {
     /* background-color: black; */
 }
+
+.img-slide-control {
+    display: flex;
+    justify-self: center;
+    /* float: right; */
+
+}
+
+.slide-img-next {
+    border: none;
+    position: absolute;
+    ;
+    /* bottom: 200px; */
+    /* height: 500%; */
+    margin: 0 auto;
+    background-color: rgba(20, 20, 20, 0);
+    font-size: 50px;
+    color: red;
+}
+
+.slide-img-next:hover {
+    border-radius: 50px;
+    cursor: pointer;
+}

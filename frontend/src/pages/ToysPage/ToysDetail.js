@@ -9,18 +9,19 @@ import { getUsers } from '../../store/users';
 
 import './ToysDetail.css'
 import './ToysDetailImages.css'
+import './ToysDetailReview.css'
 
 export default function Bookings () {
     const dispatch = useDispatch();
     const { toyId } = useParams()
     const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
-    const reviews = useSelector(state => state.reviews[toyId]);
+    const reviews = useSelector(state => Object.values(state.reviews));
     const toy = useSelector((state) => state.toys[toyId])
     // const reviews = toy?.Reviews
 
 
-    console.log('finally got the reviews',reviews)
+    // console.log('finally got the reviews',reviews2)
 
     const users = useSelector((state) => Object.values(state.users))
 
@@ -31,6 +32,8 @@ export default function Bookings () {
 
     const [startDate, setStart] = useState(calEnd)
     const [endDate, setEnd] = useState('')
+    const [average, setAverage] = useState('')
+    const [averageRound, setAverageRound] = useState('')
 
     // console.log(sessionUser.id === toy.)
     // console.log(toy?.map(el => console.log(el)))
@@ -42,7 +45,7 @@ export default function Bookings () {
         dispatch(getReviews(toyId))
         dispatch(getUsers())
 
-    }, [dispatch]);
+    }, [dispatch, toyId]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -93,18 +96,26 @@ export default function Bookings () {
         }
     }
 
+    let content = null
+
+
+
+    const starAvg = []
+
+
+
     const starsRating = () => {
-        const arr =[]
-        reviews?.map(review => {
+        let avg = 0
 
-            // console.log('this is what i get for review', review)
-            // review.stars?.map(el=> console.log('this is el', el))
-            // console.log('this is'. review)
+        reviews?.map((review, idx) => {
+            avg += review.stars
 
-            // console.log(review)
-            // const average = review?.stars.map(el => console.log('this are numbers ',el))
+            // console.log(avg)
+            if (idx === reviews.length - 1) {
+                setAverage(avg / reviews.length)
+                setAverageRound(Math.floor(avg / reviews.length))
+            }
 
-            // console.log('wjat is theis acverafge', average)
         })
     }
 
@@ -113,8 +124,8 @@ export default function Bookings () {
             <div className='details-page-container'>
                 <div className='image-wrapper'>
                         <img className='slide-image' src={toy?.Images[slideNum]?.url} />
-                        <button onClick={() => counter()} >hitme</button>
-                    <div className='img-slides-col'>
+                    <div className='img-slide-control'>
+                        <button className='slide-img-next' onClick={() => counter()} >>></button>
                     </div>
 
                 </div>
@@ -124,7 +135,8 @@ export default function Bookings () {
                             <h2 className='toys-top'>{toy?.make}</h2>
                             <h2 className='toys-top'>{toy?.model}</h2>
                             <h2 className='toys-top'>{toy?.id}</h2>
-                            <button onClick={starsRating}>stars rating</button>
+                            <button onClick={starsRating}>Click to see stars rating </button> {average}
+                            <repeat n={`${average}`}></repeat>
                         </div>
                         <div className='bot-info-container bottom-info'>
                             <h1>Hosted by</h1>
@@ -173,11 +185,20 @@ export default function Bookings () {
                     </>
 
                     <div className='reviews-cont'>
-                            {reviews?.map(review => {
-                                if (true ) {
+                            <div className='review-title'>Ratings and reviews</div>
+                            {
+
+                            reviews?.map(review => {
+
+
+                                if (review.toyId == toyId) {
                                     return (
                                         <div className='review-container'>
-                                            <h1>Reviewd by {`${review?.id}`}</h1>
+                                            <h1>Stars: {`${review?.stars}`}</h1>
+                                            <repeat n={`${review?.stars}`} ></repeat>
+
+                                            <h1>Date: {`${review?.createdAt.split("T")}`}</h1>
+                                            <h1>This was reviewed by: {`${review?.User.firstName}`}</h1>
                                             <h2>{review?.id}</h2>
                                             <p
                                                 className='review-box'
@@ -185,13 +206,13 @@ export default function Bookings () {
                                             <button onClick={handleDelete} className='deleteButton'>delete</button>
                                             <h2
                                                 className='stars'
-                                            >user {review?.userId} gave this a {review?.stars} star review!!</h2>
+                                            >user {review?.User.firstName} gave this a {review?.stars} star review!!</h2>
                                             <h2>{review?.userId}</h2>
                                         </div>
                                     )
+                                }
 
-                                } else return null
-                    })}
+                            })}
                     </div>
             </div>
         </>

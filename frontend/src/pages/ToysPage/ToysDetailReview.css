@@ -1,0 +1,42 @@
+.reviews-cont {
+    background-color: white;
+    padding: 20px;
+}
+
+.review-box {
+    font-size: xx-large;
+    padding: 20px;
+}
+
+.review-container {
+    background-color: white;
+}
+
+.reviews-title {
+    /* font-size: ; */
+}
+
+repeat {
+    display: block;
+    font-size: 20px;;
+}
+
+repeat[n="1"]:before {
+    content: "⭐️";
+}
+
+repeat[n="2"]:before {
+    content: "⭐️⭐️";
+}
+
+repeat[n="3"]:before {
+    content: "⭐️⭐️⭐️";
+}
+
+repeat[n="4"]:before {
+    content: "⭐️⭐️⭐️⭐️";
+}
+
+repeat[n="5"]:before {
+    content: "⭐️⭐️⭐️⭐️⭐️";
+}

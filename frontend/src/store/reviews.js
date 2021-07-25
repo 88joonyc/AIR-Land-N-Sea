@@ -43,18 +43,18 @@ export const getReviews = (id) => async dispatch => {
 };
 
 const initialState = {
-    reviews: null
+
 }
 
 const reviewReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case LOAD:
-            console.log('what is twrong with this action',action)
+            // console.log('what is twrong with this action',action)
             const thisReview = {
                 ...state,
             };
-            console.log('this is revriw action', action)
+            // console.log('this is revriw action', action)
             action.reviews.forEach((review) => {
                 thisReview[review.id] = review;
             });
