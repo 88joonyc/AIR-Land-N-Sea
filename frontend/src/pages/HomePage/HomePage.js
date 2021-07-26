@@ -29,6 +29,21 @@ export default function Home () {
                 hideForm={() => setElementId(null)}
             />
         )
+    } else {
+        content = (
+            <div className='bookings-container'>
+                    {userBooked?.map(book =>(
+                        <>
+                            <div className='booking-container'>
+                                Booking for <h2>{book?.id}</h2>
+                                <h2>{book?.startDate}</h2>
+                                <h2>{book?.endDate}</h2>
+                                <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
+                            </div>
+                        </>
+                    ))}
+            </div>
+        )
     }
 
     function openEditBooking(e) {
@@ -45,19 +60,7 @@ export default function Home () {
 
     return (
         <>
-        <div className='bookings-container'>
-                {userBooked?.map(book =>(
-                    <>
-                        <div className='booking-container'>
-                            Booking for <h2>{book?.id}</h2>
-                            <h2>{book?.startDate}</h2>
-                            <h2>{book?.endDate}</h2>
-                            <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
-                        </div>
-                    </>
-                ))}
-                {content}
-        </div>
+            {content}
         </>
     )
 }

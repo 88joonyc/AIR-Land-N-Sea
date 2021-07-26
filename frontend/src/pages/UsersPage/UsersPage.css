@@ -1,9 +1,9 @@
 .user-upload {
     display: flex;
     justify-self: center;
-    border-radius: 500px;
-    width: 500px;
+    border-radius: 400px;
+    width: 400px;
     padding: 20px;
-    max-height: 500px;
+    max-height: 400px;
     min-height: 220px;
 }

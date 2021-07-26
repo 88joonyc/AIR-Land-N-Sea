@@ -26,7 +26,7 @@ const remove = () => ({
 
 export const getBookings = () => async dispatch => {
     const books = await csrfFetch('/api/bookings')
-    const bookings = await books.json({});
+    const bookings = await books.json();
 
     dispatch(load(bookings))
 };
@@ -35,7 +35,7 @@ export const getOneBooking = (id) => async dispatch => {
     const book = await csrfFetch(`/api/bookings/${id}`)
         if (book.ok) {
             const booking = await book.json()
-            dispatch(setBookings(booking))
+            dispatch(load(booking))
         }
 }
 

@@ -82,34 +82,52 @@ export default function EditBookings ({bookId, booking, hideForm}) {
 
     return (
         <>
-            {toy?.Images.map(img => {
-                return (
-                    <div className='img-container'>
-                        <img key={img.id} src={img.url} alt='toy car plane'/>
-                    </div>
-                )
-            })}
                 <>
-                    <div className='booking-form'>
+                    <div className='booking-edit-form'>
                         <form
                             onSubmit={handleSubmit}
                             >
                             <div>{toy?.price}</div>
+
                             <div className='date-area'>
-                                <label
-                                    htmlFor='start'
-                                    >Start rental</label>
-                                <input
-                                    type='date'
-                                    value={startDate}
-                                    onChange={updateStart}
-                                />
-                                <label htmlFor='end'>End rental</label>
-                                <input
-                                    type='date'
-                                    value={endDate}
-                                    onChange={updateEnd}
-                                />
+                                <div className='book-timer'>
+                                    <div className='start-hour'>
+                                        <label
+                                            htmlFor='start'
+                                            >Start date</label>
+                                        <input
+                                            type='date'
+                                            value={startDate}
+                                            onChange={updateStart}
+                                        />
+                                        <label htmlFor='end'>Check-In</label>
+                                        <input
+                                            type='time'
+                                            value={endDate}
+                                            onChange={updateEnd}
+                                        />
+
+                                    </div>
+                                    <div className='end-hour'>
+                                        <label
+                                            htmlFor='start'
+                                            >End date</label>
+                                        <input
+                                            type='date'
+                                            value={endDate}
+                                            onChange={updateStart}
+                                        />
+                                        <label htmlFor='end'>Check-out</label>
+                                        <input
+                                            type='time'
+                                            value={null}
+                                            onChange={null}
+                                        />
+
+                                    </div>
+
+                                </div>
+
                                 <button className='reserve-button' type='submit'>Edit Reservation</button>
                                 <button
                                     className='reserve-button'
