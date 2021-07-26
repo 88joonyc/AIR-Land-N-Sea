@@ -82,8 +82,10 @@ export default function EditBookings ({bookId, booking, hideForm}) {
 
     return (
         <>
+
                 <>
                     <div className='booking-edit-form'>
+                        <button className='book-cancel-button' onClick={handleCancel} type='button'>X</button>
                         <form
                             onSubmit={handleSubmit}
                             >
@@ -127,28 +129,20 @@ export default function EditBookings ({bookId, booking, hideForm}) {
                                     </div>
 
                                 </div>
-
-                                <button className='reserve-button' type='submit'>Edit Reservation</button>
-                                <button
-                                    className='reserve-button'
-                                    onClick={deleteRes}
-                                    type='button'
-                                >Cancel Reservation</button>
-                                <button
-                                    className='reserve-button'
-                                    onClick={handleCancel}
-                                    type='button'
-                                >Cancel edit</button>
+                                <div className='delete-edit-button'>
+                                    <button className='reserve-button' type='submit'>Edit Reservation</button>
+                                    <button className='reserve-button' onClick={deleteRes} type='button' >Cancel Reservation</button>
+                                </div>
                             </div>
                         </form>
                     </div>
-                    <div className='bot-info-container'>
+                    {/* <div className='bot-info-container'>
                         <h2>{toy?.description}</h2>
                         <h2>{toy?.year}</h2>
                         <h2>{toy?.make}</h2>
                         <h2>{toy?.model}</h2>
                         <h2>{toy?.id}</h2>
-                    </div>
+                    </div> */}
                 </>
         </>
     )

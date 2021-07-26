@@ -19,9 +19,11 @@
     /* max-width: 100%; */
     width: 100%;
     height: auto;
+    max-height: 500px;
+
 
     /* height: 100%; */
-    /* z-index: 0; */
+    z-index: 0;
     /* height: 375px; */
 }
 

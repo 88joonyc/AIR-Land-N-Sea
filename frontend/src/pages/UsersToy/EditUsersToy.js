@@ -151,10 +151,10 @@ export default function EditUserToy({toyId, hideForm}) {
                                 onChange={updateDescription}
                             ></textarea>
                         </label>
-                            <button className='host-submit' type='submit'>Update</button>
+                            <button className='host-submit host-edit-submit' type='submit'>Update</button>
                         <div className='buttons-container'>
-                            <button className='mod-buttons' onClick={()=> history.push(`/images/${toyId}`)} type='button'>Add pictures</button>
-                            <button className='mod-buttons' onClick={deleteToy} type='button'>delete</button>
+                            <button className='mod-buttons add-pics-butt' onClick={()=> history.push(`/images/${toyId}`)} type='button'>Add pictures</button>
+                            <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>delete</button>
                         </div>
                     </form>
                 </div>

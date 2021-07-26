@@ -17,6 +17,20 @@
 
 .edit-form {}
 
+.host-edit-submit {
+    border-radius: 5px;
+}
+
+.add-pics-butt {
+    background-color: yellow;
+    color: black;
+}
+
+.cancel-butt-edit{
+    color: white;
+    background-color: red;
+}
+
 .user-canceled {
     border: none;
     font-size: 200%;
@@ -30,8 +44,10 @@
     cursor: pointer;
 }
 
-.mod-buttons  {
+.mod-buttons {
     width: 100%;
+    /* background-color: red; */
+    border-radius: 5px;
 }
 
 .buttons-container {

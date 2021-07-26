@@ -55,6 +55,7 @@ module.exports = {
       { toyId: 7 , url: 'https://images.boats.com/resize/1/60/98/7096098_20190528114058457_1_XLARGE.jpg?t=1626968581000&w=600&h=600' },
       { toyId: 7 , url: 'https://images.boats.com/resize/1/60/98/7096098_20190528114057936_1_XLARGE.jpg?t=1626968581000&w=600&h=600' },
       { toyId: 8 , url: 'https://i.insider.com/60f8404f2a723b0011e50613?width=700' },
+      { toyId: 8 , url: 'https://cms.qz.com/wp-content/uploads/2020/10/New-Shepard-Blue-Origin-Jeff-Bezos-profit-business-rocket-launch-payload.jpg?quality=75&strip=all&w=900&h=900&crop=1' },
       { toyId: 9 , url: 'https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/eg4oDT5hRtqLGdll31B6ig.1440x700.jpg' },
       { toyId: 9 , url: 'https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/tbXdW2fTR6WxZyz6dNtxqA.1440x700.jpg' },
       { toyId: 9 , url: 'https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/lFiv4uLqRLCxM9xeaeElWQ.1440x700.jpg' },
@@ -77,9 +78,6 @@ module.exports = {
       { toyId: 10 , url: 'imhttps://1.bp.blogspot.com/-DwQmR227Jq4/Vmqvc-kHqII/AAAAAAACNAY/qc8aenFtQHo/s640/foxcafe-17.jpgage' },
       { toyId: 10 , url: 'https://4.bp.blogspot.com/--rRMYA0zUdI/VmqveczMB6I/AAAAAAACNBA/i3Sfe4w5If8/s640/foxcafe-22.jpg' },
       { toyId: 10 , url: 'https://1.bp.blogspot.com/-9q6vyphzMJQ/Vmqveketr4I/AAAAAAACNBE/1gsLYbSIIrc/s640/foxcafe-23.jpg' },
-      { toyId: 10 , url: 'image' },
-      { toyId: 10 , url: 'image' },
-      { toyId: 10 , url: 'image' },
 
 
     ], {});

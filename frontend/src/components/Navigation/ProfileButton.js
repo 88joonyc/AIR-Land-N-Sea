@@ -47,8 +47,8 @@ export default function ProfileButton({user}) {
                     <li className='dropdown-items'>{user.email}</li>
                     <li>
                         <div className='edit-container'>
-                            <NavLink className='edit-button-drop' to='/toy/edit'>Edit toy</NavLink>
-                            <NavLink className='edit-button-drop' to={`/user/${user.id}`}>Edit user</NavLink>
+                            <NavLink className='edit-button-drop' activeClassName='edit-active' to='/toy/edit'>Edit toy</NavLink>
+                            <NavLink className='edit-button-drop' activeClassName='edit-active' to={`/user/${user.id}`}>Edit user</NavLink>
                         </div>
                         <button className='logout-button-b edit-button-drop' onClick={logout}>Log out</button>
                     </li>
