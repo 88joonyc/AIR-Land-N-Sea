@@ -12,6 +12,11 @@
 .img-container {
     display: flex;
     justify-content: center;
+    /* max-width: 00px; */
+}
+
+.img-pupup {
+    max-width: 800px;
 }
 
 .image-input {
@@ -20,7 +25,6 @@
 }
 
 .add-picture {
-    width: 300px;
     border: none;
     background-color: rgb(24, 11, 167);
     height: 100%;
@@ -32,4 +36,9 @@
 
 .add-label {
     width: 100%;
+}
+
+.cancel-picture {
+    background-color: blue;
+    color: white;
 }

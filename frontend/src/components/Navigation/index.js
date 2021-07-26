@@ -1,15 +1,28 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
+import * as sessionActions from '../../store/session'
+
 
 function Navigation({ isLoaded }){
+
   const sessionUser = useSelector(state => state.session.user);
 
-  const history = useHistory()
+  const history = useHistory();
+  const dispatch = useDispatch()
+
+  const sessionDemo = () => {
+    const payload = {
+      credential: "Demo",
+      password: 'password',
+
+    }
+    dispatch(sessionActions.login({payload}))
+  }
 
     if (isLoaded === false) {
     history.push('/login')
@@ -34,6 +47,7 @@ function Navigation({ isLoaded }){
         <div className='nav-button-container'>
             <NavLink className='navi-button' to="/login">Log In</NavLink>
             <NavLink className='navi-button' to="/sign-up">Sign Up</NavLink>
+            <button onClick={sessionDemo} className='navi-button' to="/">Demo</button>
         </div>
       </>
     );
