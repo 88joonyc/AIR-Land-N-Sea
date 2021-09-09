@@ -19,9 +19,9 @@ function Navigation({ isLoaded }){
     const payload = {
       credential: "Demo",
       password: 'password',
-
     }
-    dispatch(sessionActions.login({payload}))
+
+    dispatch(sessionActions.login(payload))
   }
 
     if (isLoaded === false) {
