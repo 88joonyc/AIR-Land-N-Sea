@@ -5,6 +5,7 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import * as sessionActions from './store/session'
 import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";
 import Home from "./pages/HomePage/HomePage";
 import Toys from './pages/ToysPage/ToysPage'
