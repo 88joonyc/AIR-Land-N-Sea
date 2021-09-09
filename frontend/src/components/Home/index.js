@@ -10,7 +10,7 @@ export default function Home() {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    console.log(sessionUser)
+    // console.log(sessionUser)
     // const [ picture, setPicture ] = useState(sessionUser.picture);
     // const [ email, setEmail ] = useState(sessionUser.email);
     // const [ firstName, setFirstName ] = useState(sessionUser.firstName);
