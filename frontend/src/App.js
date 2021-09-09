@@ -43,24 +43,24 @@ function App() {
         <Route path='/sign-up'>
           <SignUpFormPage/>
         </Route>
-        <Route exact path='/toys'>
+        <ProtectedRoute path='/toys'>
           <Toys/>
-        </Route>
-        <Route path='/hosting'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/hosting'>
           <Hosting/>
-        </Route>
-        <Route exact path='/toys/:toyId'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/toys/:toyId'>
           {isLoaded && <ToysDetail/>}
-        </Route>
-        <Route path='/toy/edit'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/toy/edit'>
           {isLoaded && <EditToys/>}
-        </Route>
-        <Route path='/images/:toyId'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/images/:toyId'>
           <AddImages props/>
-        </Route>
-        <Route exact path='/user/:userId'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/user/:userId'>
           {isLoaded &&  <UsersPage/>}
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </>
   );
