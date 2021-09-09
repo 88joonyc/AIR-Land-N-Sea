@@ -17,6 +17,10 @@ export default function Home () {
 
     const [elementId, setElementId] = useState(null)
 
+    useEffect(() => {
+        // dispatch(getBooking())
+    }, [])
+
     const userBooked = bookings?.user?.Bookings
 
     let content = null;
