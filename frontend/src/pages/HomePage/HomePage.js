@@ -12,12 +12,12 @@ import './HomePage.css'
 
 export default function Home () {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
-    const bookings = useSelector((state) => state.session)
+    const sessionUser = useSelector(state => state?.session?.user);
+    const bookings = useSelector((state) => state?.session)
 
     const [elementId, setElementId] = useState(null)
 
-    const userBooked = bookings?.user.Bookings
+    const userBooked = bookings?.user?.Bookings
 
     let content = null;
 
@@ -50,12 +50,11 @@ export default function Home () {
         e.preventDefault();
     }
 
-    console.log('this is bookings',bookings)
 
     useEffect(() => {
-        dispatch(getBooking(sessionUser.id));
+        dispatch(getBooking(sessionUser?.id));
         dispatch(getBookings())
-        dispatch(getOneBooking(bookings.id))
+        dispatch(getOneBooking(bookings?.id))
     }, [dispatch]);
 
     return (

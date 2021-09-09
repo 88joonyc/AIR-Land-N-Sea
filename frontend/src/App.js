@@ -26,16 +26,16 @@ function App() {
   }, [dispatch])
 
   if (isLoaded === false) {
-    history.push('/login')
+    // history.push('/login')
     // history.go(0)
   }
 
   return (
     <>
-      <Navigation isLoaded={isLoaded}></Navigation>
+      <Navigation></Navigation>
       <Switch>
         <Route exact path='/'>
-          {isLoaded && <Home/>}
+          <Home/>
         </Route>
         <Route path='/login'>
           <LoginFormPage/>
