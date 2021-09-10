@@ -43,14 +43,14 @@ function App() {
         <Route path='/sign-up'>
           <SignUpFormPage/>
         </Route>
-        <ProtectedRoute path='/toys'>
+        <ProtectedRoute exact path='/toys'>
           <Toys/>
         </ProtectedRoute>
         <ProtectedRoute path='/hosting'>
           <Hosting/>
         </ProtectedRoute>
         <ProtectedRoute path='/toys/:toyId'>
-          {isLoaded && <ToysDetail/>}
+          <ToysDetail/>
         </ProtectedRoute>
         <ProtectedRoute path='/toy/edit'>
           {isLoaded && <EditToys/>}

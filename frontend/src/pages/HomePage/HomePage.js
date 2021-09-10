@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import SplashPage from './SplashPage';
 
 import { getBookings, getOneBooking } from '../../store/bookings';
 import { getBooking } from '../../store/session';
@@ -18,8 +19,11 @@ export default function Home () {
     const [elementId, setElementId] = useState(null)
 
     useEffect(() => {
-        // dispatch(getBooking())
-    }, [])
+        dispatch(getBooking(sessionUser?.id));
+        dispatch(getBookings())
+        dispatch(getOneBooking(bookings?.id))
+    }, [dispatch, sessionUser?.id]);
+
 
     const userBooked = bookings?.user?.Bookings
 
@@ -35,6 +39,7 @@ export default function Home () {
         )
     } else {
         content = (
+            <div className='bodybody'>
             <div className='bookings-container'>
                     {userBooked?.map(book =>(
                         <>
@@ -47,6 +52,7 @@ export default function Home () {
                         </>
                     ))}
             </div>
+            </div>
         )
     }
 
@@ -55,15 +61,10 @@ export default function Home () {
     }
 
 
-    useEffect(() => {
-        dispatch(getBooking(sessionUser?.id));
-        dispatch(getBookings())
-        dispatch(getOneBooking(bookings?.id))
-    }, [dispatch]);
-
     return (
         <>
             {content}
+            {sessionUser ? null : <SplashPage />}
         </>
     )
 }
