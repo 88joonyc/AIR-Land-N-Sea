@@ -31,7 +31,7 @@ export default function SplashPage () {
                                 <label className="splash-find-text" htmlFor='location'>LOCATION</label>
                                 <input
                                     name='location'
-                                    className='splash-find-text'
+                                    className='splash-find-inputext'
                                     type='text'
                                 />
                                 <div className='splash-find-date'>
@@ -53,10 +53,10 @@ export default function SplashPage () {
                                     </div>
                                 </div>
                                 <div className='splash-find-drop'>
-                                    <select className="splash-find-text">
+                                    <select className="splash-find-select">
                                         <option>- select -</option>
                                     </select>
-                                    <select className="splash-find-text">
+                                    <select className="splash-find-select">
                                         <option>- select -</option>
                                     </select>
                                 </div>

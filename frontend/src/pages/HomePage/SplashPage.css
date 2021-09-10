@@ -41,7 +41,6 @@
     padding: 30px;
 }
 
-
 .splash-find-toy {
     position: absolute;
     top: 35px;
@@ -56,6 +55,17 @@
 
 .splash-find-text {
     height: 40px;
+    width: 177px
+}
+
+.splash-find-inputext {
+    height: 40px;
+    width: 356px;
+}
+
+.splash-find-select {
+    height: 40px;
+    width: 340px;
 }
 
 .splash-find-date {
@@ -63,7 +73,11 @@
 }
 
 .splash-find-print {
-    padding-left: 20px;
+    color: rgb(69, 70, 92);
+}
+
+.splash-find-drop {
+    display: flex;
 }
 
 .search-button {
