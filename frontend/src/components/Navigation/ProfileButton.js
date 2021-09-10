@@ -35,9 +35,9 @@ export default function ProfileButton({user}) {
 
     return (
         <>
-        <NavLink className='navi-button' to='/toys'>Rent a toy</NavLink>
-        <NavLink className='navi-button' to='/hosting'>Become a host</NavLink>
         <div className='navigation-tab'>
+            <NavLink className='navi-button' to='/toys'>Rent</NavLink>
+            <NavLink className='navi-button' to='/hosting'>Host</NavLink>
             <button className='user-button' onClick={openMenu}>
                 <i className='menu menu-circle'>{user.username}</i>
                 <img className='profile-pic' alt={user.picture} src={user.picture}/>

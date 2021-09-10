@@ -43,13 +43,13 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <div className='sessionlinks-loser'>
+      <>
         <div className='nav-button-container'>
             <NavLink className='navi-button' to="/login">Log In</NavLink>
             <NavLink className='navi-button' to="/sign-up">Sign Up</NavLink>
-            <button onClick={sessionDemo} className='navi-button' to="/">Demo</button>
+            <button onClick={sessionDemo} className='navi-button demo-button' to="/">Demo</button>
         </div>
-      </div>
+      </>
     );
   }
 

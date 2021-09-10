@@ -25,15 +25,19 @@ export default function SplashPage () {
                 <div>
                     <img className='splash-opening-img'/>
                 </div>
+                <div className='try-hosting-top'>
+                    <h1>hello</h1>
+                </div>
                 <div className='try-hosting-null'>
                     <h1>hello</h1>
+                </div>
+                <div className='try-hosting-null'>
                     <h1>hello</h1>
+                </div>
+                <div className='try-hosting-null'>
                     <h1>hello</h1>
-                    <h1>hello</h1>
-                    <h1>hello</h1>
-                    <h1>hello</h1>
-                    <h1>hello</h1>
-                    <h1>hello</h1>
+                </div>
+                <div className='try-hosting-null'>
                     <h1>hello</h1>
                 </div>
             </div>

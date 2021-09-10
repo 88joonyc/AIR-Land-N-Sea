@@ -2,20 +2,24 @@
 
 .spash-container {
     background-color: white;
-
-
-}
-
-.try-hosting-null {
     position: absolute;
     left: 0;
     top: 75px;
     width: 100%;
     height: 100%;
+}
+
+.try-hosting-top {
+    height: 600px;
+    border: 1px solid black;
+    margin-top: -20px;
     background-color: white;
-
 }
 
-.body {
-
+.try-hosting-null {
+    height: 600px;
+    border: 1px solid black;
+    background-color: rgb(235, 238, 247);
 }
+
+.body {}
