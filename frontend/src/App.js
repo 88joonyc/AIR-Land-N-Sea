@@ -14,6 +14,7 @@ import EditToys from "./pages/UsersToy/UsersToy";
 import Hosting from "./pages/HostPage/HostPage";
 import AddImages from "./pages/ImagePage/ImagePage";
 import UsersPage from "./pages/UsersPage/UsersPage";
+import FooterBar from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <>
-      <Navigation></Navigation>
+      <Navigation/>
       <Switch>
         <Route exact path='/'>
           <Home/>
@@ -62,6 +63,7 @@ function App() {
           {isLoaded &&  <UsersPage/>}
         </ProtectedRoute>
       </Switch>
+      <FooterBar/>
     </>
   );
 }
