@@ -12,14 +12,14 @@ const router = express.Router();
 //     check()
 // ]
 
-router.get('/', requireAuth, asyncHandler (async (req, res) => {
+router.get('/', asyncHandler (async (req, res) => {
     const toy = await Toy.findAll({
         include: [Image, Review, User]
     })
     return res.json(toy)
 }))
 
-router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
+router.get('/:id', asyncHandler (async (req, res) => {
     const toy = await Toy.findByPk(req.params.id, {
         include: [Image, Review, User]
     })

@@ -3,17 +3,19 @@
     width: 900px;
     border-radius: 10px;
     position: relative;
-    margin-left: 300px;
+    margin-left: 100px;
 }
 
 .spash-container {
     background-color: white;
-    position: absolute;
-    left: 0;
+    position: relative;
     top: 70px;
-    width: 100%;
+    /* width: 1200px; */
     height: 100%;
+    /* margin-left: -300px; */
 }
+
+.splash-main {}
 
 .try-hosting-top {
     height: 600px;
@@ -28,7 +30,7 @@
 }
 
 .splash-width-container {
-    width: 1200px;
+    /* width: 1100px; */
     margin: 0 auto
 }
 
@@ -45,7 +47,7 @@
     position: absolute;
     top: 35px;
     width: 425px;
-    left: 80px;
+    /* left: 40px; */
     height: 400px;
     border-radius: 5px;
     z-index: 100;
@@ -117,4 +119,19 @@
     font-size: larger;
     border-radius: 5px;
     background-color: white;
+}
+
+.worlds-largest {
+    /* background-color: violet; */
+    padding-top: 30px;
+    text-align: center;
+    font-size: 60px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.worlds-block {
+    background-color: rgb(234, 208, 212);
+    height: 120px;
+    margin-top: -100px;
 }
