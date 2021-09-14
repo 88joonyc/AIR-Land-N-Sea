@@ -1,8 +1,8 @@
 .footer-message {
     display: flex;
     justify-content: center;
-    border-top: 1px solid rgb(103, 96, 135);
-    border-bottom: 1px solid rgb(103, 96, 135);
+    border-top: 1px solid rgb(63, 59, 80);
+    border-bottom: 1px solid rgb(59, 55, 73);
     padding: 20px 0;
     margin-top: 5%;
     font-size: small;
@@ -16,8 +16,8 @@
     color: rgb(189, 191, 205);
     font-family: 'Kaisei Opti', serif;
     font-size: .7em;
-    color: rgb(212, 212, 239);
-    background-color: rgb(17, 22, 74);
+    color: rgb(19, 19, 44);
+    background-color: rgb(232, 235, 241);
     /* width: 100%; */
     height: 420px;
     padding: 23px
@@ -31,7 +31,7 @@
 
 .footer-title {
     font-size: large;
-    color: rgb(124, 128, 155);
+    color: rgb(33, 37, 66);
 }
 
 .footer-footer {
@@ -48,12 +48,12 @@
 }
 
 .footer-linked {
-    color: rgb(176, 234, 228);
+    color: rgb(0, 0, 0);
 }
 
 .footer-linked:hover {
     color: rgb(0, 255, 132);
-    box-shadow: 10px 10px 40px rgb(0, 255, 132);
+    box-shadow: 10px 10px 40px rgb(255, 42, 216);
 }
 
 
