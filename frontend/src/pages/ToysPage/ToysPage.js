@@ -38,32 +38,22 @@ export default function Toys () {
                                 <div className='toy-container'>
                                     <img className='toys-page-image' src={toy?.Images[Math.floor(Math.random()*5)]?.url} />
                                     <div className='toy-info-container'>
-                                        <h2 className='info-text'>{toy.make}</h2>
-                                        <h2 className='info-text'>{toy.model}</h2>
-                                        <h2 className='info-text'>{toy.year}</h2>
+                                        <div className='toy-main-info'>
+                                            <h2 className='info-text'>{toy.year}</h2>
+                                            <h2 className='info-text'>{toy.make}</h2>
+                                            <h2 className='info-text'>{toy.model}</h2>
+                                        </div>
                                         <div className='toy-spec-info'>
-                                            <b className='info-text into-same-text'>Difficulty Level</b>
-                                            <b className='info-text'>{toy.level}</b>
-                                        <b className='info-text into-same-text'>please drive to stay alive</b>
+                                            <div>
+                                                <b className='info-text into-same-text'>Difficulty Level</b>
+                                                <b className='info-text'>{toy.level}</b>
+                                            </div>
                                             <div className='toy-price-info'>
-                                                <b className='info-text into-same-text'>$</b>
+                                                <b className='info-text'>$</b>
                                                 <b className='info-text'>{toy.price}</b>
                                                 <b className='info-text into-same-text'>/ day</b>
                                             </div>
                                         </div>
-                                        {/* {
-                                            toy?.Reviews?.map(el => {
-                                            console.log(toy.id)
-                                            if (starRate[el.toyId] !== "undefined") {
-                                                starRate[el.toyId]= starRate[el.toyId] + el.stars
-                                            }
-                                            if (el.toyId === toy.id) {
-                                                starRate[el.toyId]=el.stars
-                                                console.log('this is tar',starRate)
-                                            }
-                                            // console.log('this is starrate',el)
-
-                                        })} */}
                                     </div>
                                 </div>
                             </div>
