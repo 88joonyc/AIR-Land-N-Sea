@@ -19,9 +19,16 @@ router.get('/', asyncHandler (async (req, res) => {
     return res.json(toy)
 }))
 
+// router.get('/:id', asyncHandler (async (req, res) => {
+//     const toy = await Toy.findByPk(req.params.id, {
+//         include: [Image, Review, User]
+//     })
+//     return res.json(toy)
+// }))
+
 router.get('/:id', asyncHandler (async (req, res) => {
-    const toy = await Toy.findByPk(req.params.id, {
-        include: [Image, Review, User]
+    const toy = await Toy.findAll({
+        include: [ Image, Review, User ], where: { userId: req.params.id }
     })
     return res.json(toy)
 }))

@@ -36,7 +36,7 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
 
 router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
     const booking = await Booking.findAll({
-        include: [Toy], where:{userId: req.params.id}
+        include: [ Toy ], where: { userId: req.params.id }
     })
     return res.json(booking)
 }))
