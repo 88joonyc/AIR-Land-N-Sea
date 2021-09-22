@@ -1,9 +1,8 @@
 body {
     /* background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'); */
-    background-size: cover;
+    /* background-size: cover; */
     background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
     background-color: white;
 }
 
@@ -24,6 +23,14 @@ h2 {
 
 .delete-edit-button {
     display: flex;
+}
+
+#root {
+    position: absolute;
+    top:75px;
+    left: 0;
+    width: 100%;
+
 }
 
 input {
@@ -68,7 +75,6 @@ input {
 
 .booking-edit-form {
     margin-top: 100px;
-    /* width: 100px; */
     border: 1px solid black;
     background-color: white;
     /* background-color: black; */

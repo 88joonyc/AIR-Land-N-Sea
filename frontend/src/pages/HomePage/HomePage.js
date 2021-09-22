@@ -6,7 +6,7 @@ import SplashPage from './SplashPage';
 import { getBookings, getOneBooking } from '../../store/bookings';
 import { getBooking } from '../../store/session';
 import { getUsers } from '../../store/users';
-import EditBookings from './EditBookings';
+import EditBookings from '../../components/EditBookings/EditBookings';
 
 import './HomePage.css'
 
@@ -40,31 +40,25 @@ export default function Home () {
     } else {
         content = (
             <div className='home-body'>
-            <div className='bookings-container'>
-                    {userBooked?.map(book =>(
-                        <>
-                            <div className='booking-container'>
-                                Booking for <h2>{book?.id}</h2>
-                                <h2>{book?.startDate}</h2>
-                                <h2>{book?.endDate}</h2>
-                                <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
-                            </div>
-                        </>
-                    ))}
-            </div>
+                <div className='bookings-container'>
+                        {userBooked?.map(book =>(
+                            <>
+                                <div className='booking-container'>
+                                    Booking for <h2>{book?.id}</h2>
+                                    <h2>{book?.startDate}</h2>
+                                    <h2>{book?.endDate}</h2>
+                                    <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
+                                </div>
+                            </>
+                        ))}
+                </div>
             </div>
         )
     }
 
-    function openEditBooking(e) {
-        e.preventDefault();
-    }
-
-
     return (
         <>
-            {content}
-            {sessionUser ? null : <SplashPage />}
+            {sessionUser ? content : <SplashPage />}
         </>
     )
 }
