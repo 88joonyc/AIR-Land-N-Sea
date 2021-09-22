@@ -13,10 +13,31 @@
 
 .img-slides-col {}
 
+.img-slide-container {
+    box-sizing: content-box;
+    z-index: 500;
+}
+
 .slide-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
+    max-height: 700px;
     z-index: 1000;
+}
+
+.slide-img-next {
+    border: none;
+    margin: 0 auto;
+    background-color: rgba(20, 20, 20, .8);
+    border-radius: 50px;
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+    color: white;
+    position: absolute;
+    right: 15px;
+    top: 3%;
 }
 
 .toy-detail-container  {
@@ -34,30 +55,12 @@
     /* position: relative; */
 }
 
-.img-slide-container {
-    height: fit-content;
-    z-index: 500;
-}
-
 body {
     width: 1000px;
     margin: 0 auto;
     ;
 }
 
-.slide-img-next {
-    border: none;
-    margin: 0 auto;
-    background-color: rgba(20, 20, 20, .8);
-    border-radius: 50px;
-    font-size: 50px;
-    width: 70px;
-    height: 70px;
-    color: white;
-    position: absolute;
-    right: 15px;
-    top: 200px;
-}
 
 .slide-img-next:hover {
     border-radius: 50px;
