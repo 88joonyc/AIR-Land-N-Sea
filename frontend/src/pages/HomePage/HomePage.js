@@ -14,13 +14,13 @@ import EditToys from '../UsersToy/UsersToy';
 export default function Home () {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state?.session?.user);
-    const bookings = useSelector((state) => state?.bookings)
+    const bookings = useSelector((state) => state?.bookings?.bookings)
 
     const [elementId, setElementId] = useState(null)
     const toys = sessionUser?.Toys
 
     useEffect(() => {
-        dispatch(getOneBooking(3))
+        dispatch(getOneBooking(sessionUser?.id))
 
 
     }, [dispatch, sessionUser?.id]);

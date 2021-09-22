@@ -54,18 +54,14 @@ export const createBooking = (payload) => async dispatch => {
     return newBooking;
 };
 
-const initialState = {};
+const initialState = {bookings:null};
 
 const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:
-            const loadingBooking = {
-                ...state
+            if (action.bookings) {
+                return {"bookings": action.bookings}
             }
-            action.bookings.forEach((book) => {
-                loadingBooking[book.id] = book
-            })
-            return loadingBooking
 
             case SET_BOOKINGS:
                 const newState = {
