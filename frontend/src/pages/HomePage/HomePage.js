@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SplashPage from './SplashPage';
 
 import { getBookings, getOneBooking } from '../../store/bookings';
-import { getBooking } from '../../store/session';
+import { getBooking, restoreUser } from '../../store/session';
 import EditBookings from '../../components/EditBookings/EditBookings';
 
 import './HomePage.css'
@@ -14,20 +14,19 @@ import EditToys from '../UsersToy/UsersToy';
 export default function Home () {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state?.session?.user);
-    const bookings = useSelector((state) => state?.session)
+    const bookings = useSelector((state) => state?.bookings)
 
     const [elementId, setElementId] = useState(null)
     const toys = sessionUser?.Toys
 
     useEffect(() => {
-        dispatch(getBooking(sessionUser?.id));
-        // dispatch(getBookings())
-        // dispatch(getOneBooking(bookings?.id))
+        dispatch(getOneBooking(3))
+
 
     }, [dispatch, sessionUser?.id]);
 
 
-    const userBooked = bookings?.user?.Bookings
+    const userBooked = Object.values(bookings)
 
     let content = null;
 

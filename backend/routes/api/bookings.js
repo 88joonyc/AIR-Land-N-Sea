@@ -25,14 +25,18 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
     return res.json(booking)
 }))
 
-// router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
-//     const booking = await Booking.findAll()
+
+// router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
+//     const booking = await Booking.findByPk(req.params.id, {
+//         include: [User, Toy]
+//     })
 //     return res.json(booking)
 // }))
 
+
 router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
-    const booking = await Booking.findByPk(req.params.id, {
-        include: [User, Toy]
+    const booking = await Booking.findAll({
+        include: [Toy], where:{userId: req.params.id}
     })
     return res.json(booking)
 }))

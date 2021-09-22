@@ -45,6 +45,13 @@ const restoreUser = (req, res, next) => {
     })
 }
 
+// const getUserId = (req, res) => {
+//     return jwt.verify( secret, null, async (err, jwtPayload) => {
+//         const {id} = jwtPayload.data
+//         return id
+//     })
+// }
+
 const requireAuth = [
     restoreUser,
     function(req, res, next) {
@@ -62,4 +69,5 @@ module.exports = {
     setTokenCookie,
     restoreUser,
     requireAuth,
+
 }
