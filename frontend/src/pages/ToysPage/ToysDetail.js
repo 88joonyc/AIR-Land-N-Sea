@@ -176,14 +176,14 @@ export default function Bookings () {
                     <>
                         <div className='top-info-container'>
 
-                            <h2 className='toys-top-fn'>{toy?.User.firstName}'s</h2>
+                            {/* <h2 className='toys-top-fn'>{toy?.User.firstName}'s</h2> */}
                             <h2 className='toys-top'>{toy?.make}</h2>
                             <h2 className='toys-top'>{toy?.model}</h2>
                             <h2 className='toys-top'>{toy?.year}</h2>
                         </div>
 
 
-                        <form
+                        {/* <form
                                 onSubmit={handleSubmit}
                                 >
                                 <div className='details-price-fo'>
@@ -223,7 +223,7 @@ export default function Bookings () {
                                         />
                                 </div>
                                     <button className='reserve-button reserve-form' type='submit'>Reserve Now</button>
-                            </form>
+                            </form> */}
 
 
                         <div className='bot-info-container bottom-info'>

@@ -13,12 +13,8 @@
 }
 
 .grouper {
-    /* height: 200px; */
-    /* display: flex; */
-    /* width: 1000px; */
     width: 300px;
-    /* padding: 20px; */
-    background-color: rgba(250, 250, 250, .9);
+    padding: 2.5px
 }
 
 .toy-grid {
