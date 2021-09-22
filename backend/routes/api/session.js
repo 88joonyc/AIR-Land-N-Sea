@@ -41,7 +41,7 @@ router.get('/:id', requireAuth, asyncHandler(async (req, res) => {
 
 router.get('/booking/:id', requireAuth, asyncHandler(async (req, res) => {
     const user = await User.findByPk(req.params.id, {
-        include: Booking
+        include: [Booking, Toy]
     })
 
     return res.json(user)
