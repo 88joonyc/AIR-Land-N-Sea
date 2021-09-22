@@ -105,8 +105,6 @@ export default function Bookings () {
 
     function leaveAComment() {
 
-
-
         content = (
             <>
 
@@ -152,8 +150,6 @@ export default function Bookings () {
     let content = null
 
     const starAvg = []
-
-
 
     const starsRating = () => {
         let avg = 0
@@ -326,7 +322,7 @@ export default function Bookings () {
                             reviews?.map(review => {
 
 
-                                if (review.toyId == toyId) {
+                                if (review?.toyId == toyId) {
                                     return (
                                         <div className='review-container'>
                                             <div className='split'>

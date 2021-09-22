@@ -15,8 +15,6 @@
     display: flex;
 }
 
-
-
 .details-price-form {}
 
 .details-price-fo {
@@ -48,7 +46,6 @@
     padding-left: 5%;
     padding-right: 60%;
     font-size: large;
-
 }
 
 .prize {
@@ -83,9 +80,7 @@
     display: flex;
 }
 
-.bot-into-text {
-
-}
+.bot-into-text {}
 
 .bot-user-cont {
     display: flex;
