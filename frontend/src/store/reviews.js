@@ -34,12 +34,9 @@ const remove = () => ({
 // };
 
 export const getReviews = (id) => async dispatch => {
-    console.log('this is an id IDDID', id)
     const res = await csrfFetch(`/api/reviews/${id}`)
     const review = await res.json();
     dispatch(load(review))
-    // if (res.ok) {
-    // }
 };
 
 const initialState = {
@@ -50,13 +47,9 @@ const reviewReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case LOAD:
-            const thisReview = {
-                ...state,
-            };
-            action.reviews.forEach((review) => {
-                thisReview[review.id] = review;
-            });
-            return thisReview;
+            if (action.reviews) {
+                return {"reviews": action.reviews}
+            }
 
         case SET_REVIEW:
             const newState = {

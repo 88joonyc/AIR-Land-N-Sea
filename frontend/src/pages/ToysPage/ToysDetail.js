@@ -16,7 +16,7 @@ export default function Bookings () {
     const { toyId } = useParams()
     const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
-    const reviews = useSelector(state => Object.values(state.reviews));
+    const reviews = useSelector(state => state.reviews.reviews);
     const toy = useSelector((state) => state.toys[toyId])
     // const reviews = toy?.Reviews
 
@@ -277,7 +277,7 @@ export default function Bookings () {
                                     <div className='user-row-info'>
                                         <h2 className='toys-bot bot-info-text'>{toy?.User.firstName}</h2>
                                         <h4 className='bot-info-text'>🏆  All-star host</h4>
-                                        <h4 className='bot-info-text'>{reviews.length} Trips * </h4>
+                                        <h4 className='bot-info-text'>{reviews?.length} Trips * </h4>
                                         <h2 className='toys-bot bot-into-text'>user: {toy?.User.username}</h2>
                                         {/* <h2 className='toys-bot bot-into-text'>{toy?.User.createdAt}</h2> */}
                                     </div>
