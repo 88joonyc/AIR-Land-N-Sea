@@ -41,22 +41,15 @@ export const getOneToy = (id) => async dispatch => {
 };
 
 const initialState = {
-    toys: [],
+    toys: null,
 };
 
 const toysReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:
-            const allToys = {
-                ...state,
-            };
-            console.log('this is toy action', action)
-            action.toys.forEach((toy) => {
-                allToys[toy.id] = toy;
-            });
-
-            return allToys;
-
+            if (action.toys) {
+                return {"toys": action.toys}
+            }
         case SET_TOYS:
             const newState = {
                 ...state,
@@ -74,7 +67,6 @@ const toysReducer = (state = initialState, action) => {
                 [action.toy.id]: action.toy
             }
         }
-
         default:
             return state;
     };

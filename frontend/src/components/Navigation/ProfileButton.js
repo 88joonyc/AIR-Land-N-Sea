@@ -26,8 +26,7 @@ export default function ProfileButton({user}) {
     }, [showMenu]);
 
 
-    const logout = (event) => {
-        event.preventDefault();
+    const logout = () => {
         dispatch(sessionActions.loggingOut());
         history.push('/')
         history.go(0)
@@ -49,7 +48,7 @@ export default function ProfileButton({user}) {
                         <div className='edit-container'>
                             <NavLink className='edit-button-drop' activeClassName='edit-active' to={`/user/${user.id}`}>Edit user</NavLink>
                         </div>
-                        <button className='logout-button-b edit-button-drop' onClick={(e) => logout(e)}>Log out</button>
+                        <button className='logout-button-b edit-button-drop' onClick={() => logout()}>Log out</button>
                     </li>
                 </ul>
             )}

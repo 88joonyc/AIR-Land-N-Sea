@@ -9,20 +9,23 @@ import EditBookings from '../../components/EditBookings/EditBookings';
 
 import './HomePage.css'
 import EditToys from '../UsersToy/UsersToy';
+import { getOneToy } from '../../store/toys';
 
 
 export default function Home () {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state?.session?.user);
+    const bookings = useSelector((state) => state?.bookings?.bookings)
+    // const toys
 
     const [elementId, setElementId] = useState(null)
     const toys = sessionUser?.Toys
 
     useEffect(() => {
         dispatch(getOneBooking(sessionUser?.id))
+        dispatch(getOneToy(sessionUser?.id))
     }, [dispatch, sessionUser]);
 
-    const bookings = useSelector((state) => state?.bookings?.bookings)
 
     const userBooked = bookings
 

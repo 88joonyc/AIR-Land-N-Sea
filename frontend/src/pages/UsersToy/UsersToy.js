@@ -20,7 +20,6 @@ export default function EditToys () {
 
     useEffect(() => {
         // dispatch(getSession(sessionUser.id));
-        // dispatch(getToys())
     }, [dispatch]);
 
     let content = null;
