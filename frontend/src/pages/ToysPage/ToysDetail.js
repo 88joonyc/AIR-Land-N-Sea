@@ -167,17 +167,12 @@ export default function Bookings () {
     }
 
     return (
-        <>
+        <div className='toy-detail-container'>
+            <div className='img-slide-container'>
+                <img className='slide-image' src={toy?.Images[slideNum]?.url} />
+                <button className='slide-img-next' onClick={() => counter()} >{">"}</button>
+            </div>
             <div className='details-page-container'>
-                <div className='image-wrapper'>
-                    <div className='img-slide-container'>
-                        <img className='slide-image' src={toy?.Images[slideNum]?.url} />
-                    </div>
-                    <div className='img-slide-control'>
-                        <button className='slide-img-next' onClick={() => counter()} >{">"}</button>
-                    </div>
-
-                </div>
                     <>
                         <div className='top-info-container'>
 
@@ -315,7 +310,7 @@ export default function Bookings () {
                     <div className='reviews-cont'>
                             <div className='review-title'>Ratings and reviews</div>
 
-                            ( {reviews.length} ratings total )
+                            ( {reviews?.length} ratings total )
                             <button type='button' onClick={leaveAComment} className='leave-a-comment'>Leave a comment</button>
                             {
 
@@ -349,6 +344,6 @@ export default function Bookings () {
                             })}
                     </div>
             </div>
-        </>
+        </div>
     )
 }

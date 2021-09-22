@@ -1,11 +1,10 @@
-.toy-detail-img {
-
-}
+.toy-detail-img {}
 
 .image-wrapper {
-    display: grid;
-    position: relative;
-    border: none;
+    /* display: grid; */
+    /* position: relative; */
+    /* border: none; */
+    /* height: auto; */
 }
 
 .prev-img-button {}
@@ -15,11 +14,14 @@
 .img-slides-col {}
 
 .slide-image {
-    /* max-width: 100%; */
     width: 100%;
     height: auto;
-    max-height: 500px;
-    z-index: 0;
+    z-index: 1000;
+}
+
+.toy-detail-container  {
+    display: block;
+
 }
 
 .details-page-container {
@@ -29,30 +31,21 @@
     flex-direction: column;
     margin: 0 auto;
     z-index: 400;
-
-}
-
-.img-slide-control {
-    position: absolute;
-    top: 50%;
-    right:15px;
-    z-index: 900;
-    border-radius: 40px;
-    background-color: rgba(20, 20, 20 .9);
+    /* position: relative; */
 }
 
 .img-slide-container {
-    height: 375px;
+    height: fit-content;
     z-index: 500;
 }
 
 body {
     width: 1000px;
-    margin: 0 auto;;
-
+    margin: 0 auto;
+    ;
 }
 
- .slide-img-next {
+.slide-img-next {
     border: none;
     margin: 0 auto;
     background-color: rgba(20, 20, 20, .8);
@@ -61,6 +54,9 @@ body {
     width: 70px;
     height: 70px;
     color: white;
+    position: absolute;
+    right: 15px;
+    top: 200px;
 }
 
 .slide-img-next:hover {

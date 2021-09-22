@@ -18,7 +18,7 @@
 
 .toy-grid {
     position: relative;
-    top: 100px;
+    top: 20px;
     /* border: 1px solid black; */
     display: flex;
     flex-wrap: wrap;
