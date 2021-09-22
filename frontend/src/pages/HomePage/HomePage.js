@@ -39,7 +39,7 @@ export default function Home () {
         )
     } else {
         content = (
-            <div className='bodybody'>
+            <div className='home-body'>
             <div className='bookings-container'>
                     {userBooked?.map(book =>(
                         <>
