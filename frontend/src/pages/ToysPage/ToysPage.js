@@ -1,27 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { getToys } from '../../store/toys';
-import { getReviews1 } from '../../store/reviews';
-import FooterBar from '../../components/Footer/Footer';
-
-// import ToysDetail from './ToysDetail'
 
 import './ToysPage.css'
 
 export default function Toys () {
     const dispatch = useDispatch();
-    // const { toyId } = useParams();
     const toys = useSelector((state) => (Object.values(state.toys)))
-
-
-
 
     useEffect(() => {
         dispatch(getToys());
-        // dispatch(getReviews1(1))
-
     }, [dispatch]);
 
     let starRate = {}

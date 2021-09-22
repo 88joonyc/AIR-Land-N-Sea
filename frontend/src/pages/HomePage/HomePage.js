@@ -21,8 +21,8 @@ export default function Home () {
 
     useEffect(() => {
         dispatch(getBooking(sessionUser?.id));
-        dispatch(getBookings())
-        dispatch(getOneBooking(bookings?.id))
+        // dispatch(getBookings())
+        // dispatch(getOneBooking(bookings?.id))
 
     }, [dispatch, sessionUser?.id]);
 

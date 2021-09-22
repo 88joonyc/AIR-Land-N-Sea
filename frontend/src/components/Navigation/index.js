@@ -26,13 +26,11 @@ function Navigation({ isLoaded }){
 
     if (isLoaded === false) {
     history.push('/login')
-    // history.go(0)
+
   }
 
   function homeClicked(e) {
-    // e.preventdefault();
     history.push('/')
-    // history.go(0)
   }
 
 

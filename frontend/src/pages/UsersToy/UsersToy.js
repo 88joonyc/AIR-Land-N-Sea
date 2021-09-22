@@ -19,8 +19,8 @@ export default function EditToys () {
     const toys = sessionUser?.Toys
 
     useEffect(() => {
-        dispatch(getSession(sessionUser.id));
-        dispatch(getToys())
+        // dispatch(getSession(sessionUser.id));
+        // dispatch(getToys())
     }, [dispatch]);
 
     let content = null;

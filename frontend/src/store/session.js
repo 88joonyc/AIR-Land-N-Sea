@@ -5,19 +5,6 @@ const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const UPDATE_USER = 'session/UPDATE_USER'
 
-// const RESTORE_USER = 'session/restoreUser';
-
-// what is expected from serssion with an actve user:
-
-// {
-//   user: {
-//     id,
-//     email,
-//     username,
-//     createdAt,
-//     updatedAt
-//   }
-// }
 
 const load = (user) => ({
     type: LOAD,
@@ -30,12 +17,6 @@ const setUser = (user) => {
         payload: user,
     };
 };
-
-// what is expected from session with no active user:
-
-// {
-//   user: null
-// }
 
 const removeUser = () => {
     return {
@@ -140,12 +121,12 @@ export const editUser = (payload, id) => async dispatch => {
     return editThisUser;
 };
 
-export const getSession = (id) => async dispatch => {
-    const res = await csrfFetch(`/api/session/${id}`)
-    const user = await res.json();
+// export const getSession = (id) => async dispatch => {
+//     const res = await csrfFetch(`/api/session/${id}`)
+//     const user = await res.json();
 
-    dispatch(setUser(user))
-}
+//     dispatch(setUser(user))
+// }
 
 export const getBooking = (id) => async dispatch => {
     const res = await csrfFetch(`/api/session/booking/${id}`)
