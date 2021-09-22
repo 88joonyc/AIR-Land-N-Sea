@@ -18,8 +18,6 @@ export default function EditToys () {
     const [elementId, setElementId] = useState(null)
     const toys = sessionUser?.Toys
 
-    console.log('wjhat are these toys', toys)
-
     useEffect(() => {
         dispatch(getSession(sessionUser.id));
         dispatch(getToys())
@@ -40,21 +38,20 @@ export default function EditToys () {
             <div className='users-toys'>
                     {toys?.map(el => (
                         <>
-                        {console.log(el)}
-                        <div className='each-toy' >
-                            <div className='edit-toy-container'>
-                                <h2>{el?.id}</h2>
-                                <h2>{el?.year}</h2>
-                                <h2>{el?.make}</h2>
-                                <h2>{el?.model}</h2>
+                            <div className='each-toy' >
+                                <div className='edit-toy-container'>
+                                    <h2>{el?.id}</h2>
+                                    <h2>{el?.year}</h2>
+                                    <h2>{el?.make}</h2>
+                                    <h2>{el?.model}</h2>
+                                </div>
+                                    <button
+                                            onClick={() => setElementId(el.id)}
+                                            className='edit-booking-button'
+                                        >edit</button>
+                                <div>
+                                </div>
                             </div>
-                                <button
-                                        onClick={() => setElementId(el.id)}
-                                        className='edit-booking-button'
-                                    >edit</button>
-                            <div>
-                            </div>
-                        </div>
                         </>
                     ))}
             </div>
@@ -64,7 +61,6 @@ export default function EditToys () {
     return (
         <>
         {content}
-
         </>
 
     )

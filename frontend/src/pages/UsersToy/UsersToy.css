@@ -1,11 +1,7 @@
 .each-toy {
-    /* padding: 20px;
-    border: 1px solid black;
-    width: 10%; */
-    /* position: sticky; */
     background-color: white;
     border-radius: 25px;
-    top: 100px;
+    /* top: 100px; */
     width: 20%;
     padding: 10px 40px;
     margin-top: 10px;
@@ -29,4 +25,7 @@
 
 .users-toys {
     margin-top: 100px;
+    /* position: absolute; */
+    /* top: 1000px */
+    /* z-index: 1000; */
 }

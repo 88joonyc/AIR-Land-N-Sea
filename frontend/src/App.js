@@ -53,9 +53,9 @@ function App() {
         <ProtectedRoute path='/toys/:toyId'>
           <ToysDetail/>
         </ProtectedRoute>
-        <ProtectedRoute path='/toy/edit'>
+        {/* <ProtectedRoute path='/toy/edit'>
           {isLoaded && <EditToys/>}
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/images/:toyId'>
           <AddImages props/>
         </ProtectedRoute>
