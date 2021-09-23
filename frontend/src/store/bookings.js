@@ -59,7 +59,6 @@ const initialState = {bookings:null};
 const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:
-            console.log("===========booking==================",action)
             if (action.bookings) {
                 return {"bookings": action.bookings}
             }

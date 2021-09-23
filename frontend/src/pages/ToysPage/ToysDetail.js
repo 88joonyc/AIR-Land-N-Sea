@@ -52,10 +52,9 @@ export default function Bookings () {
         dispatch(oneToy(toyId))
         dispatch(reviewAction.getReviews(toyId))
         dispatch(getUsers())
-
         window.scrollTo({top: 0, left: 0, behavior: 'auto'})
 
-    }, [dispatch, toyId]);
+    }, [dispatch, toyId, reviewAction.getReviews]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -85,18 +84,18 @@ export default function Bookings () {
         } else {
             dispatch(createBooking(payload))
             window.alert('Booking has been successfully made. Enjoy!')
-            history.go(0)
+            // history.go(0)
         }
     };
 
     function handleDelete(number) {
         // e.preventDefault();
-        let confirmDelete = window.confirm("Are you sure you want to delete this?")
+        let confirmDelete = window.confirm("Are you sure you want to delete this review?")
         if(confirmDelete) {
             dispatch(reviewAction.deleteReview(number))
+            dispatch(reviewAction.getReviews(toyId))
             window.alert("deleted!")
-            history.push(`/toys/${toyId}`)
-            history.go(0)
+            // history.go(0)
         } else {
             window.alert("did not delete!")
         }
@@ -105,7 +104,7 @@ export default function Bookings () {
     function handleEdit(e) {
         e.preventDefault();
            history.push(`/toys/${toyId}`)
-            history.go(0)
+            // history.go(0)
 
     }
 
@@ -319,8 +318,8 @@ export default function Bookings () {
                                             <p
                                                 className='review-box'
                                                 >{review?.review}
-                                                {sessionUser.id === review.userId ? <button onClick={handleEdit} className='deleteButton'>edit</button> : null  }
-                                                {sessionUser.id === review.userId ? <button onClick={() => handleDelete(review.id)} className='deleteButton'>delete</button> : null  }
+                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={handleEdit} className='deleteButton'>edit</button> : null  }
+                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={() => handleDelete(review.id)} className='deleteButton'>delete</button> : null  }
                                                 </p>
                                         </div>
                                     )
