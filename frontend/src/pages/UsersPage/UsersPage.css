@@ -7,3 +7,8 @@
     max-height: 400px;
     min-height: 220px;
 }
+
+.user-container {
+    width: 600px;
+    margin: 0 auto;
+}

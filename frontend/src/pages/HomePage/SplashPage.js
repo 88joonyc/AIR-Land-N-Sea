@@ -77,7 +77,7 @@ export default function SplashPage () {
                     <h1 className='worlds-largest'>The world's largest car <br/> sharing marketplace<div className='worlds-block'></div></h1>
                 </div>
                 <div className='try-hosting-null'>
-                    <h1>Browse by Make</h1>
+                    {/* <h1>Browse by Make</h1> */}
                     {/* {toys?.map(toy => {
                         console.log(toy)
                     })} */}

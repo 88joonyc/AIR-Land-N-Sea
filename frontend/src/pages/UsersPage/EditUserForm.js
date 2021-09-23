@@ -53,7 +53,7 @@ export default function EditUserForm () {
         <form
             onSubmit={handleSubmit}
         >
-            <div className='container'>
+            <div className='user-container'>
             <div className='img-container'>
                 <img className='user-upload' src={picture}/>
             </div>
