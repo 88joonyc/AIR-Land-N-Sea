@@ -18,7 +18,7 @@ export default function Bookings () {
     const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
     const reviews = useSelector(state => state.reviews.reviews);
-    const toy = useSelector((state) => state?.toys?.toys)
+    const toy = useSelector((state) => state?.toys[toyId])
     // const reviews = toy?.Reviews
 
 
@@ -173,8 +173,9 @@ export default function Bookings () {
     return (
         <div className='toy-detail-container'>
             <div className='img-slide-container'>
-                {/* <img className='slide-image' src={toy?.Images[slideNum]?.url} /> */}
+                <img className='slide-image' src={toy?.Images[slideNum]?.url} />
                 <button className='slide-img-next' onClick={() => counter()} >{">"}</button>
+                {/* <button className='slide-img-next' onClick={() => console.log(toy[toyId].id)}></button> */}
             </div>
             <div className='details-page-container'>
                     <>
