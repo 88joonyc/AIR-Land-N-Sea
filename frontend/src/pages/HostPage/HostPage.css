@@ -1,12 +1,10 @@
 .host-form {
-    position: static;
     display: flex;
     margin-top: 10%;
     flex-direction: column;
     justify-content: center;
     top: 20%;
-    background-color: rgb(246, 246, 246);
-    width: 50%;
+    width: 1000px;
     border-radius: 15px;
     padding: 60px;
 }
@@ -16,7 +14,9 @@
     justify-content: center;
 }
 
-.hosts-container {}
+.hosts-container {
+    /* background-color: black; */
+}
 
 .host-texarea {
     resize: none;
