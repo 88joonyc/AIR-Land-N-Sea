@@ -53,13 +53,15 @@ ul {
 
 .edit-button-drop {
     border: none;
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    /* height: 50px; */
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     padding: 10px 0;
     color: black;
+    font-weight: 600;
     font-size: 14px;
+    background-color: white;
 }
 
 .edit-button-drop:hover {
