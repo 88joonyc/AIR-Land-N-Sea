@@ -25,7 +25,7 @@ export default function Toys () {
                         <Link className='link-cla' key={toy?.id} to={`/toys/${toy.id}`}>
                             <div className='grouper'>
                                 <div className='toy-container'>
-                                    {/* <img className='toys-page-image' src={toy?.Images[Math.floor(Math.random()*5)]?.url} /> */}
+                                    <img className='toys-page-image' src={toy.Images.length > 1 ? toy?.Images[Math.floor(Math.random()*5)]?.url : toy?.Images[0]?.url}/>
                                     <div className='toy-info-container'>
                                         <div className='toy-main-info'>
                                             <h2 className='info-text'>{toy?.year}</h2>
