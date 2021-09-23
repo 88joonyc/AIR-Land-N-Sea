@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import SplashPage from './SplashPage';
+import SplashPage from '../SplashPage/SplashPage';
 import { getOneBooking } from '../../store/bookings';
 import { getOneToy } from '../../store/toys';
 import EditBookings from '../../components/EditBookings/EditBookings';

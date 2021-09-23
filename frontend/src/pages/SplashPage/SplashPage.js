@@ -8,7 +8,7 @@ import './SplashPage.css'
 export default function SplashPage () {
     const dispatch = useDispatch();
     const bookings = useSelector((state) => state?.session)
-    const toys = useSelector((state) => state.toys)
+    const toys = useSelector((state) => state.toys.toys)
 
 
     function openEditBooking(e) {
@@ -84,7 +84,15 @@ export default function SplashPage () {
 
                 </div>
                 <div className='try-hosting-null'>
-                    <h1>hello</h1>
+                    <h1>Meet the hosts</h1>
+                    <div className='review-side-scoll'>
+                        {toys?.map(toy => (
+                            <div className='hosts-box'>
+                                <h1>{toy.id}</h1>
+
+                            </div>
+                        ))}
+                    </div>
                 </div>
         </div>
     )
