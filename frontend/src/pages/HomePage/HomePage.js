@@ -1,33 +1,26 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import SplashPage from './SplashPage';
 
-import { getBookings, getOneBooking } from '../../store/bookings';
-import { getBooking, restoreUser } from '../../store/session';
+import SplashPage from './SplashPage';
+import { getOneBooking } from '../../store/bookings';
+import { getOneToy } from '../../store/toys';
 import EditBookings from '../../components/EditBookings/EditBookings';
+import EditToys from '../UsersToy/UsersToy';
 
 import './HomePage.css'
-import EditToys from '../UsersToy/UsersToy';
-import { getOneToy } from '../../store/toys';
-
 
 export default function Home () {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state?.session?.user);
     const bookings = useSelector((state) => state?.bookings?.bookings)
-    // const toys
-
     const [elementId, setElementId] = useState(null)
-    const toys = sessionUser?.Toys
+
+    const toys = useSelector((state) => state.toys)
 
     useEffect(() => {
         dispatch(getOneBooking(sessionUser?.id))
-        dispatch(getOneToy(sessionUser?.id))
+        // dispatch(getOneToy(sessionUser?.id))
     }, [dispatch, sessionUser]);
-
-
-    const userBooked = bookings
 
     let content = null;
 
@@ -44,7 +37,7 @@ export default function Home () {
             <>
                 <div className='home-body'>
                     <div className='bookings-container'>
-                            {userBooked?.map(book =>(
+                            {bookings?.map(book =>(
                                 <>
                                     <div className='booking-container'>
                                         Booking for<h2>{book?.id}</h2>
@@ -56,7 +49,7 @@ export default function Home () {
                             ))}
                     </div>
                 </div>
-                <EditToys/>
+                <EditToys toys={toys}/>
             </>
         )
     }

@@ -29,7 +29,6 @@ export default function ProfileButton({user}) {
     const logout = () => {
         dispatch(sessionActions.loggingOut());
         history.push('/')
-        history.go(0)
     };
 
     return (

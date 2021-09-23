@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import { createBooking } from '../../store/bookings';
 import * as reviewAction from '../../store/reviews';
+import { getOneToy, oneToy } from '../../store/toys';
 import { getUsers } from '../../store/users';
 
 import './ToysDetail.css'
@@ -17,7 +18,7 @@ export default function Bookings () {
     const bookings = useSelector((state) => state.bookings[toyId])
     const sessionUser = useSelector(state => state.session.user);
     const reviews = useSelector(state => state.reviews.reviews);
-    const toy = useSelector((state) => state.toys[toyId])
+    const toy = useSelector((state) => state?.toys?.toys)
     // const reviews = toy?.Reviews
 
 
@@ -42,11 +43,14 @@ export default function Bookings () {
     // console.log(toy?.map(el => console.log(el)))
 
     // const [currentSlide, setCurrentSlide] = useState(0)
-    const [slideNum, setSlideNum] = useState(1);
+    const [slideNum, setSlideNum] = useState(0);
 
     useEffect(() => {
+        // dispatch(getOneToy(toyId))
+        dispatch(oneToy(toyId))
         dispatch(reviewAction.getReviews(toyId))
         dispatch(getUsers())
+
         window.scrollTo({top: 0, left: 0, behavior: 'auto'})
 
     }, [dispatch, toyId]);
@@ -169,7 +173,7 @@ export default function Bookings () {
     return (
         <div className='toy-detail-container'>
             <div className='img-slide-container'>
-                <img className='slide-image' src={toy?.Images[slideNum]?.url} />
+                {/* <img className='slide-image' src={toy?.Images[slideNum]?.url} /> */}
                 <button className='slide-img-next' onClick={() => counter()} >{">"}</button>
             </div>
             <div className='details-page-container'>
@@ -268,25 +272,25 @@ export default function Bookings () {
                             <br />
                             <div className='bot-grid'>
                                 <div className='bot-user-cont'>
-                                    <img className='toys-user-img'src={toy?.User.picture} />
+                                    <img className='toys-user-img'src={toy?.User?.picture} />
                                     <div className='user-row-info'>
-                                        <h2 className='toys-bot bot-info-text'>{toy?.User.firstName}</h2>
+                                        <h2 className='toys-bot bot-info-text'>{toy?.User?.firstName}</h2>
                                         <h4 className='bot-info-text'>🏆  All-star host</h4>
                                         <h4 className='bot-info-text'>{reviews?.length} Trips * </h4>
-                                        <h2 className='toys-bot bot-into-text'>user: {toy?.User.username}</h2>
+                                        <h2 className='toys-bot bot-into-text'>user: {toy?.User?.username}</h2>
                                         {/* <h2 className='toys-bot bot-into-text'>{toy?.User.createdAt}</h2> */}
                                     </div>
                                 </div>
                             </div>
                             <div className='horizontal'>
                                 <h4 className='prize'>🏆  </h4>
-                                <p className='user-describe'>All-Star Hosts like {toy?.User.firstName} are the top-rated and most experienced hosts on Air-land-n-sea.</p>
+                                <p className='user-describe'>All-Star Hosts like {toy?.User?.firstName} are the top-rated and most experienced hosts on Air-land-n-sea.</p>
                             </div>
                                 <a href='/'>Learn more</a>
 
                             <div className='horizontal'>
                                 <h4 className='prize'>🏆 </h4>
-                                <p className='user-describe'>{toy?.User.firstName} has completed the training on enhanced cleaning and disinfection practices. </p>
+                                <p className='user-describe'>{toy?.User?.firstName} has completed the training on enhanced cleaning and disinfection practices. </p>
                             </div>
                                 <a href='/'>Learn more</a>
 

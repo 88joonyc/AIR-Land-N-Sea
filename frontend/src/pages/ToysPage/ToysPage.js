@@ -7,7 +7,7 @@ import './ToysPage.css'
 
 export default function Toys () {
     const dispatch = useDispatch();
-    const toys = useSelector((state) => (Object.values(state.toys)))
+    const toys = useSelector((state) => (Object.values(state?.toys?.toys)))
 
     useEffect(() => {
         dispatch(getToys());
@@ -22,24 +22,24 @@ export default function Toys () {
                     if (toy.id) {
 
                     return (
-                        <Link className='link-cla' key={toy.id} to={`/toys/${toy.id}`}>
+                        <Link className='link-cla' key={toy?.id} to={`/toys/${toy.id}`}>
                             <div className='grouper'>
                                 <div className='toy-container'>
-                                    <img className='toys-page-image' src={toy?.Images[Math.floor(Math.random()*5)]?.url} />
+                                    {/* <img className='toys-page-image' src={toy?.Images[Math.floor(Math.random()*5)]?.url} /> */}
                                     <div className='toy-info-container'>
                                         <div className='toy-main-info'>
-                                            <h2 className='info-text'>{toy.year}</h2>
-                                            <h2 className='info-text'>{toy.make}</h2>
-                                            <h2 className='info-text'>{toy.model}</h2>
+                                            <h2 className='info-text'>{toy?.year}</h2>
+                                            <h2 className='info-text'>{toy?.make}</h2>
+                                            <h2 className='info-text'>{toy?.model}</h2>
                                         </div>
                                         <div className='toy-spec-info'>
                                             <div>
                                                 <b className='info-text into-same-text'>Difficulty Level</b>
-                                                <b className='info-text'>{toy.level}</b>
+                                                <b className='info-text'>{toy?.level}</b>
                                             </div>
                                             <div className='toy-price-info'>
                                                 <b className='info-text'>$</b>
-                                                <b className='info-text'>{toy.price}</b>
+                                                <b className='info-text'>{toy?.price}</b>
                                                 <b className='info-text into-same-text'>/ day</b>
                                             </div>
                                         </div>

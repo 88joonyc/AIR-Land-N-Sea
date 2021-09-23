@@ -26,9 +26,9 @@ export default function EditBookings ({bookId, booking, hideForm}) {
     const updateStart = (e) => setStart(e.target.value)
     const updateEnd = (e) => setEnd(e.target.value)
 
-    useEffect(() => {
-        dispatch(bookAction.getBookings())
-    }, [dispatch, toyId]);
+    // useEffect(() => {
+    //     // dispatch(bookAction.getBookings())
+    // }, [dispatch, toyId]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()

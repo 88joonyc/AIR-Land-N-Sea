@@ -36,6 +36,14 @@ export const getOneToy = (id) => async dispatch => {
     const toy = await csrfFetch(`/api/toys/${id}`)
     if (toy.ok) {
         const thisToy = await toy.json()
+        dispatch(load(thisToy))
+    };
+};
+
+export const oneToy = (id) => async dispatch => {
+    const toy = await csrfFetch(`/api/toys/one/${id}`)
+    if (toy.ok) {
+        const thisToy = await toy.json()
         dispatch(setToys(thisToy))
     };
 };

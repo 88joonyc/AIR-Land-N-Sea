@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getToys } from '../../store/toys';
-import { getSession } from '../../store/session';
-
+import { getOneToy } from '../../store/toys';
 import EditUserToy from './EditUsersToy';
-
-
-// import ToysDetail from './ToysDetail'
 
 import './UsersToy.css'
 
 export default function EditToys () {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
-    const toysList = useSelector(state => state.toys)
+    const sessionUser = useSelector(state => state?.session?.user)
     const [elementId, setElementId] = useState(null)
-    const toys = sessionUser?.Toys
+    const toys = useSelector((state) => state?.toys?.toys)
 
     useEffect(() => {
-        // dispatch(getSession(sessionUser.id));
-    }, [dispatch]);
+        dispatch(getOneToy(sessionUser?.id))
+    }, [dispatch, sessionUser]);
 
     let content = null;
 
