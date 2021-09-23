@@ -5,14 +5,14 @@
     width: 900px;
     border-radius: 10px;
     position: relative;
-    left: 10%;
+    left: 0;
 }
 
 .spash-container {
     background-color: white;
     position: relative;
     top: 70px;
-    width: 900px;
+    width: 800px;
     height: 100%;
     margin: 0 auto;
 }

@@ -26,8 +26,10 @@ export default function LoginFormPage() {
     }
 
     return (
+        <div className='login-body'>
         <form
             onSubmit={handleSubmit}
+            className='login-form'
         >
             <div className='container'>
                 <div className='login-container'>
@@ -53,16 +55,17 @@ export default function LoginFormPage() {
                                     className='input-area'
                                 />
                             </div>
-                        </label>
-                        <button className='signin-button' type="submit">Sign in</button>
                         <ul className='errors'>
                             {errors.map((err, idx) => {
                                 return <li className='error-msg' key={idx}> 👎 - - {err} </li>
                             })}
                         </ul>
+                        </label>
+                        <button className='signin-button' type="submit">Sign in</button>
                     </div>
                 </div>
             </div>
         </form>
+        </div>
     )
 }
