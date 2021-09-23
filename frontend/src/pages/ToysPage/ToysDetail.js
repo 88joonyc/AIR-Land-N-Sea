@@ -7,6 +7,7 @@ import { createBooking } from '../../store/bookings';
 import * as reviewAction from '../../store/reviews';
 import { getOneToy, oneToy } from '../../store/toys';
 import { getUsers } from '../../store/users';
+import LeaveReview from '../../components/LeaveReview/LeaveReview';
 
 import './ToysDetail.css'
 import './ToysDetailImages.css'
@@ -37,6 +38,7 @@ export default function Bookings () {
     const [averageRound, setAverageRound] = useState('')
     // const [isLoaded, setLoaded] = useState(true)
     const [hidden, setHidden] = useState(false)
+    const [comment, toggleComment] = useState(false)
 
 
     // console.log(sessionUser.id === toy.)
@@ -107,36 +109,14 @@ export default function Bookings () {
 
     }
 
-    function leaveAComment() {
+    let comment_content = null
 
-        content = (
+
+    if (comment) {
+
+        comment_content= (
             <>
-
-                <form
-                    onSubmit={handleSubmit}
-                    >
-                    <div className='details-price'>
-                        $ <div>{toy?.price}</div> / day
-                    </div>
-                    <div className='date-area'>
-                        <label
-                            htmlFor='start'
-                            >Start rental</label>
-                        <input
-                            type='date'
-                            value={startDate}
-                            onChange={(e) => setStart(e.target.value)}
-                        />
-                        <label htmlFor='end'>End rental</label>
-                        <input
-                            type='date'
-                            value={endDate}
-                            onChange={(e) => setEnd(e.target.value)}
-                        />
-                        <button className='reserve-button' type='submit'>Reserve</button>
-                    </div>
-                </form>
-
+                <LeaveReview/>
             </>
         )
     }
@@ -316,7 +296,7 @@ export default function Bookings () {
                             <div className='review-title'>Ratings and reviews</div>
 
                             ( {reviews?.length} ratings total )
-                            <button type='button' onClick={leaveAComment} className='leave-a-comment'>Leave a comment</button>
+                            <button type='button' onClick={() => toggleComment(!comment)} className='leave-a-comment'>Leave a comment</button>
                             {
 
                             reviews?.map(review => {
@@ -349,6 +329,8 @@ export default function Bookings () {
                             })}
                     </div>
             </div>
+            {comment_content}
+            {comment ? <button className='comment-form-cancel' onClick={() => toggleComment(!comment)}>X</button> : null}
         </div>
     )
 }

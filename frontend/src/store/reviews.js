@@ -25,14 +25,6 @@ const remove = () => ({
 })
 
 
-// export const getReviews = () => async dispatch => {
-//     const res = await csrfFetch(`/api/reviews/`)
-//     const review = res.json();
-//     dispatch(load(review))
-//     // if (res.ok) {
-//     // }
-// };
-
 export const getReviews = (id) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${id}`)
     const review = await res.json();
