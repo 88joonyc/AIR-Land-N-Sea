@@ -3,6 +3,19 @@
     height: 20px;
 }
 
+.container {
+    position: relative;
+    max-width: 580px;
+    height: 275px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding-left: 12px;
+    padding-right: 12px;
+    box-shadow: 3px 3px 20px grey;
+    border-radius: 10px;
+    top: 150px;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -15,8 +28,11 @@
 .login-body {
     background-image: url(./photo-1568605117036-5fe5e7bab0b7.jpeg);
     margin-top: -50px;
-    height: 650px;
-    z-index: 0;
+    height: 850px;
+    background-size: cover;
+    position: relative;
+    margin-right: -25px;
+
 }
 
 .signin-button {

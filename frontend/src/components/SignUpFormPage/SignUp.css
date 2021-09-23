@@ -1,3 +1,12 @@
+.signup-body {
+    background-image: url(./1934572.webp);
+    height: 1000px;
+    margin-top: -50px;
+    background-size: cover;
+    position: relative;
+    margin-right: -25px;
+}
+
 .form-container {
     margin: 0 auto;
     display: flex;
@@ -9,14 +18,13 @@
 .login-form {
     padding-bottom: 100px;
     margin-bottom: 500px;
-
 }
 
-.container {
+.signup-container {
     position: relative;
-    max-width: 580px;
-    height: 275px;
-    margin: auto;
+    max-width: 500px;
+    height: 600px;
+    margin: 0 auto;
     background-color: rgb(255, 255, 255);
     padding-left: 12px;
     padding-right: 12px;
@@ -24,6 +32,7 @@
     border-radius: 10px;
     top: 150px;
 }
+
 
 .container-lot {
     /* padding: .5rem 1rem;
@@ -52,7 +61,10 @@
     width: 100%;
 }
 
-.email-label {}
+.email-label {
+    margin-top: 25px;
+    font-size: small;
+}
 
 .confirmPass-label {}
 
