@@ -62,7 +62,7 @@ export default function SplashPage () {
                                     <option>- select -</option>
                                 </select>
                             </div>
-                                <button className='search-button'> 🔍 Search</button>
+                                <a href='login' className='search-button'> 🔍 Search</a>
                         </div>
                     </div>
                     <img className='splash-opening-img'/>
@@ -83,13 +83,13 @@ export default function SplashPage () {
                     })} */}
 
                 </div>
-                <div className='try-hosting-null'>
                     <h1>Meet the hosts</h1>
+                <div className='meet-the-hosts'>
                     <div className='review-side-scoll'>
                         {toys?.map(toy => (
                             <div className='hosts-box'>
                                 <h1>{toy.id}</h1>
-
+                                {/* <img src={toy.Images[0].url}/> */}
                             </div>
                         ))}
                     </div>
