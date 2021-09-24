@@ -123,7 +123,11 @@ export default function Bookings () {
     function counter(arrow) {
         if (slideNum <= toy?.Images?.length - 1) {
             if (slideNum >= 0 && slideNum <= toy?.Images?.length - 2) {
-                setSlideNum(Number(slideNum + arrow))
+                if (slideNum < 0) {
+                    setSlideNum(toy?.Images?.length - 1)
+                } else {
+                    setSlideNum(Number(slideNum + arrow))
+                }
             }
             if (slideNum === toy?.Images?.length - 1) {
                 setSlideNum(0)
