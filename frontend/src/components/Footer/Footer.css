@@ -1,12 +1,11 @@
 .footer-message {
     display: flex;
     justify-content: center;
-    border-top: 1px solid rgb(63, 59, 80);
-    border-bottom: 1px solid rgb(59, 55, 73);
+    border-top: 1px solid rgb(208, 204, 223);
+    border-bottom: 1px solid rgb(208, 204, 223);
     padding: 20px 0;
     margin-top: 5%;
     font-size: small;
-
 }
 
 .footer-container {
@@ -14,10 +13,11 @@
     font-family: 'Kaisei Opti', serif;
     font-size: .7em;
     color: rgb(19, 19, 44);
-    background-color: rgb(232, 235, 241);
+    background-color: rgb(241, 244, 251);
     width: 100%;
-    height: 420px;
+    height: 380px;
     padding: 23px;
+    border-top: 1px solid rgb(223, 225, 234);
 }
 
 .footer-tabs {
@@ -50,7 +50,7 @@
 
 .footer-linked:hover {
     color: rgb(0, 255, 132);
-    box-shadow: 10px 10px 40px rgb(255, 42, 216);
+    /* box-shadow: 10px 10px 40px rgb(0, 255, 60); */
 }
 
 
@@ -64,7 +64,7 @@
 }
 
 .git-icon:hover {
-    box-shadow: 3px 3px 20px hotpink;
+    box-shadow: 3px 3px 20px rgb(126, 85, 3);
     border-radius: 30px;
     transition: ease-in-out 1.3s;
 }
@@ -87,7 +87,7 @@
 }
 
 .personal-set:hover {
-    box-shadow: 3px 3px 20px hotpink;
+    box-shadow: 3px 3px 20px rgb(126, 85, 3);
     border-radius: 40px;
     transition: ease-in-out 1.3s;
 }

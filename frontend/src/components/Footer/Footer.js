@@ -13,7 +13,7 @@ const FooterBar = () => {
                   <ul>
                     <p className="footer-title">About</p>
                     <li className="footer-lists">See how it works:</li>
-                    <li> <a className="footer-linked" href="https://github.com/88joonyc/Adventure_time">Download</a> </li>
+                    <li> <a className="footer-linked" href="https://github.com/88joonyc/AIR-Land-N-Sea">Download</a> </li>
                     <li className="footer-lists">this GibHub Repo</li>
                     <li className="footer-lists">Now and visit my GitHub for more!</li>
                     <li> <a className="footer-linked" href="https://github.com/88joonyc/" >My GitHub</a> </li>
@@ -43,13 +43,13 @@ const FooterBar = () => {
                     <li className="footer-lists">Like the Site?</li>
                     <li className="footer-lists">like the project?</li>
                     <li className="footer-lists">Check out past projects below</li>
+                    <li> <a className="footer-linked" href='https://adventure--time.herokuapp.com/'> - Adventure_Time - </a> </li>
                     <li> <a className="footer-linked" href='https://sneaxs.herokuapp.com/'> - Sneax - </a> </li>
-                    <li> <a className="footer-linked" href='https://air-land-n-sea.herokuapp.com/login'> - Air land n Sea - </a> </li>
                     <li> <a className="footer-linked" href='https://thefastandthecurious.herokuapp.com/'> - theFastandtheCurious - </a> </li>
                   </ul>
                 </div>
               </div>
-                <div className='footer-message'>© 2021 Adventure Time. All Rights Reserved by Paul Chang. Terms. Privacy Policy. New Jersy Privacy Notice. Cookies. </div>
+                <div className='footer-message'>© 2021 Air Land-N-Sea. All Rights Reserved by Paul Chang. Terms. Privacy Policy. New Jersy Privacy Notice. Cookies. </div>
               <div className='footer-footer'>
                 <a href='https://www.github.com/88joonyc' className="my-links"><img className='git-icon'/></a>
                 <a href='https://angel.co/u/paul-chang-27/' className="my-links"><img className='angel-icon personal-set'/></a>
