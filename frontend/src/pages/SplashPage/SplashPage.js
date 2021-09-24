@@ -67,17 +67,17 @@ export default function SplashPage () {
                     <img className='splash-second-img'/>
                     <div className='splash-second-message'>
                         <h1 className='splash-second-text'>Try hosting</h1>
-                        <p className='splash-para'>Earn up to $2,505/month by sharing your Toy in Location</p>
+                        <p className='splash-para'>Earn up to $2,505/month by sharing your Toy</p>
                         <button className='learn-more-button'>Learn more</button>
                     </div>
                     <h1 className='worlds-largest'>The world's largest car <br/> sharing marketplace<div className='worlds-block'></div></h1>
                 </div>
-                <div className='try-hosting-null'>
-                    {/* <h1>Browse by Make</h1> */}
-                    {/* {toys?.map(toy => {
-                        console.log(toy)
-                    })} */}
-
+                <div className='try-hosting-second'>
+                    <img className='white-car'/>
+                    <div className='white-car-message'>
+                        <h3>Conquer the road with the perfect toy to speed around in</h3>
+                        <p>From daily sports cars to jets and speed boats, ditch the mundane to discover new heights and experience what you've never thought possible——this is where dreams come true!</p>
+                    </div>
                 </div>
                     <h2 className='worlds-hosts'>Browse pictures<div className='hosts-block'></div></h2>
                 <div className='meet-the-hosts'>
@@ -92,7 +92,7 @@ export default function SplashPage () {
                     </div>
                 </div>
                 <div className='meet-the-review'>
-                    <h2 className='worlds-hosts'>Meet the hosts<div className='hosts-block'></div></h2>
+                    <h2 className='worlds-hosts-host'>Meet the hosts<div className='hosts-block'></div></h2>
                     <div className='hosts-box-review'>
                         {toys?.map((toy, idx) => (
                             <div className='splash-review-cont'>
@@ -106,7 +106,7 @@ export default function SplashPage () {
                     </div>
                 </div>
                 <div className='meet-the-review'>
-                    <h2 className='worlds-hosts'>Frequently asked questions<div className='hosts-block'></div></h2>
+                    <h2 className='worlds-hosts-freq'>Frequently asked questions<div className='hosts-block'></div></h2>
                     <div className='hosts-box-freq'>
                         <div className='freq-buttons'>
                             <button onClick={() => document.querySelector(".freq-1").hidden=false} className='freq-button'>Why do I need to book a car on Air Land-N-Sea? </button>
