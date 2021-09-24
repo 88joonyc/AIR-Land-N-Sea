@@ -1,15 +1,64 @@
-.review-side-scroll {
-
-}
-
 .hosts-box {
-    border: 1px solid black;
-    width: 200px;
-
-
+    display: flex;
+    width: 1500px;
+    margin-left: -100px;
+    margin-right: -100px;
+    overflow-y: hidden;
 }
 
 .meet-the-hosts {
+    display: flex;
+}
 
+.slider {
+    display: flex;
+}
 
+.sidescroll-image {
+    width: 400px;
+    height: auto;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.sidescroll-image:hover {
+    box-shadow: 3px 3px 10px blue;
+    transition: ease-out 1s;
+    padding: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.splash-host-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-right: 30px;
+    margin-left: 15px;
+}
+
+.hosts-box-review {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.splash-review {
+    font-size: small;
+}
+
+.splash-review-cont {
+    display: flex;
+    align-items: center;
+}
+
+.splash-review-cont:hover {
+    box-shadow: 3px 3px 10px black;
+}
+
+.meet-the-review {
+    margin-top: 100px;
+    margin-bottom: 100px;
 }

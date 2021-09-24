@@ -144,7 +144,7 @@ export default function Hosting () {
                                 <option value=''>- select -</option>
                                 <option value='- level 1 Newb -'>- level 1 Newb -</option>
                                 <option value='- level 2 Amateur -'>- level 2 Amateur -</option>
-                                <option value='- level 3 Intermedite -'>- level 3 Intermedite -</option>
+                                <option value='- level 3 Intermediate -'>- level 3 Intermedite -</option>
                                 <option value='- level 4 Pro -'>- level 4 Pro -</option>
                                 <option value='- level 5 Jeff Bezos -'>- level 5 Jeff Bezos -</option>
                             </select>

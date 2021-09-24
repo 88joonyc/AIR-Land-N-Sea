@@ -61,7 +61,7 @@ export default function LoginFormPage() {
                             })}
                         </ul>
                         </label>
-                        <button className='signin-button' type="submit">Sign in</button>
+                        <button className='signin-button' type="submit">Log in</button>
                     </div>
                 </div>
             </div>

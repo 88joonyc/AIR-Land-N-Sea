@@ -83,13 +83,28 @@ export default function SplashPage () {
                     })} */}
 
                 </div>
-                    <h1>Meet the hosts</h1>
+                    <h1>Browse pictures</h1>
                 <div className='meet-the-hosts'>
-                    <div className='review-side-scoll'>
-                        {toys?.map(toy => (
-                            <div className='hosts-box'>
-                                <h1>{toy.id}</h1>
-                                {/* <img src={toy.Images[0].url}/> */}
+                    <div className='hosts-box'>
+                        {toys?.map((toy, idx) => (
+                            <div className='slider'>
+                                {/* <h1>{toy.id}</h1> */}
+                                {idx < 7 ? <img className='sidescroll-image' src={toy.Images[0].url}/> : null}
+                                {/* {idx < 5 ? <p>{toy?.Reviews[0]?.review}</p> : null} */}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className='meet-the-review'>
+                    <h1>Meet the hosts</h1>
+                    <div className='hosts-box-review'>
+                        {toys?.map((toy, idx) => (
+                            <div className='splash-review-cont'>
+                                <>
+                                {idx < 4 ? <img className='splash-host-img' src={toy?.User.picture} /> : null}
+                                {idx < 4 ? <p className='splash-review'>{toy?.Reviews[0]?.review}</p> : null}
+                                {/* <img className='sidescroll-image' src={toy.Images[0].url}/> */}
+                                </>
                             </div>
                         ))}
                     </div>
