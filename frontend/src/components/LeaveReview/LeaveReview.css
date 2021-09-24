@@ -17,10 +17,17 @@
     border-radius: 5px;
 }
 
-.comment-form-cancel {
+.cancel-button-holder  {
+    background-color: black;
     position: fixed;
-    top: 240px;
-    right: 330px;
+    top: 0;
+}
+
+
+.comment-form-cancel {
+    position: relative;
+    bottom: 256px;
+    left: 26px;
     height: 30px;
     width: 30px;
     border-radius: 30px;

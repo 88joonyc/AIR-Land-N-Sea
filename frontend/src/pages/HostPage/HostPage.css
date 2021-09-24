@@ -8,10 +8,9 @@
 
 .host-form {
     display: flex;
-    margin-top: 10%;
+    margin-top: 2%;
     flex-direction: column;
     justify-content: center;
-    top: 20%;
     width: 1000px;
     border-radius: 15px;
     padding: 60px;

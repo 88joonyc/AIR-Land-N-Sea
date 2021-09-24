@@ -44,7 +44,7 @@
     /* padding: 0 10%; */
     padding-left: 5%;
     padding-right: 60%;
-    font-size: large;
+    font-size: medium;
 }
 
 .prize {
@@ -64,8 +64,9 @@
 }
 
 .user-describe {
+    margin-left: 20px;
     font-size: 15px;
-    width: 50%;
+    width: 350px;
 }
 
 .user-row-info {
@@ -73,6 +74,7 @@
     grid-template-columns: .5fr 1fr;
     margin-left: 3%;
     margin-top: -10px;
+    width: 500px;
 }
 
 .toy-title-cont {
@@ -177,4 +179,24 @@
     /* position: relative; */
     background-color: white;
     padding: 20px;
+}
+
+.user-comment-buts {
+    background-color: inherit;
+    border: none;
+    color: blue;
+}
+
+.show-stars {
+    background-color: inherit;
+    border: none;
+    color: blue;
+    padding: 5px;
+}
+
+.show-stars:hover {
+    background-color: rgb(18, 98, 218);
+    transition: ease-in 3s;
+    color: yellow;
+    border-radius: 10px;
 }

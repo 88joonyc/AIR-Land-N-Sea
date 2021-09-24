@@ -115,19 +115,24 @@ export default function Bookings () {
 
         comment_content= (
             <>
-                <LeaveReview/>
+                <LeaveReview hideForm={() => toggleComment(false)}/>
             </>
         )
     }
 
-    function counter() {
-        let counter = slideNum;
-        if (counter < toy?.Images.length - 1) {
-            counter = slideNum + 1
-            setSlideNum(Number(counter))
-        } else {
-            setSlideNum(0)
+    function counter(arrow) {
+        if (slideNum <= toy?.Images?.length - 1) {
+            if (slideNum >= 0 && slideNum <= toy?.Images?.length - 2) {
+                setSlideNum(Number(slideNum + arrow))
+            }
+            if (slideNum === toy?.Images?.length - 1) {
+                setSlideNum(0)
+            } else if (slideNum < 0) {
+                setSlideNum(toy?.Images?.length - 1 )
+            }
+            console.log("=========wh2222at?===============", slideNum)
         }
+        console.log("=========wh2222at?===============", slideNum)
     }
 
     let content = null
@@ -153,7 +158,8 @@ export default function Bookings () {
         <div className='toy-detail-container'>
             <div className='img-slide-container'>
                 <img className='slide-image' src={toy?.Images[slideNum]?.url} />
-                <button className='slide-img-next' onClick={() => counter()} >{">"}</button>
+                <button className='slide-img-next' onClick={() => counter(1)} >{">"}</button>
+                <button className='slide-img-prev' onClick={() => counter(-1)} >{"<"}</button>
                 {/* <button className='slide-img-next' onClick={() => console.log(toy[toyId].id)}></button> */}
             </div>
             <div className='details-page-container'>
@@ -254,10 +260,10 @@ export default function Bookings () {
                                 <div className='bot-user-cont'>
                                     <img className='toys-user-img'src={toy?.User?.picture} />
                                     <div className='user-row-info'>
-                                        <h2 className='toys-bot bot-info-text'>{toy?.User?.firstName}</h2>
+                                        <h2 className='toys-bot bot-info-text'>{toy?.User?.firstName} {toy?.User?.lastName}</h2>
                                         <h4 className='bot-info-text'>🏆  All-star host</h4>
                                         <h4 className='bot-info-text'>{reviews?.length} Trips * </h4>
-                                        <h2 className='toys-bot bot-into-text'>user: {toy?.User?.username}</h2>
+                                        <h2 className='toys-bot bot-into-text'>username: {toy?.User?.username}</h2>
                                         {/* <h2 className='toys-bot bot-into-text'>{toy?.User.createdAt}</h2> */}
                                     </div>
                                 </div>
@@ -266,16 +272,16 @@ export default function Bookings () {
                                 <h4 className='prize'>🏆  </h4>
                                 <p className='user-describe'>All-Star Hosts like {toy?.User?.firstName} are the top-rated and most experienced hosts on Air-land-n-sea.</p>
                             </div>
-                                <a href='/'>Learn more</a>
+                                {/* <a href='/'>Learn more</a> */}
 
                             <div className='horizontal'>
                                 <h4 className='prize'>🏆 </h4>
                                 <p className='user-describe'>{toy?.User?.firstName} has completed the training on enhanced cleaning and disinfection practices. </p>
                             </div>
-                                <a href='/'>Learn more</a>
+                                {/* <a href='/'>Learn more</a> */}
 
                             <div className='star-button'>
-                                <button onClick={starsRating}>Stars </button> {Math.floor(average)}/5 <repeat n={`${Math.floor(average)}`}></repeat>
+                                <button className="show-stars" onClick={starsRating}>Show rating </button> {Math.floor(average)}/5 <repeat n={`${Math.floor(average)}`}></repeat>
                             </div>
 
                             <h2 className='toy-title'>Features</h2>
@@ -295,7 +301,7 @@ export default function Bookings () {
                             <div className='review-title'>Ratings and reviews</div>
 
                             ( {reviews?.length} ratings total )
-                            <button type='button' onClick={() => toggleComment(!comment)} className='leave-a-comment'>Leave a comment</button>
+                            <button type='button' onClick={() => toggleComment(!comment)} className='leave-a-review'>Leave a review</button>
                             {
 
                             reviews?.map(review => {
@@ -315,12 +321,13 @@ export default function Bookings () {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p
-                                                className='review-box'
-                                                >{review?.review}
-                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={handleEdit} className='deleteButton'>edit</button> : null  }
-                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={() => handleDelete(review.id)} className='deleteButton'>delete</button> : null  }
-                                                </p>
+                                            <p className='review-box'>
+                                                {review?.review}
+                                                <>
+                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={handleEdit}>edit</button> : null  }
+                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={() => handleDelete(review.id)}>delete</button> : null  }
+                                                </>
+                                            </p>
                                         </div>
                                     )
                                 }
@@ -329,7 +336,6 @@ export default function Bookings () {
                     </div>
             </div>
             {comment_content}
-            {comment ? <button className='comment-form-cancel' onClick={() => toggleComment(!comment)}>X</button> : null}
         </div>
     )
 }
