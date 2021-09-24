@@ -1,8 +1,8 @@
 .hosts-box {
     display: flex;
     width: 1500px;
-    margin-left: -100px;
-    margin-right: -100px;
+    margin-left: -50px;
+    margin-right: -50px;
     overflow-y: hidden;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .sidescroll-image {
-    width: 400px;
+    width: 300px;
     height: auto;
     padding: 10px;
     border-radius: 25px;
@@ -47,6 +47,7 @@ body {
 
 .splash-review {
     font-size: small;
+    padding: 10px;
 }
 
 .splash-review-cont {
@@ -61,4 +62,51 @@ body {
 .meet-the-review {
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.worlds-hosts {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 45px;
+    width: 600px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.hosts-block {
+    background-color: rgb(190, 200, 214);
+    height: 40px;
+    width: 440px;
+    margin: auto;
+    margin-top: -30px;
+}
+
+.hosts-box-freq {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: .5fr .5fr .5fr .5fr; */
+}
+
+.freq-buttons {
+    border-top: 1px solid rgb(181, 188, 199);
+    width: 95%;
+}
+
+.freq-button {
+    text-align: left;
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    padding: 15px 0;
+}
+
+.freq-buttons-bot {
+    border-bottom: 1px solid rgb(181, 188, 199);
+}
+
+.freq-ques {
+    font-size: small;
+    color: rgb(123, 124, 131);
+    padding-bottom: 20px;
+
 }
