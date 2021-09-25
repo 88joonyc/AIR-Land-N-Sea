@@ -34,7 +34,8 @@ export default function Home () {
         )
     } else {
         content = (
-            <>
+            <div className='home-body-container'>
+                <EditToys/>
                 <div className='home-body'>
                     <div className='bookings-container'>
                             {bookings?.map(book =>(
@@ -49,8 +50,7 @@ export default function Home () {
                             ))}
                     </div>
                 </div>
-                <EditToys toys={toys}/>
-            </>
+            </div>
         )
     }
 

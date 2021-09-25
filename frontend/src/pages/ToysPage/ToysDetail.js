@@ -222,9 +222,15 @@ export default function Bookings () {
 
                         <div className='bot-info-container bottom-info'>
                             <div className="bs-info">
-                                <h3>👍</h3>
+                                <div className='header'>
+                                    <h3>👍</h3>
+                                    <h3>👍</h3>
+                                </div>
                                 <h3>Free Cancellation</h3>
-                                <p></p>
+                                <div className='header'>
+                                    <h3>👍</h3>
+                                    <h3>👍</h3>
+                                </div>
                                 <h4>Full refund for the next 1 hour</h4>
                             </div>
                             <div className="bs-info">
