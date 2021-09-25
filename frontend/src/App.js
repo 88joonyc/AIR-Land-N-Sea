@@ -15,6 +15,7 @@ import Hosting from "./pages/HostPage/HostPage";
 import AddImages from "./pages/ImagePage/ImagePage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import FooterBar from "./components/Footer/Footer";
+import About from "./pages/About/About";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,9 @@ function App() {
         {/* <ProtectedRoute path='/toy/edit'>
           {isLoaded && <EditToys/>}
         </ProtectedRoute> */}
+        <Route path='/about'>
+          {<About/>}
+        </Route>
         <ProtectedRoute path='/images/:toyId'>
           <AddImages props/>
         </ProtectedRoute>
