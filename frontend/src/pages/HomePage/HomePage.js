@@ -41,7 +41,8 @@ export default function Home () {
                             {bookings?.map(book =>(
                                 <>
                                     <div className='booking-container'>
-                                        Booking for<h2>{book?.id}</h2>
+                                        Booking ?for<h2>{book?.id}</h2>
+                                        does this work?
                                         <h2>{book?.startDate}</h2>
                                         <h2>{book?.endDate}</h2>
                                         <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
