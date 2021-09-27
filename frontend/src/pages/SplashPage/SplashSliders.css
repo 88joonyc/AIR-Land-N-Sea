@@ -117,6 +117,10 @@ body {
     padding: 15px 0;
 }
 
+.freq-button:hover {
+    box-shadow: 1px 1px 10px black;
+}
+
 .freq-buttons-bot {
     border-bottom: 1px solid rgb(181, 188, 199);
 }
