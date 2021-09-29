@@ -68,6 +68,8 @@
 
 .user-canceled:hover {
     cursor: pointer;
+    background-color: rgb(55, 63, 63);
+    color: white;
 }
 
 .mod-buttons {
