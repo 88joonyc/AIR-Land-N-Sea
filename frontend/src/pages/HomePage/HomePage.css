@@ -51,14 +51,16 @@ input {
 .edit-button {
     border: none;
     font-size: medium;
-    display: flex;
+    height: 40px;
     background-color: red;
-    color: black;
-    border-radius: 20px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .edit-button:hover {
-    box-shadow: 10px 10px 10px black;
+    box-shadow: 3px 3px 10px black;
 }
 
 .booking-edit-form {
