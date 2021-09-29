@@ -25,11 +25,6 @@ export default function EditBookings ({bookId, booking, hideForm}) {
 
     const updateStart = (e) => setStart(e.target.value)
     const updateEnd = (e) => setEnd(e.target.value)
-
-    // useEffect(() => {
-    //     // dispatch(bookAction.getBookings())
-    // }, [dispatch, toyId]);
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = sessionUser.id
@@ -83,7 +78,7 @@ export default function EditBookings ({bookId, booking, hideForm}) {
     return (
         <>
 
-                <>
+                <div className='booking-back-container'>
                     <div className='booking-edit-form'>
                         <button className='book-cancel-button' onClick={handleCancel} type='button'>X</button>
                         <form
@@ -143,7 +138,7 @@ export default function EditBookings ({bookId, booking, hideForm}) {
                         <h2>{toy?.model}</h2>
                         <h2>{toy?.id}</h2>
                     </div> */}
-                </>
+                </div>
         </>
     )
 }
