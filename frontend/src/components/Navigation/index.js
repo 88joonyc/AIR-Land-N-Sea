@@ -44,7 +44,7 @@ function Navigation({ isLoaded }){
       <>
         <div className='nav-button-container'>
             <NavLink className='navi-button' to="/login">Log In</NavLink>
-            <NavLink className='navi-button' to="/sign-up">Sign Up</NavLink>
+            <NavLink className='navi-button signup' to="/sign-up"><div className="signupo"> Sign Up</div></NavLink>
             <button onClick={sessionDemo} className='navi-button demo-button' to="/">Demo</button>
         </div>
       </>

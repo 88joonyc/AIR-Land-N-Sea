@@ -120,6 +120,14 @@ ul {
     color: rgb(48, 48, 48);
 }
 
+.signup  {
+    text-align: center;
+}
+
+.signupo {
+    width: 50px;
+}
+
 .navi-button:hover {
     /* background-color: rgb(240 240 240); */
     /* border-radius: 20px; */
