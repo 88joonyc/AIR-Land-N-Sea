@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
+import moment from 'moment';
 
 import { createBooking } from '../../store/bookings';
 import * as reviewAction from '../../store/reviews';
@@ -223,22 +224,17 @@ export default function Bookings () {
                         <div className='bot-info-container bottom-info'>
                             <div className="bs-info">
                                 <div className='header'>
-                                    <h3>👍</h3>
-                                    <h3>👍</h3>
+                                    <h3>Toy difficulty: {toy?.level}</h3>
+
                                 </div>
                                 <h3>Free Cancellation</h3>
                                 <div className='header'>
-                                    <h3>👍</h3>
-                                    <h3>👍</h3>
+                                    <h3>Gas: (Premium) </h3>
+
                                 </div>
                                 <h4>Full refund for the next 1 hour</h4>
                             </div>
-                            <div className="bs-info">
-                                <h3>Insurance and protection</h3>
-                                <p></p>
-                                <h4>Insurance via Liberty Mutual ⭕️</h4>
-                                ------
-                            </div>
+
                         <div className='booking-form'>
                             <form
                                 onSubmit={handleSubmit}
@@ -261,6 +257,15 @@ export default function Bookings () {
                                         value={endDate}
                                         onChange={(e) => setEnd(e.target.value)}
                                     />
+                                    <div className='booking-additional'>
+                                        <div>Distance included:</div>
+                                        <div>{2400 / toy.level} mi</div>
+                                        <div>${toy.level * .09}/mi for additional miles driven</div>
+                                        <div className="bs-info">
+                                            <p>Insurance and protection</p>
+                                            <p>Insurance via Geico</p>
+                                        </div>
+                                    </div>
                                     <button className='reserve-button' type='submit'>Reserve</button>
                                 </div>
                             </form>
