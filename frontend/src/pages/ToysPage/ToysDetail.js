@@ -174,6 +174,10 @@ export default function Bookings () {
         editToyContent = null
     }
 
+    if (startDate && endDate) {
+        document.querySelector(".reserve-button").disabled = false
+    }
+
     return (
         <div className='toy-detail-container'>
             <div className='img-slide-container'>
@@ -247,7 +251,6 @@ export default function Bookings () {
                                     <h3>Gas: (Premium) </h3>
 
                                 </div>
-                                { toy?.userId === sessionUser.id ? <button type='button' onClick={() => toggleEdit(!editToy)}>edit toy</button> : null}
                             </div>
 
                         <div className='booking-form'>
@@ -286,7 +289,7 @@ export default function Bookings () {
                                             <p>Insurance via Geico</p>
                                         </div>
                                     </div>
-                                    <button className='reserve-button' type='submit'>Reserve</button>
+                                    { toy?.userId === sessionUser.id ? <button type='button' className='edit-toy-button' onClick={() => toggleEdit(!editToy)}>Edit your toy</button> : <button disabled={true} className='reserve-button' type='submit'>Reserve</button>}
                                 </div>
                             </form>
                         </div>

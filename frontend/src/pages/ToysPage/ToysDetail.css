@@ -208,6 +208,20 @@
 
 /* +++++++++=================booking_----------------------------- */
 
-.booking-additional {
+.booking-additional {}
+
+.edit-toy-button {
+    border: none;
+    background-color: inherit;
+    font-size: 20px;
+    height: 40px;
+    background-color: blue;
+    color: white;
+}
+
+.edit-toy-button:hover {
+    box-shadow: 3px 3px 10px rgb(48, 48, 120);
+    transition: ease-in-out .3s;
+    color: yellow;
 
 }
