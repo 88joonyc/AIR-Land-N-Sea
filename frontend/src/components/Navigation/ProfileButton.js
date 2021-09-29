@@ -34,8 +34,8 @@ export default function ProfileButton({user}) {
     return (
         <>
         <div className='navigation-tab'>
-            <NavLink className='navi-button' to='/toys'>Rent</NavLink>
-            <NavLink className='navi-button' to='/hosting'>Host</NavLink>
+            {/* <NavLink className='navi-button' to='/toys'>Rent</NavLink> */}
+            <NavLink className='navi-button' to='/hosting'>Become a host</NavLink>
             <button className='user-button' onClick={openMenu}>
                 <i className='menu menu-circle'>{user.username}</i>
                 <img className='profile-pic' alt={user.picture} src={user.picture}/>
@@ -50,9 +50,9 @@ export default function ProfileButton({user}) {
                         <div className='edit-container'>
                             <NavLink className='edit-button-drop' activeClassName='edit-active' to={`/hosting`}>Become a host</NavLink>
                         </div>
-                        <div className='edit-container'>
+                        {/* <div className='edit-container'>
                             <NavLink className='edit-button-drop' activeClassName='edit-active' to={`/about`}>About</NavLink>
-                        </div>
+                        </div> */}
                         <button className='logout-button-b edit-button-drop' onClick={() => logout()}>Log out</button>
                     </li>
                 </ul>
