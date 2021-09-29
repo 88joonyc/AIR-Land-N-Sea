@@ -7,7 +7,7 @@ import './ToysPage.css'
 
 export default function Toys () {
     const dispatch = useDispatch();
-    const toys = useSelector((state) => (Object.values(state?.toys?.toys)))
+    const toys = useSelector((state) => (state?.toys?.toys))
 
     useEffect(() => {
         dispatch(getToys());
@@ -18,7 +18,7 @@ export default function Toys () {
     return (
         <>
             <div className='toy-grid'>
-                {toys.map(toy => {
+                {toys?.map(toy => {
                     if (toy.id) {
 
                     return (

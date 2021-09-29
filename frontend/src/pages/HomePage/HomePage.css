@@ -10,17 +10,6 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.booking-container {
-    position: relative;
-    border: 1px solid black;
-    top: 200px;
-    background-color: rgba(240, 240, 240, .9);
-    border-radius: 9px;
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
 .delete-edit-button {
     display: flex;
 }
@@ -80,7 +69,19 @@ input {
 }
 
 .bookings-container {
-    /* background-color: white; */
+    height: 1000px;
+    overflow-y:auto;
+}
+
+.booking-container {
+    position: relative;
+    border: 1px solid black;
+    top: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 9px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .home-body {
@@ -89,6 +90,8 @@ input {
 }
 
 .home-body-container {
+    background-color: rgb(241, 241, 242);
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    margin-top: -30px;
+    grid-template-columns: 2fr 5fr;
 }

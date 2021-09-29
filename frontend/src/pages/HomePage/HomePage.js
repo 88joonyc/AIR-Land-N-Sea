@@ -7,6 +7,8 @@ import { getOneToy } from '../../store/toys';
 import EditBookings from '../../components/EditBookings/EditBookings';
 import EditToys from '../UsersToy/UsersToy';
 
+import Toys from '../ToysPage/ToysPage';
+
 import './HomePage.css'
 
 export default function Home () {
@@ -35,13 +37,13 @@ export default function Home () {
     } else {
         content = (
             <div className='home-body-container'>
-                <EditToys/>
+                {/* <EditToys/> */}
                 <div className='home-body'>
                     <div className='bookings-container'>
                             {bookings?.map(book =>(
                                 <>
                                     <div className='booking-container'>
-                                        Booking ?for<h2>{book?.id}</h2>
+                                        The Car<h2>{book?.Toy?.year} {book?.Toy?.make} {book?.Toy?.model} {book?.Toy?.type}</h2>
                                         does this work?
                                         <h2>{book?.startDate}</h2>
                                         <h2>{book?.endDate}</h2>
@@ -51,6 +53,7 @@ export default function Home () {
                             ))}
                     </div>
                 </div>
+                <Toys/>
             </div>
         )
     }
