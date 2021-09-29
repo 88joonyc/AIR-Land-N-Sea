@@ -4,13 +4,41 @@
     right: 500px;
     background-color: white;
 }
+
 .edit-toy-container {
-    position: relative;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.366);
+    width: 100%;
+}
+
+.edit-toy-form {
+    padding: 70px;
 }
 
 .host-form-container {}
 
-.edit-form {}
+.edit-toy-input {
+    width: 100%;
+    height: 40px;
+}
+
+.edit-form {
+    position: relative;
+    top: 10%;
+    margin: 0 auto;
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.edit-toy-texarea  {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
 
 .host-edit-submit {
     border-radius: 5px;
@@ -21,18 +49,21 @@
     color: black;
 }
 
-.cancel-butt-edit{
+.cancel-butt-edit {
     color: white;
     background-color: red;
 }
 
 .user-canceled {
-    border: none;
+    border: 1px solid rgb(174, 174, 194);
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
     font-size: 200%;
-    position: inherit;
-    float: left;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
     background-color: rgba(0, 0, 0, 0);
-    align-self: flex-end;
 }
 
 .user-canceled:hover {

@@ -77,16 +77,16 @@ export default function EditUserToy({toyId, hideForm}) {
     return (
         <>
             <div className='edit-toy-container'>
-                <div className='host-form-container edit-form'>
-                    <form onSubmit={handleSubmit} className='host-form'>
-                        <button className='user-canceled' onClick={handleCancel} type='button'>X</button>
+                <div className='edit-form'>
+                <button className='user-canceled' onClick={() => hideForm()} type='button'>X</button>
+                    <form onSubmit={handleSubmit} className='edit-toy-form'>
                         <label>Year
                             <input
                                 type='number'
                                 placeholder='Year of toy'
                                 required
                                 value={year}
-                                className="host-input"
+                                className="edit-toy-input"
                                 onChange={updateYear}
                             />
                         </label>
@@ -96,7 +96,7 @@ export default function EditUserToy({toyId, hideForm}) {
                                 placeholder='Make of toy'
                                 required
                                 value={make}
-                                className="host-input"
+                                className="edit-toy-input"
                                 onChange={updateMake}
                             />
                         </label>
@@ -106,17 +106,18 @@ export default function EditUserToy({toyId, hideForm}) {
                                 placeholder='Model of toy'
                                 required
                                 value={model}
-                                className="host-input"
+                                className="edit-toy-input"
                                 onChange={updateModel}
                             />
                         </label>
+                        <div>
                         <label>Type
                             <input
                                 type='text'
                                 placeholder='Input the type of toy'
                                 required
                                 value={type}
-                                className="host-input"
+                                className="edit-toy-input"
                                 onChange={updateType}
                             />
                         </label>
@@ -128,23 +129,24 @@ export default function EditUserToy({toyId, hideForm}) {
                                 min="1"
                                 max='5'
                                 value={level}
-                                className="host-input"
+                                className="edit-toy-input"
                                 onChange={updateLevel}
                             />
                         </label>
+                        </div>
                         <label>Price
                             <input
                                 type='number'
                                 placeholder='Price'
                                 required
                                 value={price}
-                                className="host-input"
+                                className="edit-toy-input"
                                 onChange={updatePrice}
                             />
                         </label>
                         <label>Description
                             <textarea
-                                className='host-texarea'
+                                className='edit-toy-texarea'
                                 placeholder='Place your description here'
                                 required
                                 value={description}
