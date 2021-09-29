@@ -9,6 +9,7 @@ import * as reviewAction from '../../store/reviews';
 import { getOneToy, oneToy } from '../../store/toys';
 import { getUsers } from '../../store/users';
 import LeaveReview from '../../components/LeaveReview/LeaveReview';
+import EditUserToy from '../UsersToy/EditUsersToy';
 
 import './ToysDetail.css'
 import './ToysDetailImages.css'
@@ -40,6 +41,7 @@ export default function Bookings () {
     // const [isLoaded, setLoaded] = useState(true)
     const [hidden, setHidden] = useState(false)
     const [comment, toggleComment] = useState(false)
+    const [editToy, toggleEdit] = useState(false)
 
 
     // console.log(sessionUser.id === toy.)
@@ -159,6 +161,19 @@ export default function Bookings () {
         })
     }
 
+    let editToyContent = null
+
+    if (editToy) {
+        editToyContent = (
+             <EditUserToy
+                toyId={toyId}
+                hideForm={() => toggleEdit(false)}
+            />
+        )
+    } else {
+        editToyContent = null
+    }
+
     return (
         <div className='toy-detail-container'>
             <div className='img-slide-container'>
@@ -232,7 +247,7 @@ export default function Bookings () {
                                     <h3>Gas: (Premium) </h3>
 
                                 </div>
-                                <h4>Full refund for the next 1 hour</h4>
+                                { toy?.userId === sessionUser.id ? <button type='button' onClick={() => toggleEdit(!editToy)}>edit toy</button> : null}
                             </div>
 
                         <div className='booking-form'>
@@ -258,10 +273,15 @@ export default function Bookings () {
                                         onChange={(e) => setEnd(e.target.value)}
                                     />
                                     <div className='booking-additional'>
-                                        <div>Distance included:</div>
-                                        <div>{2400 / toy.level} mi</div>
-                                        <div>${toy.level * .09}/mi for additional miles driven</div>
-                                        <div className="bs-info">
+                                        <div className="sidebar-info">
+                                            <h4>Full refund for the next 1 hour</h4>
+                                        </div>
+                                        <div className="sidebar-info">
+                                            <div>Distance included:</div>
+                                            <div>{2400 / toy?.level} mi</div>
+                                            <div>${toy?.level * .09}/mi for additional miles driven</div>
+                                        </div>
+                                        <div className="sidebar-info">
                                             <p>Insurance and protection</p>
                                             <p>Insurance via Geico</p>
                                         </div>
@@ -275,10 +295,11 @@ export default function Bookings () {
                                 <div className='bot-user-cont'>
                                     <img className='toys-user-img'src={toy?.User?.picture} />
                                     <div className='user-row-info'>
-                                        <h2 className='toys-bot bot-info-text'>{toy?.User?.firstName} {toy?.User?.lastName}</h2>
-                                        <h4 className='bot-info-text'>🏆  All-star host</h4>
-                                        <h4 className='bot-info-text'>{reviews?.length} Trips * </h4>
-                                        <h2 className='toys-bot bot-into-text'>username: {toy?.User?.username}</h2>
+                                        <b className='toys-bot bot-info-text'>{toy?.User?.firstName} {toy?.User?.lastName}</b>
+                                        <b className='bot-info-text'>🏆  All-star host</b>
+                                        <b className='bot-info-text'>{reviews?.length} Trips • </b>
+                                        {/* <b className='bot-info-text'> Joined {toy?.User?.lastName} </b> */}
+                                        <b className='toys-bot bot-into-text'>username: {toy?.User?.username}</b>
                                         {/* <h2 className='toys-bot bot-into-text'>{toy?.User.createdAt}</h2> */}
                                     </div>
                                 </div>
@@ -351,6 +372,7 @@ export default function Bookings () {
                     </div>
             </div>
             {comment_content}
+            {editToyContent}
         </div>
     )
 }
