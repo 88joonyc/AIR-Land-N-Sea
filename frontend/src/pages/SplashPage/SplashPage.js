@@ -111,6 +111,7 @@ export default function SplashPage () {
                         <div className='freq-buttons'>
                             <button onClick={() => document.querySelector(".freq-1").hidden=false} className='freq-button'>Why do I need to book a car on Air Land-N-Sea? </button>
                             <div className='freq-1 freq-ques' hidden={true}>To book a car on Air Land-N-Sea, you must create a Air Land-N-Sea account, be 18 years old or older in the US, 21 years old or older in the UK, 23 years old or older in Canada, have a valid driver’s license, and get approved to drive on Air Land-N-Sea. When you’re booking your first trip, you’ll go through a quick approval process by entering your driver’s license and some other information. In most cases, you’ll get approved immediately, and you’ll be set for every future road trip, business trip, and family vacation!</div>
+
                         </div>
                         <div className='freq-buttons'>
                             <button onClick={() => document.querySelector(".freq-2").hidden=false} className='freq-button' className='freq-button'>What happens if I have an accident?</button>

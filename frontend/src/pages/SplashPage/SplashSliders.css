@@ -114,11 +114,13 @@ body {
     width: 100%;
     border: none;
     background-color: inherit;
-    padding: 15px 0;
+    padding: 15px 10px;
 }
 
 .freq-button:hover {
     box-shadow: 1px 1px 10px black;
+    transition: ease-in .5s;
+    border-radius: 5px;
 }
 
 .freq-buttons-bot {
