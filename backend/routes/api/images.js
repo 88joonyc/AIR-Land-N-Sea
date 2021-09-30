@@ -15,6 +15,12 @@ router.get('/', requireAuth, asyncHandler (async (req, res) => {
     return res.json(image)
 }))
 
+router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
+    console.log('req.v', req.body)
+    const image = await Image.findAll({where: {toyId : req.params.id}});
+    return res.json(image)
+}))
+
 router.post('/', requireAuth, asyncHandler (async (req, res) => {
     const { toyId, url } = req.body
     const image = Image.create({ toyId, url })
