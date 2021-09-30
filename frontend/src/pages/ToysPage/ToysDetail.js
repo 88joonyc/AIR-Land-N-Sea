@@ -74,20 +74,38 @@ export default function Bookings () {
         // const bookedStart = bookings[0].startDate;
 
         if (bookings) {
+            const today = new Date()
             const bookedEnd = bookings.endDate;
             const bookdate = Date(bookedEnd)
             const start = Date(startDate)
 
             // if (startDate > endDate) return window.alert('That date is booked. Please try anothersds')
-            if (startDate < endDate ) {
+            if (startDate < endDate && startDate > today) {
                 dispatch(createBooking(payload))
                 window.alert('Booking has been made!')
-                history.go(0)
+                history.push('/')
             } else  return window.alert('That date is booked by another user. Please try anotherwsdeaw')
         } else {
+            const today = new Date()
+            // console.log(today)
+            // console.log(startDate)
+            // console.log(moment(today).format('YYYY-MM-DD'))
+            if (startDate < endDate && startDate >= moment(today).format('YYYY-MM-DD')) {
             dispatch(createBooking(payload))
             window.alert('Booking has been successfully made. Enjoy!')
-            // history.go(0)
+            history.push('/')
+            } else {
+                if (startDate < moment(today).format('YYYY-MM-DD')) {
+                    window.alert('You must choose a valid start date. This is not back to the future!')
+                } else if (startDate < endDate) {
+                    window.alert('You must choose valid dates. Your end date cannot come before your start!')
+                } else {
+                    dispatch(createBooking(payload))
+                    window.alert('Booking successful. Enjoy!')
+                    history.push('/')
+                }
+
+            }
         }
     };
 

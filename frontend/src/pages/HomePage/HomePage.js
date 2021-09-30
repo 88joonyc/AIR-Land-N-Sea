@@ -23,7 +23,7 @@ export default function Home () {
 
     useEffect(() => {
         dispatch(getOneBooking(sessionUser?.id))
-        // dispatch(getOneToy(sessionUser?.id))
+        window.scrollTo({top: 0, left: 0, behavior: 'auto'})
     }, [dispatch, sessionUser]);
 
     let content = null;
