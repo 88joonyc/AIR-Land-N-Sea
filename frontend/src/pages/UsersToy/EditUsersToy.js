@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { getOneToy } from '../../store/toys';
 import * as toyActions from '../../store/toys';
 import AddImages from '../ImagePage/ImagePage';
 
@@ -56,7 +57,8 @@ export default function EditUserToy({toyId, hideForm}) {
         if (updatedToy) {
             window.alert('updated!!')
             history.push(`/toy/edit`)
-            history.go(0)
+            dispatch(getOneToy(sessionUser?.id))
+            // history.go(0)
         }
 
     }

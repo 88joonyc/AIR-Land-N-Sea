@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { createAlbum } from '../../store/images';
+import { createAlbum, getImages } from '../../store/images';
+import { getOneToy } from '../../store/toys';
 
 import './ImagePage.css'
 
@@ -12,10 +13,16 @@ export default function AddImages ({hideForm}) {
     let {toyId} = useParams()
 
     const toy = useSelector((state) => state.toys[toyId])
+    const sessionUser = useSelector(state => state?.session?.user)
+    const imagesss = useSelector(state => state.images)
 
     const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
     const [image, setImage] = useState('')
+
+    useEffect(() => {
+        dispatch(getImages(Number(toyId)))
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,11 +32,18 @@ export default function AddImages ({hideForm}) {
             url
         }
 
-        let createdAlbum = dispatch(createAlbum(payLoad))
+        let createdAlbum = null
 
-        if (createdAlbum) {
-            window.alert("image has been added!")
+        if (url) {
+            createdAlbum = dispatch(createAlbum(payLoad))
+            dispatch(getOneToy(sessionUser?.id))
+            if (createdAlbum) {
+                window.alert("image has been added!")
+            } else {
+                window.alert("did you mean to add an image?")
+            }
         }
+
     }
 
     let content = null
@@ -43,7 +57,7 @@ export default function AddImages ({hideForm}) {
             <div className='single-image'>
                 <div className="image-button-carrier">
                     <button className='image-buttn' onClick={() => (showPic(!pic), setImage(''))}>
-                        <img src={image} />
+                        <img className='the-button-image' src={image} />
                     </button>
                 </div>
             </div>

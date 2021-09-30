@@ -15,14 +15,15 @@ const setImage = (images) => ({
 });
 
 export const getImages = (toyId) => async dispatch => {
-    const img = await csrfFetch('/api/images');
+    const img = await csrfFetch(`/api/images/${toyId}`);
     const images = await img.json();
+    load(images)
 };
 
 
 
 const initialState = {
-    images: []
+    images: null
 }
 
 export const createAlbum = (payload) => async dispatch => {
@@ -34,7 +35,7 @@ export const createAlbum = (payload) => async dispatch => {
 
     const albumSet = await album.json();
 
-    console.log('this album',albumSet)
+    // console.log('this album',albumSet)
 
     if (album.ok) dispatch(setImage(albumSet));
 
@@ -52,7 +53,7 @@ const imageReducer = (state = initialState, action) => {
                 newState[image.id] = image;
             });
         case SET_IMAGES:
-            console.log('this is action.cimages',action.images)
+            // console.log('this is action.cimages',action.images)
             const imageState = {
                 ...state,
                 [action.images]: action.images
