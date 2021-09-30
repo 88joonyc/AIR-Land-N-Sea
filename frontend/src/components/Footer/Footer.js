@@ -8,6 +8,12 @@ const FooterBar = () => {
     <>
           <nav>
             <div className="footer-container">
+                <div className='footer-head'>
+                  <a className='footer-links' href='https://www.paulchang.dev'>@Paul_Chang</a>
+                  <a className='footer-links' href='https://www.linkedin.com/in/pchang1216'>@Linkedin</a>
+                  <a className='footer-links' href='https://github.com/88joonyc'>@Git</a>
+                  <a className='footer-links' href='https://github.com/88joonyc/AIR-Land-N-Sea'>_this_Repo</a>
+                </div>
               <div className="footer-tabs">
                 <div className="footer-one">
                   <ul>

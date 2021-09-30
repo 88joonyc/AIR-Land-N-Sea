@@ -52,7 +52,7 @@ input {
     border: none;
     font-size: medium;
     height: 40px;
-    background-color: red;
+    background-color: rgb(214, 24, 24);
     color: white;
     width: 100%;
     text-align: center;
@@ -80,7 +80,7 @@ input {
 
 
 .bookings-container {
-    height: 1000px;
+    height: 800px;
     overflow-y: auto;
 }
 
@@ -103,6 +103,8 @@ input {
 .home-body-container {
     background-color: rgb(241, 241, 242);
     display: grid;
+    height: 800px;
     margin-top: -30px;
     grid-template-columns: 2fr 6fr;
+    overflow-y: scroll;
 }
