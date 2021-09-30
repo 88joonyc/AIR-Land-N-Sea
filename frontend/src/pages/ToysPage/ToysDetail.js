@@ -97,9 +97,11 @@ export default function Bookings () {
             } else {
                 if (startDate < moment(today).format('YYYY-MM-DD')) {
                     window.alert('You must choose a valid start date. This is not back to the future!')
-                } else if (startDate < endDate) {
+                }
+                if (startDate > endDate) {
                     window.alert('You must choose valid dates. Your end date cannot come before your start!')
-                } else {
+                }
+                if (startDate < endDate && startDate > moment(today).format('YYYY-MM-DD') ) {
                     dispatch(createBooking(payload))
                     window.alert('Booking successful. Enjoy!')
                     history.push('/')
