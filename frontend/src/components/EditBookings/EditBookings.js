@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import * as bookAction from '../../store/bookings';
 
-// import './ToysDetail.css'
+import './EditBooking.css'
 
 export default function EditBookings ({bookId, booking, hideForm}) {
 

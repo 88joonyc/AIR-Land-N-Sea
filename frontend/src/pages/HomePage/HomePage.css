@@ -63,22 +63,6 @@ input {
     box-shadow: 3px 3px 10px black;
 }
 
-.booking-edit-form {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    border: 1px solid black;
-    background-color: white;
-}
-
-.booking-back-container {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.281);
-
-}
-
-
 .bookings-container {
     height: 800px;
     overflow-y: auto;
