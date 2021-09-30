@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
+import { getOneBooking } from '../../store/bookings';
+
 import * as bookAction from '../../store/bookings';
 
 import './EditBooking.css'
 
-export default function EditBookings ({bookId, booking, hideForm}) {
+export default function EditBookings ({bookId, hideForm}) {
 
     const dispatch = useDispatch();
     const { toyId } = useParams()
@@ -36,11 +38,14 @@ export default function EditBookings ({bookId, booking, hideForm}) {
 
         //clean this upp!
         // const bookedStart = bookings[0].startDate;
+        if (startDate && endDate) {
+            let update = await dispatch(bookAction.updateBooking(payload, bookId))
+            dispatch(getOneBooking(sessionUser?.id))
+            window.alert('Update is made!')
+            hideForm(false)
+        }
 
-        let update = dispatch(bookAction.updateBooking(payload, bookId))
-
-        window.alert('Update is made!')
-        history.go(0)
+        // history.go(0)
 
         // if (bookings) {
         //     const bookedEnd = bookings.endDate;
@@ -61,7 +66,7 @@ export default function EditBookings ({bookId, booking, hideForm}) {
 
     function handleCancel(e) {
         e.preventDefault();
-        hideForm();
+        hideForm(false);
     }
 
     async function deleteRes(e){
@@ -69,9 +74,10 @@ export default function EditBookings ({bookId, booking, hideForm}) {
         let deleted = dispatch(bookAction.deleteBooking(bookId))
 
         if (deleted) {
+            dispatch(getOneBooking(sessionUser?.id))
             window.alert('Booking has been sucessfully deleted')
-            history.push('/')
-            history.go(0)
+            hideForm()
+
         }
     }
 
