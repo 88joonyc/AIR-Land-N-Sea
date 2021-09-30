@@ -10,6 +10,7 @@ import { getOneToy, oneToy } from '../../store/toys';
 import { getUsers } from '../../store/users';
 import LeaveReview from '../../components/LeaveReview/LeaveReview';
 import EditUserToy from '../UsersToy/EditUsersToy';
+import AddImages from '../ImagePage/ImagePage';
 
 import './ToysDetail.css'
 import './ToysDetailImages.css'

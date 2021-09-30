@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as toyActions from '../../store/toys';
+import AddImages from '../ImagePage/ImagePage';
 
 
 import './EditUsersToy.css'
@@ -21,6 +22,8 @@ export default function EditUserToy({toyId, hideForm}) {
     const [level, setLevel] = useState(toy?.level)
     const [price, setPrice] = useState(toy?.price)
     const [description, setDescription] = useState(toy?.description)
+
+    const [images, toggleImages] = useState(false)
 
     const updateYear = (e) => setYear(e.target.value)
     const updateMake = (e) => setMake(e.target.value)
@@ -73,95 +76,111 @@ export default function EditUserToy({toyId, hideForm}) {
             history.go(0)
         }
     }
+    let content=null
+
+    if (images) {
+        content = (
+            <>
+                <AddImages hideForm={() => toggleImages(!images)}/>
+            </>
+        )
+    } else {
+        content = (
+            <>
+                <div className='edit-toy-container'>
+                    <div className='edit-form'>
+                    <button className='user-canceled' onClick={() => hideForm()} type='button'>X</button>
+                        <form onSubmit={handleSubmit} className='edit-toy-form'>
+                            <label>Year
+                                <input
+                                    type='number'
+                                    placeholder='Year of toy'
+                                    required
+                                    value={year}
+                                    className="edit-toy-input"
+                                    onChange={updateYear}
+                                />
+                            </label>
+                            <label>Make
+                                <input
+                                    type='text'
+                                    placeholder='Make of toy'
+                                    required
+                                    value={make}
+                                    className="edit-toy-input"
+                                    onChange={updateMake}
+                                />
+                            </label>
+                            <label>Model
+                                <input
+                                    type='text'
+                                    placeholder='Model of toy'
+                                    required
+                                    value={model}
+                                    className="edit-toy-input"
+                                    onChange={updateModel}
+                                />
+                            </label>
+                            <div>
+                            <label>Type
+                                <input
+                                    type='text'
+                                    placeholder='Input the type of toy'
+                                    required
+                                    value={type}
+                                    className="edit-toy-input"
+                                    onChange={updateType}
+                                />
+                            </label>
+                            <label>Level of difficulty
+                                <input
+                                    type='number'
+                                    placeholder='level of difficulty ranging from 1 to 5'
+                                    required
+                                    min="1"
+                                    max='5'
+                                    value={level}
+                                    className="edit-toy-input"
+                                    onChange={updateLevel}
+                                />
+                            </label>
+                            </div>
+                            <label>Price
+                                <input
+                                    type='number'
+                                    placeholder='Price'
+                                    required
+                                    value={price}
+                                    className="edit-toy-input"
+                                    onChange={updatePrice}
+                                />
+                            </label>
+                            <label>Description
+                                <textarea
+                                    className='edit-toy-texarea'
+                                    placeholder='Place your description here'
+                                    required
+                                    value={description}
+                                    onChange={updateDescription}
+                                ></textarea>
+                            </label>
+                                <button className='host-submit host-edit-submit' type='submit'>Update</button>
+                            <div className='buttons-container'>
+                                <button className='mod-buttons add-pics-butt' onClick={()=> toggleImages(!images)} type='button'>Add pictures</button>
+                                <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>delete</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </>
+        )
+    }
 
     return (
         <>
-            <div className='edit-toy-container'>
-                <div className='edit-form'>
-                <button className='user-canceled' onClick={() => hideForm()} type='button'>X</button>
-                    <form onSubmit={handleSubmit} className='edit-toy-form'>
-                        <label>Year
-                            <input
-                                type='number'
-                                placeholder='Year of toy'
-                                required
-                                value={year}
-                                className="edit-toy-input"
-                                onChange={updateYear}
-                            />
-                        </label>
-                        <label>Make
-                            <input
-                                type='text'
-                                placeholder='Make of toy'
-                                required
-                                value={make}
-                                className="edit-toy-input"
-                                onChange={updateMake}
-                            />
-                        </label>
-                        <label>Model
-                            <input
-                                type='text'
-                                placeholder='Model of toy'
-                                required
-                                value={model}
-                                className="edit-toy-input"
-                                onChange={updateModel}
-                            />
-                        </label>
-                        <div>
-                        <label>Type
-                            <input
-                                type='text'
-                                placeholder='Input the type of toy'
-                                required
-                                value={type}
-                                className="edit-toy-input"
-                                onChange={updateType}
-                            />
-                        </label>
-                        <label>Level of difficulty
-                            <input
-                                type='number'
-                                placeholder='level of difficulty ranging from 1 to 5'
-                                required
-                                min="1"
-                                max='5'
-                                value={level}
-                                className="edit-toy-input"
-                                onChange={updateLevel}
-                            />
-                        </label>
-                        </div>
-                        <label>Price
-                            <input
-                                type='number'
-                                placeholder='Price'
-                                required
-                                value={price}
-                                className="edit-toy-input"
-                                onChange={updatePrice}
-                            />
-                        </label>
-                        <label>Description
-                            <textarea
-                                className='edit-toy-texarea'
-                                placeholder='Place your description here'
-                                required
-                                value={description}
-                                onChange={updateDescription}
-                            ></textarea>
-                        </label>
-                            <button className='host-submit host-edit-submit' type='submit'>Update</button>
-                        <div className='buttons-container'>
-                            <button className='mod-buttons add-pics-butt' onClick={()=> history.push(`/images/${toyId}`)} type='button'>Add pictures</button>
-                            <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>delete</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
+            {content}
         </>
+
     )
 }

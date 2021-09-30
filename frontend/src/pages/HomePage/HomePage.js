@@ -8,7 +8,6 @@ import { getOneToy } from '../../store/toys';
 import EditBookings from '../../components/EditBookings/EditBookings';
 import EditToys from '../UsersToy/UsersToy';
 
-
 import Toys from '../ToysPage/ToysPage';
 
 import './HomePage.css'
