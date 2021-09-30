@@ -17,7 +17,7 @@ const setImage = (images) => ({
 export const getImages = (toyId) => async dispatch => {
     const img = await csrfFetch(`/api/images/${toyId}`);
     const images = await img.json();
-    load(images)
+    dispatch(load(images))
 };
 
 
@@ -46,12 +46,9 @@ const imageReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case LOAD:
-            const newState = {
-                ...state,
-            };
-            action.images.forEach((image) => {
-                newState[image.id] = image;
-            });
+            if (action.images) {
+                return {"images": action.images}
+            }
         case SET_IMAGES:
             // console.log('this is action.cimages',action.images)
             const imageState = {

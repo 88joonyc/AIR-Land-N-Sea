@@ -12,9 +12,9 @@ export default function AddImages ({hideForm}) {
     const history = useHistory();
     let {toyId} = useParams()
 
-    const toy = useSelector((state) => state.toys[toyId])
+    // const toy = useSelector((state) => state.toys[toyId])
     const sessionUser = useSelector(state => state?.session?.user)
-    const imagesss = useSelector(state => state.images)
+    const images = useSelector(state => state?.images?.images)
 
     const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
@@ -35,8 +35,8 @@ export default function AddImages ({hideForm}) {
         let createdAlbum = null
 
         if (url) {
-            createdAlbum = dispatch(createAlbum(payLoad))
-            dispatch(getOneToy(sessionUser?.id))
+            createdAlbum = await dispatch(createAlbum(payLoad))
+            dispatch(getImages(Number(toyId)))
             if (createdAlbum) {
                 window.alert("image has been added!")
             } else {
@@ -69,7 +69,7 @@ export default function AddImages ({hideForm}) {
                     <div className='image-form-contain'>
                         <div className='image-page-images'>
                             <div className='image-placement'>
-                                {toy?.Images?.map(toys => (
+                                {images?.map(toys => (
                                     <button className='image-button' onClick={() => (showPic(!pic), setImage(toys?.url))} type='button'>
                                         <img  className="image-page-image" src={toys.url}/>
                                     </button>
@@ -81,7 +81,7 @@ export default function AddImages ({hideForm}) {
                             className='image-form-container'
                             onSubmit={handleSubmit}
                             >
-                        <img className='img-pupup' src={url}/>
+                        {/* <img className='img-pupup' src={url}/> */}
                             <button type="submit" className='add-picture' >Add an image</button>
                                 <input
                                     className='image-input'

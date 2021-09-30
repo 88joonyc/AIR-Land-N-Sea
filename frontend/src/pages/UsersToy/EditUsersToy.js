@@ -74,8 +74,7 @@ export default function EditUserToy({toyId, hideForm}) {
         let deleteed = dispatch(toyActions.deleteToy(toyId))
         if (deleteed) {
             window.alert('toy has been sucessfully deleted')
-            history.push('/toy/edit')
-            history.go(0)
+            history.push('/')
         }
     }
     let content=null
@@ -166,10 +165,10 @@ export default function EditUserToy({toyId, hideForm}) {
                                     onChange={updateDescription}
                                 ></textarea>
                             </label>
-                                <button className='host-submit host-edit-submit' type='submit'>Update</button>
                             <div className='buttons-container'>
+                                <button className='host-submit host-edit-submit' type='submit'>Update</button>
                                 <button className='mod-buttons add-pics-butt' onClick={()=> toggleImages(!images)} type='button'>Add pictures</button>
-                                <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>delete</button>
+                                <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>Delete this toy</button>
                             </div>
                         </form>
                     </div>
