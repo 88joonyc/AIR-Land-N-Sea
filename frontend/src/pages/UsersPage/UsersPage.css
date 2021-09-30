@@ -12,3 +12,8 @@
     width: 600px;
     margin: 0 auto;
 }
+
+.user-image-container {
+    display: flex;
+    justify-content: center;
+}
