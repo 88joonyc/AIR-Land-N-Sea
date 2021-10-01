@@ -23,7 +23,7 @@ export default function AddImages ({hideForm}) {
 
     useEffect(() => {
         dispatch(getImages(Number(toyId)))
-    }, [])
+    }, [toyId])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,10 +53,15 @@ export default function AddImages ({hideForm}) {
     //     history.push('/')
     // }
 
-    const deletePic = () => {
-        dispatch(deleteImage(id))
-        showPic(!pic)
-        setImage('')
+    const deletePic = async () => {
+
+        const confirm = window.confirm("Are you sure you want to delete this picture?")
+        if (confirm)  {
+            await dispatch(deleteImage(id))
+            dispatch(getImages(Number(toyId)))
+            showPic(!pic)
+            setImage('')
+        }
 
     }
 

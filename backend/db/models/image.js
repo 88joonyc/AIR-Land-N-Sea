@@ -51,23 +51,23 @@ module.exports = (sequelize, DataTypes) => {
     Image.belongsTo(models.Toy, {foreignKey: "toyId"})
   };
 
-  Image.add = async function({ toyId, url }) {
-    const image = await Image.create({
-      toyId,
-      url
-    })
-    return await Image.findByPk(image.id)
-  }
+  // Image.add = async function({ toyId, url }) {
+  //   const image = await Image.create({
+  //     toyId,
+  //     url
+  //   })
+  //   return await Image.findByPk(image.id)
+  // }
 
-  Image.delete = async function({imageId}) {
-    const image = Image.findByPk(imageId)
-    if (!image) throw new Error('Image does not exits!!')
+  // Image.deleteImage = async function({imageId}) {
+  //   const image = Image.findByPk(imageId)
+  //   if (!image) throw new Error('Image does not exits!!')
 
-    await Image.destroy({
-      where: {id : imageId}
-    })
-    return image.id
-  }
+  //   await Image.destroy({
+  //     where: {id : imageId}
+  //   })
+  //   return image.id
+  // }
 
 
   return Image;
