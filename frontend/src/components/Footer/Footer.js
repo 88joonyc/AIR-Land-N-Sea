@@ -13,7 +13,9 @@ const FooterBar = () => {
                   <a className='footer-links' href='https://www.linkedin.com/in/pchang1216'>@Linkedin</a>
                   <a className='footer-links' href='https://github.com/88joonyc'>@Git</a>
                   <a className='footer-links' href='https://github.com/88joonyc/AIR-Land-N-Sea'>_this_Repo</a>
+
                 </div>
+                  {/* <p className='personal-injury'>* Any personal insurance you may have that covers damage to the host’s vehicle would kick in before your Air Land-N-Sea protection plan, except in limited situations for trips booked in Maryland, but this protects your own wallet. Liability insurance is provided under a policy issued to Air Land-N-Sea by Liberty Surplus Insurance Corporation, a member of the Liberty Mutual Group. Terms, conditions, and exclusions apply. The policy does not provide coverage for damage to a host’s vehicle.<br/><br/><br/>For questions or information about the third party liability insurance that is included in protection plans in the US, consumers in Maryland and the licensed states listed here may contact Air Land-N-Sea Insurance Agency at (415) 508-0283 or claims@turo.agency. For questions about how damage to a host’s vehicle is handled, visit the Air Land-N-Sea Support site.<br/><br/><br/>When a trip is booked in the state of Washington, physical damage to the host’s vehicle is covered by insurance purchased by Air Land-N-Sea, but the Air Land-N-Sea insurance does not change the contractual responsibilities of hosts or guests with respect to physical damage to a host’s vehicle.<br/><br/><br/>** Terms, conditions, and exclusions apply.</p>
               <div className="footer-tabs">
                 <div className="footer-one">
                   <ul>
@@ -61,7 +63,7 @@ const FooterBar = () => {
                 <a href='https://angel.co/u/paul-chang-27/' className="my-links"><img className='angel-icon personal-set'/></a>
                 <a href='mailto:joonyc88@gmail.com' className="my-links"><img className='email-icon personal-set'/></a>
                 <a href='https://linkedin.com/in/pchang1216' className="my-links"><img className='linked-icon personal-set'/></a>
-              </div>
+              </div> */}
             </div>
           </nav>
         </>

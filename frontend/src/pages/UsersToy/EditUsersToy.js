@@ -56,8 +56,8 @@ export default function EditUserToy({toyId, hideForm}) {
 
         if (updatedToy) {
             window.alert('updated!!')
-            history.push(`/toy/edit`)
-            dispatch(getOneToy(sessionUser?.id))
+            // dispatch(getOneToy(sessionUser?.id))
+            history.push(`/`)
             // history.go(0)
         }
 
