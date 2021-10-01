@@ -98,6 +98,10 @@
     justify-content: center;
 }
 
+.the-button-image {
+    width: 600px;
+}
+
 .the-button-image:hover {
     box-shadow: 3px 3px 20px rgb(0, 255, 166);
     transition: ease-in .25s;
