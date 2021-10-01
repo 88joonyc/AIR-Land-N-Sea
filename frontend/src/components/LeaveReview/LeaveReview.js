@@ -38,13 +38,20 @@ export default function LeaveReview({hideForm}) {
                     onSubmit={(e) => handleSubmit(e)}
                     >
                         <div className='leave-review-box'>
-                            <label>stars</label>
-                            <input type='number' required={true} onChange={(e) => setStars(e.target.value)}/>
+                            <div className='stars-input'>
+                                <label>stars</label>
+                                <input type='number'
+                                required={true}
+                                min="1"
+                                max="5"
+                                onChange={(e) => setStars(e.target.value)}/>
+                            </div>
                             <label>Review</label>
                             <textarea
                                 className='review-text'
                                 placeholder='Write your review here; please be descriptive!'
                                 maxLength={2000}
+                                minLength={2}
                                 onChange={(e) => setReview(e.target.value)}
                                 required={true}
                             />

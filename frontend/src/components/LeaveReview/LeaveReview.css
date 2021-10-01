@@ -17,12 +17,11 @@
     border-radius: 5px;
 }
 
-.cancel-button-holder  {
+.cancel-button-holder {
     background-color: black;
     position: fixed;
     top: 0;
 }
-
 
 .comment-form-cancel {
     position: relative;
@@ -66,4 +65,8 @@
 .submit-comment:hover {
     border-bottom: 1px solid rgb(43, 64, 226);
     border-radius: 3px;
+}
+
+.stars-input {
+    padding: 0px 150px;
 }
