@@ -44,6 +44,7 @@ export default function LeaveReview({hideForm}) {
                                 required={true}
                                 min="1"
                                 max="5"
+                                placeholder="leave number between 1 -- 5"
                                 onChange={(e) => setStars(e.target.value)}/>
                             </div>
                             <label>Review</label>

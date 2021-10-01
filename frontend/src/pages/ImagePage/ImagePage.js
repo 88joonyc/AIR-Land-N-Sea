@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { createAlbum, getImages } from '../../store/images';
+import { createAlbum, deleteImage, getImages } from '../../store/images';
 import { getOneToy } from '../../store/toys';
 
 import './ImagePage.css'
@@ -19,6 +19,7 @@ export default function AddImages ({hideForm}) {
     const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
     const [image, setImage] = useState('')
+    const [id, setId] = useState('')
 
     useEffect(() => {
         dispatch(getImages(Number(toyId)))
@@ -48,8 +49,15 @@ export default function AddImages ({hideForm}) {
 
     let content = null
 
-    const handleBack = () => {
-        history.push('/')
+    // const handleBack = () => {
+    //     history.push('/')
+    // }
+
+    const deletePic = () => {
+        dispatch(deleteImage(id))
+        showPic(!pic)
+        setImage('')
+
     }
 
     if (pic && image) {
@@ -59,6 +67,7 @@ export default function AddImages ({hideForm}) {
                     <button className='image-buttn' onClick={() => (showPic(!pic), setImage(''))}>
                         <img className='the-button-image' src={image} />
                     </button>
+                    <button className="delete-pic" onClick={() => deletePic()}>x</button>
                 </div>
             </div>
         )
@@ -70,7 +79,7 @@ export default function AddImages ({hideForm}) {
                         <div className='image-page-images'>
                             <div className='image-placement'>
                                 {images?.map(toys => (
-                                    <button className='image-button' onClick={() => (showPic(!pic), setImage(toys?.url))} type='button'>
+                                    <button className='image-button' onClick={() => (showPic(!pic), setImage(toys?.url), setId(toys?.id))} type='button'>
                                         <img  className="image-page-image" src={toys.url}/>
                                     </button>
                                 ))}

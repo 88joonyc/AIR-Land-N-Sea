@@ -43,6 +43,7 @@ export default function Bookings () {
     const [hidden, setHidden] = useState(false)
     const [comment, toggleComment] = useState(false)
     const [editToy, toggleEdit] = useState(false)
+    const [editComment, toggleEditComment] = useState(false)
 
 
     // console.log(sessionUser.id === toy.)
@@ -127,17 +128,23 @@ export default function Bookings () {
 
     function handleEdit(e) {
         e.preventDefault();
-           history.push(`/toys/${toyId}`)
-            // history.go(0)
+
+
+
+        // history.push(`/toys/${toyId}`)
+        // history.go(0)
+    }
+
+    if (editComment) {
 
     }
 
-    let comment_content = null
+    let commentContent = null
 
 
     if (comment) {
 
-        comment_content= (
+        commentContent= (
             <>
                 <LeaveReview hideForm={() => toggleComment(false)}/>
             </>
@@ -158,9 +165,9 @@ export default function Bookings () {
             } else if (slideNum < 0) {
                 setSlideNum(toy?.Images?.length - 1 )
             }
-            console.log("=========wh2222at?===============", slideNum)
+            // console.log("=========wh2222at?===============", slideNum)
         }
-        console.log("=========wh2222at?===============", slideNum)
+        // console.log("=========wh2222at?===============", slideNum)
     }
 
     let content = null
@@ -384,7 +391,7 @@ export default function Bookings () {
                                             <p className='review-box'>
                                                 {review?.review}
                                                 <>
-                                                {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={handleEdit}>edit</button> : null  }
+                                                {/* {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={handleEdit}>edit</button> : null  } */}
                                                 {sessionUser.id === review.userId ? <button className='user-comment-buts' onClick={() => handleDelete(review.id)}>delete</button> : null  }
                                                 </>
                                             </p>
@@ -395,7 +402,7 @@ export default function Bookings () {
                             })}
                     </div>
             </div>
-            {comment_content}
+            {commentContent}
             {editToyContent}
         </div>
     )

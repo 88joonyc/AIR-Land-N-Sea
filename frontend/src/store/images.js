@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 
 const LOAD = 'images/LOAD';
 const SET_IMAGES = 'images/SET_IMAGE';
+const DELETE_IMAGE = 'images/DELETE_IMAGE'
 
 const load = (images) => ({
     type: LOAD,
@@ -13,6 +14,11 @@ const setImage = (images) => ({
     type: SET_IMAGES,
     images
 });
+
+const remove = (imageId) => ({
+    type: DELETE_IMAGE,
+    imageId
+})
 
 export const getImages = (toyId) => async dispatch => {
     const img = await csrfFetch(`/api/images/${toyId}`);
@@ -42,6 +48,14 @@ export const createAlbum = (payload) => async dispatch => {
     return albumSet;
 };
 
+export const deleteImage = (payload) => async dispatch => {
+    const image = await csrfFetch(`/api/images/${payload}`, {
+        method: "DELETE"
+    })
+    dispatch(remove(image))
+    return image
+}
+
 const imageReducer = (state = initialState, action) => {
 
     switch (action.type) {
@@ -55,7 +69,11 @@ const imageReducer = (state = initialState, action) => {
                 ...state,
                 [action.images]: action.images
             }
-        return imageState;
+            return imageState;
+
+        case DELETE_IMAGE: {
+            return {...state}
+        }
 
         default:
             return state;
