@@ -62,7 +62,6 @@ export default function AddImages ({hideForm}) {
             showPic(!pic)
             setImage('')
         }
-
     }
 
     if (pic && image) {
@@ -72,7 +71,7 @@ export default function AddImages ({hideForm}) {
                     <button className='image-buttn' onClick={() => (showPic(!pic), setImage(''))}>
                         <img className='the-button-image' src={image} />
                     </button>
-                    <button className="delete-pic" onClick={() => deletePic()}>x</button>
+                    <button className="delete-pic" onClick={() => deletePic()}>Delete this picture</button>
                 </div>
             </div>
         )

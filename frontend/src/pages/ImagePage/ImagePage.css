@@ -102,3 +102,17 @@
     box-shadow: 3px 3px 20px rgb(0, 255, 166);
     transition: ease-in .25s;
 }
+
+.delete-pic {
+    background-color: rgb(15, 19, 132);
+    font-size: x-large;
+    color: wheat;
+    width: 100px;
+}
+
+.delete-pic:hover {
+    color: white;
+    background-color: red;
+    box-shadow: 1px 1px 10px black;
+    transition: ease-in .35s;
+}
