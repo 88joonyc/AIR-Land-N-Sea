@@ -1,7 +1,7 @@
 
 # AIR-Land-N-Sea
 
-*By: Paul Chang. --  [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title")*
+*By: Paul Chang. --  [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title")*
 
 [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title") is an [AirBNB](https://airbnb.com/ "Named link title") clone. 
 
