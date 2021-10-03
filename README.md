@@ -25,8 +25,10 @@
 ![Screen Shot 2021-10-03 at 4 55 30 PM](https://user-images.githubusercontent.com/79543569/135771271-08fcc71f-9e49-48e2-9fbf-a59da2564501.png)
 ![Screen Shot 2021-10-03 at 4 52 14 PM](https://user-images.githubusercontent.com/79543569/135771220-936cd582-c404-4cac-8cfc-b5b09ecc2ef2.png)
 
+
 ## Sign up
 <img width="1317" alt="Screen Shot 2021-10-03 at 4 48 39 PM" src="https://user-images.githubusercontent.com/79543569/135771187-90f1e91b-c9ff-49e5-b968-e65da72d1086.png">
+
 
 ## Log in
 <img width="1360" alt="Screen Shot 2021-10-03 at 4 49 11 PM" src="https://user-images.githubusercontent.com/79543569/135771191-09b33a79-1655-427f-8bad-bcb78003bcf2.png">
@@ -50,8 +52,11 @@
 *Event feed will displays all pertinent information about the event and users may also follow the event promoter (creater of event)*
 ![Screen Shot 2021-10-01 at 1 46 37 AM](https://user-images.githubusercontent.com/79543569/135771352-901b41a9-0cab-4a03-9449-f8fd465d7ec4.png)
 
-## Add pictures
-*Ticket registeration is only valid for users not already registered or if the user owns that specific event.*
+
+## Add View all pictures
+**
+![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
+
 
 ## View/Delete picture
 *Users may view favorited events & registered tickets. Users may also unregister for tickets on this page.*
