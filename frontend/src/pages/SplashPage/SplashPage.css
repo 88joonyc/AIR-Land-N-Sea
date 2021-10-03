@@ -88,6 +88,10 @@
     text-decoration: none;
 }
 
+.search-button:visited {
+    color: white;
+}
+
 .splash-second-img {
     content: url(./respol_l2.png);
     width: 100%;
