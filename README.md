@@ -20,15 +20,21 @@
 
 # Application Features 
 
-## Sign up 
+## Splash
+![Screen Shot 2021-10-03 at 4 51 38 PM](https://user-images.githubusercontent.com/79543569/135771214-6bfff178-599d-474b-beea-8f99b3f8b821.png)
+![Screen Shot 2021-10-03 at 4 55 30 PM](https://user-images.githubusercontent.com/79543569/135771271-08fcc71f-9e49-48e2-9fbf-a59da2564501.png)
+![Screen Shot 2021-10-03 at 4 52 14 PM](https://user-images.githubusercontent.com/79543569/135771220-936cd582-c404-4cac-8cfc-b5b09ecc2ef2.png)
 
+## Sign up
+<img width="1317" alt="Screen Shot 2021-10-03 at 4 48 39 PM" src="https://user-images.githubusercontent.com/79543569/135771187-90f1e91b-c9ff-49e5-b968-e65da72d1086.png">
 
 ## Log in
+<img width="1360" alt="Screen Shot 2021-10-03 at 4 49 11 PM" src="https://user-images.githubusercontent.com/79543569/135771191-09b33a79-1655-427f-8bad-bcb78003bcf2.png">
 
 
 ## Home page
-*Event feed will feature all events in dated order; users may view event information along with selecting favorites (hearts).*
-
+*Event .*
+![Screen Shot 2021-10-03 at 4 51 03 PM](https://user-images.githubusercontent.com/79543569/135771208-fb575c69-1dfa-41f1-b38f-37e8dcc471ef.png)
 
 ## Search panel
 *Search will use the input value and search through by event names.*
