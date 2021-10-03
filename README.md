@@ -34,40 +34,28 @@
 
 ## Home page
 *Event .*
-![Screen Shot 2021-10-03 at 4 51 03 PM](https://user-images.githubusercontent.com/79543569/135771208-fb575c69-1dfa-41f1-b38f-37e8dcc471ef.png)
-
-## Search panel
-*Search will use the input value and search through by event names.*
+![Screen Shot 2021-10-01 at 1 44 02 AM](https://user-images.githubusercontent.com/79543569/135771419-f088a75d-874d-4975-878f-231241c46d9d.png)
 
 
-## Edit events
+## Toys detail page
 *Users may edit the event they previously created on either the home page or in the event page itself.*
+![Screen Shot 2021-10-01 at 1 45 08 AM](https://user-images.githubusercontent.com/79543569/135771425-4356849b-9ecd-49be-8bc8-2a6eed55e155.png)
 
 
-## Delete created event
+## Host a toy
+![Screen Shot 2021-10-01 at 1 44 21 AM](https://user-images.githubusercontent.com/79543569/135771371-c95f5867-966d-46d7-998d-b0ed124e768b.png)
 
 
-
-## Event page
+## Edit hosted toy
 *Event feed will displays all pertinent information about the event and users may also follow the event promoter (creater of event)*
+![Screen Shot 2021-10-01 at 1 46 37 AM](https://user-images.githubusercontent.com/79543569/135771352-901b41a9-0cab-4a03-9449-f8fd465d7ec4.png)
 
-
-## Ticket registration 
+## Add pictures
 *Ticket registeration is only valid for users not already registered or if the user owns that specific event.*
 
-
-## Ticket / User page
+## View/Delete picture
 *Users may view favorited events & registered tickets. Users may also unregister for tickets on this page.*
-
-
-
-## Create event page
-*Users can create an event to share with their community.*
-
-
-## Create a venue
-*Users can create a venue if they do not see theirs on the list.*
-
+![Screen Shot 2021-10-01 at 1 43 13 AM](https://user-images.githubusercontent.com/79543569/135771403-96781e9d-d0e6-45ee-a7c1-e6225f2488a7.png)
 
 
 # Installation
