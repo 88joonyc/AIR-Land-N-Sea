@@ -317,7 +317,7 @@ export default function Bookings () {
                                             <p>Insurance via Geico</p>
                                         </div>
                                     </div>
-                                    { toy?.userId === sessionUser.id ? <button type='button' className='edit-toy-button' onClick={() => toggleEdit(!editToy)}>Edit your toy</button> : <button disabled={true} className='reserve-button' type='submit'>Reserve</button>}
+                                    { toy?.userId === sessionUser.id ? <button type='button' className='edit-toy-button' onClick={() => toggleEdit(!editToy)}>Edit your toy</button> : <button disabled={true} className='reserve-button' type='submit'>Reserve</button> }
                                 </div>
                             </form>
                         </div>
