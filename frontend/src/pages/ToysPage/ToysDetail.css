@@ -173,6 +173,11 @@
     background-color: red;
     font-size: x-large;
     width: 100%;
+    /* color: white; */
+}
+
+.reserve-button:enabled{
+    color: white;
 }
 
 .bot-info-container {
