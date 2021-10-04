@@ -31,7 +31,7 @@
 
 
 ## Log in
-<img width="1360" alt="Screen Shot 2021-10-03 at 4 49 11 PM" src="https://user-images.githubusercontent.com/79543569/135771191-09b33a79-1655-427f-8bad-bcb78003bcf2.png">
+<img width="1225" alt="Screen Shot 2021-10-03 at 4 48 13 PM" src="https://user-images.githubusercontent.com/79543569/135784735-28bba69b-9100-4098-83a5-f736836e1f3a.png">
 
 
 ## Home page
