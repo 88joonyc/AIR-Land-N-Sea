@@ -1,7 +1,7 @@
 
 # AIR-Land-N-Sea
 
-*By: Paul Chang. --  [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title")*
+*By: Paul Chang. --  [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title")*
 
 [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title") is an [AirBNB](https://airbnb.com/ "Named link title") clone. 
 
@@ -20,48 +20,47 @@
 
 # Application Features 
 
-## Sign up 
+## Splash
+![Screen Shot 2021-10-03 at 4 51 38 PM](https://user-images.githubusercontent.com/79543569/135771214-6bfff178-599d-474b-beea-8f99b3f8b821.png)
+![Screen Shot 2021-10-03 at 4 55 30 PM](https://user-images.githubusercontent.com/79543569/135771271-08fcc71f-9e49-48e2-9fbf-a59da2564501.png)
+![Screen Shot 2021-10-03 at 4 52 14 PM](https://user-images.githubusercontent.com/79543569/135771220-936cd582-c404-4cac-8cfc-b5b09ecc2ef2.png)
+
+
+## Sign up
+<img width="1317" alt="Screen Shot 2021-10-03 at 4 48 39 PM" src="https://user-images.githubusercontent.com/79543569/135771187-90f1e91b-c9ff-49e5-b968-e65da72d1086.png">
 
 
 ## Log in
+<img width="1225" alt="Screen Shot 2021-10-03 at 4 48 13 PM" src="https://user-images.githubusercontent.com/79543569/135784735-28bba69b-9100-4098-83a5-f736836e1f3a.png">
 
 
 ## Home page
-*Event feed will feature all events in dated order; users may view event information along with selecting favorites (hearts).*
+*Event .*
+![Screen Shot 2021-10-01 at 1 44 02 AM](https://user-images.githubusercontent.com/79543569/135771419-f088a75d-874d-4975-878f-231241c46d9d.png)
 
 
-## Search panel
-*Search will use the input value and search through by event names.*
-
-
-## Edit events
+## Toys detail page
 *Users may edit the event they previously created on either the home page or in the event page itself.*
+![Screen Shot 2021-10-01 at 1 45 08 AM](https://user-images.githubusercontent.com/79543569/135771425-4356849b-9ecd-49be-8bc8-2a6eed55e155.png)
 
 
-## Delete created event
+## Host a toy
+![Screen Shot 2021-10-01 at 1 44 21 AM](https://user-images.githubusercontent.com/79543569/135771371-c95f5867-966d-46d7-998d-b0ed124e768b.png)
 
 
-
-## Event page
+## Edit hosted toy
 *Event feed will displays all pertinent information about the event and users may also follow the event promoter (creater of event)*
+![Screen Shot 2021-10-01 at 1 46 37 AM](https://user-images.githubusercontent.com/79543569/135771352-901b41a9-0cab-4a03-9449-f8fd465d7ec4.png)
 
 
-## Ticket registration 
-*Ticket registeration is only valid for users not already registered or if the user owns that specific event.*
+## Add View all pictures
+**
+![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
 
 
-## Ticket / User page
+## View/Delete picture
 *Users may view favorited events & registered tickets. Users may also unregister for tickets on this page.*
-
-
-
-## Create event page
-*Users can create an event to share with their community.*
-
-
-## Create a venue
-*Users can create a venue if they do not see theirs on the list.*
-
+![Screen Shot 2021-10-01 at 1 43 13 AM](https://user-images.githubusercontent.com/79543569/135771403-96781e9d-d0e6-45ee-a7c1-e6225f2488a7.png)
 
 
 # Installation
