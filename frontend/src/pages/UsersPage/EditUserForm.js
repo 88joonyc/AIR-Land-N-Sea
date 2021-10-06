@@ -51,6 +51,7 @@ export default function EditUserForm () {
 
     return (
         <form
+            className='user-form-container'
             onSubmit={handleSubmit}
         >
             <div className='user-container'>

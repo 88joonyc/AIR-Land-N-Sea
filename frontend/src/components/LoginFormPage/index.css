@@ -65,7 +65,7 @@
 }
 
 .username-label {
-    background-color: white;
+    background-color: inherit;
     font-size: small;
     /* position: absolute;
     display: inline-block;
