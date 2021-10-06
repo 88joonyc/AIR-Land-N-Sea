@@ -23,7 +23,7 @@
 }
 
 .hosts-container {
-    max-width: 55%;
+    max-width: 800px;
     min-width: 500px;
     margin: 0 auto;
     margin-top: -30px;

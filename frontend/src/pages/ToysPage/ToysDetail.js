@@ -209,7 +209,9 @@ export default function Bookings () {
     return (
         <div className='toy-detail-container'>
             <div className='img-slide-container'>
-                <img className='slide-image' src={toy?.Images[slideNum]?.url} />
+                <div className='image-container'>
+                    <img className='slide-image' src={toy?.Images[slideNum]?.url} />
+                </div>
                 <button className='slide-img-next' onClick={() => counter(1)} >{">"}</button>
                 {/* <button className='slide-img-prev' onClick={() => counter(-1)} >{"<"}</button> */}
                 {/* <button className='slide-img-next' onClick={() => console.log(toy[toyId].id)}></button> */}
