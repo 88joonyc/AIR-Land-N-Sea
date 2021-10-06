@@ -61,9 +61,9 @@ export default function Hosting () {
 
 
     return (
-        <>
-            <h1 className='host-heading'>List your toy</h1>
+        <div className='hosts-background'>
             <div className='hosts-container'>
+                <h1 className='host-heading'>List your toy</h1>
                 <div className='host-form-container'>
                     <form onSubmit={handleSubmit} className='host-form'>
                         <label>What year is your toy?
@@ -173,6 +173,6 @@ export default function Hosting () {
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
