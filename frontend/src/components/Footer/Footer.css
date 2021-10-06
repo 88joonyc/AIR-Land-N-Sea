@@ -15,9 +15,11 @@
     color: rgb(19, 19, 44);
     background-color: rgb(241, 244, 251);
     width: 100%;
-    position: relative;
+    /* position: relative; */
+    position: fixed;
+    bottom: 0;
     /* overflow-y: scroll; */
-    height: 680px;
+    /* height: 680px; */
     border-top: 1px solid rgb(223, 225, 234);
 }
 
@@ -51,7 +53,7 @@
 }
 
 .footer-linked:hover {
-    color: rgb(0, 255, 132);
+    color: rgb(7, 113, 62);
     /* box-shadow: 10px 10px 40px rgb(0, 255, 60); */
 }
 
@@ -63,13 +65,15 @@
 }
 
 .footer-links {
-    padding-left: 20px;
+    margin-left: 20px;
     display: flex;
     align-self: center;
+    text-decoration: none;
 }
 
 .footer-links:hover {
-    color: rgb(124, 159, 86);
+    color: rgb(20, 34, 105);
+    border-bottom: 1px solid rgb(20, 34, 105);
 }
 
 a:visited {
