@@ -3,7 +3,7 @@
     margin-top: 30px;
     padding-top: 80px;
     /* background-color: black; */
-    padding-left: 60px;
+    padding-left: 90px;
     text-align: left;
 }
 
@@ -11,10 +11,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 800px;
+    width: 700px;
     border-radius: 15px;
     padding: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .host-form-container {
@@ -23,7 +23,7 @@
 }
 
 .hosts-container {
-    max-width: 60%;
+    max-width: 55%;
     min-width: 500px;
     margin: 0 auto;
     margin-top: -30px;
