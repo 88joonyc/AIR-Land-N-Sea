@@ -23,7 +23,6 @@
 ## Splash
 ![Screen Shot 2021-10-03 at 4 51 38 PM](https://user-images.githubusercontent.com/79543569/135771214-6bfff178-599d-474b-beea-8f99b3f8b821.png)
 ![Screen Shot 2021-10-03 at 4 55 30 PM](https://user-images.githubusercontent.com/79543569/135771271-08fcc71f-9e49-48e2-9fbf-a59da2564501.png)
-![Screen Shot 2021-10-03 at 4 52 14 PM](https://user-images.githubusercontent.com/79543569/135771220-936cd582-c404-4cac-8cfc-b5b09ecc2ef2.png)
 
 
 ## Sign up
