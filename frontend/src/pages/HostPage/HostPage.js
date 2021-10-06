@@ -66,7 +66,7 @@ export default function Hosting () {
                 <h1 className='host-heading'>List your toy</h1>
                 <div className='host-form-container'>
                     <form onSubmit={handleSubmit} className='host-form'>
-                        <label>What year is your toy?
+                        <label className='hosts-label' >What year is your toy?
                         </label>
                             <input
                                 type='number'
@@ -83,7 +83,7 @@ export default function Hosting () {
                                 {}
 
                             </select> */}
-                        <label>Make
+                        <label className='hosts-label' >Make
                             <input
                                 type='text'
                                 placeholder='Make of toy'
@@ -94,7 +94,7 @@ export default function Hosting () {
                                 onChange={(e) => setMake(e.target.value)}
                             />
                         </label>
-                        <label>Model
+                        <label className='hosts-label' >Model
                             <input
                                 type='text'
                                 placeholder='Model of toy'
@@ -105,7 +105,7 @@ export default function Hosting () {
                                 onChange={(e) => setModel(e.target.value)}
                             />
                         </label>
-                        <label>Type
+                        <label className='hosts-label' >Type
                             </label>
                             {/* <input
                                 type='text'
@@ -129,7 +129,7 @@ export default function Hosting () {
                                 <option value='- magic carpet -'>- magic carpet -</option>
                                 <option value='- other -'>- other -</option>
                             </select>
-                        <label>Level of difficulty
+                        <label className='hosts-label' >Level of difficulty
                             {/* <input
                                 type='number'
                                 placeholder='level of difficulty ranging from 1 to 5'
@@ -149,7 +149,7 @@ export default function Hosting () {
                                 <option value='- level 5 Jeff Bezos -'>- level 5 Jeff Bezos -</option>
                             </select>
                         </label>
-                        <label>Price
+                        <label className='hosts-label' >Price
                             <input
                                 type='number'
                                 placeholder='Price'

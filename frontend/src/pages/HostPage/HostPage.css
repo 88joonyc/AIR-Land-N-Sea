@@ -1,6 +1,7 @@
 .host-heading {
     width: 100%;
     margin-top: 30px;
+    padding-top: 80px;
     /* background-color: black; */
     padding-left: 60px;
     text-align: left;
@@ -10,7 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1000px;
+    width: 800px;
     border-radius: 15px;
     padding: 60px;
     margin-bottom: 50px;
@@ -39,6 +40,10 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.hosts-label {
+    padding-left: 10px;
 
 }
 
@@ -54,12 +59,13 @@
 }
 
 .host-input {
-    width: 95%;
+    width: 100%;
     height: 50px;
     font-size: medium;
     border: none;
     border-bottom: 1px solid rgba(13, 1, 147, .2);
-    background-color: inherit
+    background-color: inherit;
+    padding: 0 10px
 }
 
 
