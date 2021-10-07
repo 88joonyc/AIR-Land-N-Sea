@@ -3,16 +3,16 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Heart extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+  const Heart = sequelize.define("Heart", {
+      toyId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+
+      }
     }
-  };
+  })
+
   Heart.init({
     userId: DataTypes.INTEGER,
     toyId: DataTypes.INTEGER
@@ -21,4 +21,4 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Heart',
   });
   return Heart;
-};
+}

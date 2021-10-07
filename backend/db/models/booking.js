@@ -31,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
         unique: true
       },
     },
-    {}
   );
   Booking.associate = function (models) {
     Booking.belongsTo(models.User, {foreignKey: "userId"})
