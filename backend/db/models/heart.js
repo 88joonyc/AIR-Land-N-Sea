@@ -23,13 +23,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   })
+  Heart.associate = function (models) {
+    Heart.belongsTo(models.Toy, {foreignKey: 'toyId'})
+    Heart.belongsTo(models.User, {foreignKey: 'userId'})
+  }
 
-  Heart.init({
-    userId: DataTypes.INTEGER,
-    toyId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Heart',
-  });
+
   return Heart;
 }
