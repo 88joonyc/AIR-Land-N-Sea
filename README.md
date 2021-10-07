@@ -1,4 +1,3 @@
-
 # AIR-Land-N-Sea
 
 *By: Paul Chang. --  [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title")*
@@ -72,6 +71,45 @@
 
 ## Getting started
 
+1. Clone this repository (only this branch)
+
+   ```zsh
+   git clone https://github.com/88joonyc/air-land-n-sea.git
+   ```
+
+2. Install dependencies
+
+      ```zsh
+      npm install (both frontend & backend directories)
+      ```
+
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+
+5. Get into your backend directory, migrate your database, seed your database, and run your flask app
+
+      ```zsh
+      npx sequelize-cli db:create
+      ```
+
+      ```zsh
+      npx sequelize-cli db:migrate
+      ```
+
+      ```zsh
+      npx sequelize-cli db:seed:all
+      ```
+
+6. Start your flask backend in the ```/backend``` directory
+      ```zsh
+      npm start
+      ```
+      start your frontend in your ```/frontend``` directory
+      ```zsh
+      npm start
+      ```
+7. Profit
 
 # Technologies used
 - Javascript
