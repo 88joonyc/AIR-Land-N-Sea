@@ -53,12 +53,12 @@
 ![Screen Shot 2021-10-01 at 1 46 37 AM](https://user-images.githubusercontent.com/79543569/135771352-901b41a9-0cab-4a03-9449-f8fd465d7ec4.png)
 
 
-## Add View all pictures
+## Add / View all pictures
 *Users can view all images of the selected toy they own.*
 ![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
 
 
-## View/Delete picture
+## View / Delete picture
 *Users may view a closer look at the selected image and also delete the image.*
 ![Screen Shot 2021-10-01 at 1 43 13 AM](https://user-images.githubusercontent.com/79543569/135771403-96781e9d-d0e6-45ee-a7c1-e6225f2488a7.png)
 
