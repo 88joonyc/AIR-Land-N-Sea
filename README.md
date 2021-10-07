@@ -21,6 +21,7 @@
 # Application Features 
 
 ## Splash
+*Splash landing page where anyone view some details of the site along with FAQs*
 ![Screen Shot 2021-10-03 at 4 51 38 PM](https://user-images.githubusercontent.com/79543569/135771214-6bfff178-599d-474b-beea-8f99b3f8b821.png)
 ![Screen Shot 2021-10-03 at 4 55 30 PM](https://user-images.githubusercontent.com/79543569/135771271-08fcc71f-9e49-48e2-9fbf-a59da2564501.png)
 
@@ -34,31 +35,31 @@
 
 
 ## Home page
-*Event .*
+*Verified users will be able to edit their booking date or select a new toy to book*
 ![Screen Shot 2021-10-01 at 1 44 02 AM](https://user-images.githubusercontent.com/79543569/135771419-f088a75d-874d-4975-878f-231241c46d9d.png)
 
-
-## Toys detail page
-*Users may edit the event they previously created on either the home page or in the event page itself.*
-![Screen Shot 2021-10-01 at 1 45 08 AM](https://user-images.githubusercontent.com/79543569/135771425-4356849b-9ecd-49be-8bc8-2a6eed55e155.png)
-
-
 ## Host a toy
+*Verified users may host their toy for others to book/rent.*
 ![Screen Shot 2021-10-01 at 1 44 21 AM](https://user-images.githubusercontent.com/79543569/135771371-c95f5867-966d-46d7-998d-b0ed124e768b.png)
 
 
+## Toys detail page
+*Users may create a new booking for the current toy after selecting a valid date.*
+![Screen Shot 2021-10-01 at 1 45 08 AM](https://user-images.githubusercontent.com/79543569/135771425-4356849b-9ecd-49be-8bc8-2a6eed55e155.png)
+
+
 ## Edit hosted toy
-*Event feed will displays all pertinent information about the event and users may also follow the event promoter (creater of event)*
+*Users that own the toy can edit their toy details including delete and/or add images from the toy details page.*
 ![Screen Shot 2021-10-01 at 1 46 37 AM](https://user-images.githubusercontent.com/79543569/135771352-901b41a9-0cab-4a03-9449-f8fd465d7ec4.png)
 
 
 ## Add View all pictures
-**
+*Users can view all images of the selected toy they own.*
 ![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
 
 
 ## View/Delete picture
-*Users may view favorited events & registered tickets. Users may also unregister for tickets on this page.*
+*Users may view a closer look at the selected image and also delete the image.*
 ![Screen Shot 2021-10-01 at 1 43 13 AM](https://user-images.githubusercontent.com/79543569/135771403-96781e9d-d0e6-45ee-a7c1-e6225f2488a7.png)
 
 
@@ -70,10 +71,12 @@
 # Technologies used
 - Javascript
 - React
+- Express
 - Redux
 - PosgreSQL
 - Heroku
 - Git
+- Vanilla CSS
 
 # Wiki Documentation
 - ### [Home](https://github.com/88joonyc/AIR-Land-N-Sea/wiki "Named link title")
