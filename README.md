@@ -63,6 +63,11 @@
 ![Screen Shot 2021-10-01 at 1 43 13 AM](https://user-images.githubusercontent.com/79543569/135771403-96781e9d-d0e6-45ee-a7c1-e6225f2488a7.png)
 
 
+## Edit user details
+*Users may change their profile details.*
+![Screen Shot 2021-10-05 at 11 56 27 PM](https://user-images.githubusercontent.com/79543569/136419587-9ce942b7-d504-499e-8009-55bff6997058.png)
+
+
 # Installation
 
 ## Getting started
