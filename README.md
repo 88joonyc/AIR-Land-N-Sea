@@ -70,10 +70,12 @@
 # Technologies used
 - Javascript
 - React
+- Express
 - Redux
 - PosgreSQL
 - Heroku
 - Git
+- Vanilla CSS
 
 # Wiki Documentation
 - ### [Home](https://github.com/88joonyc/AIR-Land-N-Sea/wiki "Named link title")
