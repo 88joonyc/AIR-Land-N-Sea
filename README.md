@@ -5,7 +5,6 @@
 [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title") is an [AirBNB](https://airbnb.com/ "Named link title") clone. 
 
 
-
 ### Table of Contents:
  - [Application Features](#application-features)
  - [Installation](#installation)
@@ -105,7 +104,7 @@
       ```zsh
       npm start
       ```
-      start your frontend in your ```/frontend``` directory
+      start your frontend in the ```/frontend``` directory
       ```zsh
       npm start
       ```
@@ -132,7 +131,9 @@
 # Backend Overview -->
 
 # Future Plans
-
+- implement search feature for added address details
+- link Google Maps API with added address details
+- AWS S3 photobucket for user images
 
 <!-- # Conclusion -->
 
