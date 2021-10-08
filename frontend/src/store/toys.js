@@ -66,8 +66,7 @@ const toysReducer = (state = initialState, action) => {
         return newState;
 
         case REMOVE_TOY: {
-            const newState = {...state};
-            delete newState[action.toyId]
+            return {...state};
         };
         case UPDATE_TOY: {
             return {
