@@ -85,7 +85,7 @@ export default function SplashPage () {
                         {toys?.map((toy, idx) => (
                             <div className='slider'>
                                 {/* <h1>{toy.id}</h1> */}
-                                {idx < 7 ? <img className='sidescroll-image' src={toy.Images[0].url}/> : null}
+                                {idx < 7 ? <img className='sidescroll-image' src={toy?.Images[0]?.url}/> : null}
                                 {/* {idx < 5 ? <p>{toy?.Reviews[0]?.review}</p> : null} */}
                             </div>
                         ))}
