@@ -25,6 +25,11 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 100px;
+    height: auto;
+}
+
+.toy-grid-container {
+    min-height: 900px;
 }
 
 .toy-grouper-container {
@@ -66,6 +71,4 @@
     padding: 10px 10px;
 }
 
-.toy-price-info {
-
-}
+.toy-price-info {}

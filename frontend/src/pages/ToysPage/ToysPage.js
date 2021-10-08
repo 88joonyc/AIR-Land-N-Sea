@@ -16,7 +16,7 @@ export default function Toys () {
     let starRate = {}
 
     return (
-        <>
+        <div className='toy-grid-container'>
             <div className='toy-grid'>
                 {toys?.map(toy => {
                     if (toy.id) {
@@ -53,6 +53,6 @@ export default function Toys () {
             </div>
 
 
-        </>
+        </div>
     )
 }

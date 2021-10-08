@@ -118,16 +118,16 @@ export default function Hosting () {
                             /> */}
                             <select className='host-input' onChange={(e) => setType(e.target.value)}>
                                 <option value=''>- select -</option>
-                                <option value='- car -'>- car -</option>
-                                <option value='- plane -'>- plane -</option>
-                                <option value='- plane -'>- vintage -</option>
-                                <option value='- motorcycle -'>- motorcycle -</option>
-                                <option value='- rocket -'>- rocket -</option>
-                                <option value='- quad/a'>- quad/atv -</option>
-                                <option value='- boat -'>- boat -</option>
-                                <option value='- suit -'>- suit -</option>
-                                <option value='- magic carpet -'>- magic carpet -</option>
-                                <option value='- other -'>- other -</option>
+                                <option value='Car'>- Car -</option>
+                                <option value='Plane'>- Plane -</option>
+                                <option value='Vintage'>- Vintage -</option>
+                                <option value='Motorcycle'>- Motorcycle -</option>
+                                <option value='Rocket'>- Rocket -</option>
+                                <option value='Quad/ATV'>- Quad/ATV -</option>
+                                <option value='Boat'>- Boat -</option>
+                                <option value='Man-suit'>- Man-Suit -</option>
+                                <option value='Magic carpet'>- Magic Carpet -</option>
+                                <option value='Other'>- Other -</option>
                             </select>
                         <label className='hosts-label' >Level of difficulty
                             {/* <input
@@ -142,11 +142,11 @@ export default function Hosting () {
                             /> */}
                             <select className='host-input' onChange={(e) => setLevel(e.target.value)}>
                                 <option value=''>- select -</option>
-                                <option value='- level 1 Newb -'>- level 1 Newb -</option>
-                                <option value='- level 2 Amateur -'>- level 2 Amateur -</option>
-                                <option value='- level 3 Intermediate -'>- level 3 Intermedite -</option>
-                                <option value='- level 4 Pro -'>- level 4 Pro -</option>
-                                <option value='- level 5 Jeff Bezos -'>- level 5 Jeff Bezos -</option>
+                                <option value={1}>- level 1 Newb -</option>
+                                <option value={2}>- level 2 Amateur -</option>
+                                <option value={3}>- level 3 Intermedite -</option>
+                                <option value={4}>- level 4 Pro -</option>
+                                <option value={5}>- level 5 Jeff Bezos -</option>
                             </select>
                         </label>
                         <label className='hosts-label' >Price
