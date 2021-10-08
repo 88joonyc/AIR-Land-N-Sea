@@ -49,6 +49,7 @@ export default function AddImages ({hideForm}) {
 
     let content = null
 
+
     // const handleBack = () => {
     //     history.push('/')
     // }
@@ -101,8 +102,7 @@ export default function AddImages ({hideForm}) {
                                     onChange={(e) => setUrl(e.target.value)}
                                     placeholder={'URL ADDRESS'}
                                 />
-                            {/* <button className='cancel-picture' onClick={handleBack} type="button">cancel</button> */}
-                            <button className='cancel-picture' onClick={() => hideForm()} type="button">back</button>
+                            {hideForm ? <button className='cancel-picture' onClick={() => hideForm()} type="button">back</button> : <button></button>}
                         </form>
                     </div>
                 </div>
