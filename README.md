@@ -1,10 +1,8 @@
-
 # AIR-Land-N-Sea
 
 *By: Paul Chang. --  [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title")*
 
 [AIR-Land-N-Sea](https://AIR-Land-N-Sea.herokuapp.com/ "Named link title") is an [AirBNB](https://airbnb.com/ "Named link title") clone. 
-
 
 
 ### Table of Contents:
@@ -53,20 +51,64 @@
 ![Screen Shot 2021-10-01 at 1 46 37 AM](https://user-images.githubusercontent.com/79543569/135771352-901b41a9-0cab-4a03-9449-f8fd465d7ec4.png)
 
 
-## Add View all pictures
+## Add / View all pictures
 *Users can view all images of the selected toy they own.*
 ![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
 
 
-## View/Delete picture
+## View / Delete picture
 *Users may view a closer look at the selected image and also delete the image.*
 ![Screen Shot 2021-10-01 at 1 43 13 AM](https://user-images.githubusercontent.com/79543569/135771403-96781e9d-d0e6-45ee-a7c1-e6225f2488a7.png)
+
+
+## Edit user details
+*Users may change their profile details.*
+![Screen Shot 2021-10-05 at 11 56 27 PM](https://user-images.githubusercontent.com/79543569/136419587-9ce942b7-d504-499e-8009-55bff6997058.png)
 
 
 # Installation
 
 ## Getting started
 
+1. Clone this repository (only this branch)
+
+   ```zsh
+   git clone https://github.com/88joonyc/air-land-n-sea.git
+   ```
+
+2. Install dependencies
+
+      ```zsh
+      npm install (both frontend & backend directories)
+      ```
+
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+
+5. Get into your backend directory, migrate your database, seed your database, and run your flask app
+
+      ```zsh
+      npx sequelize-cli db:create
+      ```
+
+      ```zsh
+      npx sequelize-cli db:migrate
+      ```
+
+      ```zsh
+      npx sequelize-cli db:seed:all
+      ```
+
+6. Start your flask backend in the ```/backend``` directory
+      ```zsh
+      npm start
+      ```
+      start your frontend in the ```/frontend``` directory
+      ```zsh
+      npm start
+      ```
+7. Profit
 
 # Technologies used
 - Javascript
@@ -89,7 +131,9 @@
 # Backend Overview -->
 
 # Future Plans
-
+- implement search feature for added address details
+- link Google Maps API with added address details
+- AWS S3 photobucket for user images
 
 <!-- # Conclusion -->
 
