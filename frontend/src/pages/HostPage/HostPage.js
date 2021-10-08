@@ -159,7 +159,7 @@ export default function Hosting () {
                                 onChange={(e) => setPrice(e.target.value)}
                             />
                         </label>
-                        <label>Description
+                        <label className='hosts-label'>Description
                             <textarea
                                 className='host-texarea'
                                 placeholder='Write the description of your toy here'
