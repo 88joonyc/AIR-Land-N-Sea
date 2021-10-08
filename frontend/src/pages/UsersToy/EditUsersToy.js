@@ -167,8 +167,8 @@ export default function EditUserToy({toyId, hideForm}) {
                             </label>
                             <div className='buttons-container'>
                                 <button className='host-submit host-edit-submit' type='submit'>Update</button>
-                                <button className='mod-buttons add-pics-butt' onClick={()=> toggleImages(!images)} type='button'>Add pictures</button>
-                                <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>Delete this toy</button>
+                                <button className='mod-buttons add-pics-butt' onClick={()=> toggleImages(!images)} type='button'>View all pictures</button>
+                                <button className='mod-buttons cancel-butt-edit' onClick={deleteToy} type='button'>Delete this Toy</button>
                             </div>
                         </form>
                     </div>
