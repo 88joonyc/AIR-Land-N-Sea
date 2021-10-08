@@ -102,7 +102,7 @@ export default function AddImages ({hideForm}) {
                                     onChange={(e) => setUrl(e.target.value)}
                                     placeholder={'URL ADDRESS'}
                                 />
-                            {hideForm ? <button className='cancel-picture' onClick={() => hideForm()} type="button">back</button> : <button></button>}
+                            {hideForm ? <button className='cancel-picture' onClick={() => hideForm()} type="button">back</button> : <button className='cancel-picture' onClick={history.push('/')}>home</button>}
                         </form>
                     </div>
                 </div>
