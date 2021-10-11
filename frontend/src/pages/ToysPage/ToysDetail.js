@@ -313,7 +313,7 @@ export default function Bookings () {
                                         {/* <button type='button' onClick={() => console.log()}>yoyo</button> */}
                                        {startDate && endDate ? <div className='discount-msg-contain'>
                                             <div className='discount-msg'> Early bird discount</div>
-                                            <div className='discount-msg-other'> US${Math.floor(toy?.level * .0001 * toy?.price *  (moment(endDate).format('DD') - moment(startDate).format('DD'))) } </div>
+                                            <div className='discount-msg-other'> US${Math.floor(toy?.level * .001 * toy?.price *  (moment(endDate).format('DD') - moment(startDate).format('DD'))) } </div>
                                         </div> : <div className='discount-msg-pre'>Choose a date range to find any discounts!</div>}
                                     </div>
                                     <div className='booking-additional'>
@@ -323,7 +323,7 @@ export default function Bookings () {
                                         <div className="sidebar-info">
                                             <div>Distance included:</div>
                                             <div>{2400 / toy?.level} mi</div>
-                                            <div>${toy?.level * .09}/mi for additional miles driven</div>
+                                            <div>${(toy?.level * .09).toFixed(2)}/mi for additional miles driven</div>
                                         </div>
                                         <div className="sidebar-info">
                                             <p>Insurance and protection</p>
