@@ -13,8 +13,6 @@ import EditUserToy from '../UsersToy/EditUsersToy';
 import AddImages from '../ImagePage/ImagePage';
 
 import './ToysDetail.css'
-import './ToysDetailImages.css'
-import './ToysDetailReview.css'
 
 export default function Bookings () {
     const dispatch = useDispatch();

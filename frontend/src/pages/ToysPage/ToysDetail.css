@@ -1,3 +1,6 @@
+@import url(./ToysDetailReview.css);
+@import url(./ToysDetailImages.css);
+
 .image-container {
     border: none;
     width: 100%;
