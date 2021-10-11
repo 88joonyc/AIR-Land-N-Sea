@@ -27,6 +27,7 @@ export default function LeaveReview({hideForm}) {
             await dispatch(createReview(payload))
             dispatch(getReviews(toyId))
             window.alert("review submitted!")
+            hideForm()
         }
 
     };
