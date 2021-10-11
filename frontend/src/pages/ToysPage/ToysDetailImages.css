@@ -16,7 +16,8 @@
 .img-slide-container {}
 
 .image-container {
-    height: auto
+    height: auto;
+    display: flex;
 }
 
 
@@ -27,7 +28,7 @@
     height: auto;
     margin-top: -25px;
     /* max-height: 700px; */
-    z-index: 1000;
+    z-index: 0;
 }
 
 .slide-img-next {
@@ -40,8 +41,9 @@
     height: 65px;
     color: white;
     position: absolute;
-    right: 15px;
-    top: 250px;
+    right: 20px;
+    top: 7.5%;
+
 }
 
 .toy-detail-container {
