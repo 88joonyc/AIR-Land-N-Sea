@@ -215,6 +215,11 @@
 
 /* +++++++++=================booking_----------------------------- */
 
+.sidebar-info {
+    display: flex;
+    justify-content: space-between;
+}
+
 .booking-additional {}
 
 .edit-toy-button {

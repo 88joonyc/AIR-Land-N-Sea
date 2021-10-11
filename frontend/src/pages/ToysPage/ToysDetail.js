@@ -325,8 +325,8 @@ export default function Bookings () {
                                             <div>{2400 / toy?.level} mi</div>
                                         </div>
                                             <div>${(toy?.level * .09).toFixed(2)}/mi for additional miles driven</div>
-                                        <div className="sidebar-info">
                                             <p>Insurance and protection</p>
+                                        <div className="sidebar-info">
                                             <p>Insurance via</p><p>Geico</p>
                                         </div>
                                     </div>
