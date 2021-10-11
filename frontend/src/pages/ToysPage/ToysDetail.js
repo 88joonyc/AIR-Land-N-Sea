@@ -306,10 +306,11 @@ export default function Bookings () {
                                         className='sidebar-input'
                                     />
                                     <div className='booking-discount'>
-                                        <div className='discount-msg-contain'>
+                                    {(startDate - endDate < 3) ? <div className='discount-msg-contain'>
                                             <div className='discount-msg'> 3 + day discount </div>
-                                            <div className='discount-msg-other'> US${toy?.level * .01 * toy?.price * 3} </div>
-                                        </div>
+                                            <div className='discount-msg-other'> US${Math.floor(toy?.level * .01 * toy?.price * 3)} </div>
+                                        </div> : null}
+                                        <button type='button' onClick={() => console.log(moment(startDate).format('Do'), endDate)}>yoyo</button>
                                         <div className='discount-msg-contain'>
                                             <div className='discount-msg'> Early bird discount</div>
                                             <div className='discount-msg-other'> US${Math.floor(toy?.level * .01 * toy?.price * 1/3)} </div>
