@@ -246,3 +246,26 @@
 .sidebar-input {
     height: 40px;
 }
+
+.booking-discount {
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid rgb(164, 164, 180);
+    border-radius: 10px;
+    background-color: rgba(227, 227, 236, 0.226);
+}
+
+.discount-msg-contain {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.discount-msg {
+    font-size: medium;
+}
+
+.discount-msg-other {
+    color: rgb(13, 191, 13);
+    font-size: medium;
+}
