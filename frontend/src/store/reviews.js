@@ -51,10 +51,8 @@ const reviewReducer = (state = initialState, action) => {
         return newState;
 
         case REMOVE_REVIEW: {
-            const newState = {...state};
-            delete newState[action.reviewId]
+            return  {...state};
         };
-        return
 
         case UPDATE_REVIEW: {
             return {
