@@ -1,6 +1,5 @@
 @import url(./ToysDetailReview.css);
 @import url(./ToysDetailImages.css);
-
 .image-container {
     border: none;
     width: 100%;
@@ -179,7 +178,7 @@
     /* color: white; */
 }
 
-.reserve-button:enabled{
+.reserve-button:enabled {
     color: white;
 }
 
@@ -231,5 +230,19 @@
     box-shadow: 3px 3px 10px rgb(48, 48, 120);
     transition: ease-in-out .3s;
     color: yellow;
+}
 
+.side-info-text {
+    padding: 10px 0px;
+    font-size: medium;
+    color: rgb(18, 98, 218);
+}
+
+.bar-top {
+    border-top: 1px solid rgb(166, 169, 176);
+    margin-top: 20px;
+}
+
+.sidebar-input {
+    height: 40px;
 }

@@ -126,9 +126,6 @@ export default function Bookings () {
 
     function handleEdit(e) {
         e.preventDefault();
-
-
-
         // history.push(`/toys/${toyId}`)
         // history.go(0)
     }
@@ -290,18 +287,23 @@ export default function Bookings () {
                                 </div>
                                 <div className='date-area'>
                                     <label
-                                        htmlFor='start'
+                                        className='side-info-text'
                                         >Start rental</label>
                                     <input
                                         type='date'
                                         value={startDate}
                                         onChange={(e) => setStart(e.target.value)}
+                                        className='sidebar-input'
                                     />
-                                    <label htmlFor='end'>End rental</label>
+                                    <label
+                                    htmlFor='end'
+                                    className='side-info-text'
+                                    >End rental</label>
                                     <input
                                         type='date'
                                         value={endDate}
                                         onChange={(e) => setEnd(e.target.value)}
+                                        className='sidebar-input'
                                     />
                                     <div className='booking-additional'>
                                         <div className="sidebar-info">
