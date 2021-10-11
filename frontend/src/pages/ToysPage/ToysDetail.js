@@ -279,7 +279,7 @@ export default function Bookings () {
                             </div>
 
                         <div className='booking-form'>
-                            <form
+                            { toy?.userId !== sessionUser.id ? <form
                                 onSubmit={handleSubmit}
                                 >
                                 <div className='details-price'>
@@ -330,9 +330,9 @@ export default function Bookings () {
                                             <p>Insurance via Geico</p>
                                         </div>
                                     </div>
-                                    { toy?.userId === sessionUser.id ? <button type='button' className='edit-toy-button' onClick={() => toggleEdit(!editToy)}>Edit your toy</button> : <button disabled={true} className='reserve-button' type='submit'>Reserve</button> }
+                                    <button disabled={true} className='reserve-button' type='submit'>Reserve</button>
                                 </div>
-                            </form>
+                            </form> : <button type='button' className='edit-toy-button' onClick={() => toggleEdit(!editToy)}>Edit your toy</button>  }
                         </div>
                             <br />
                             <div className='bot-grid'>
