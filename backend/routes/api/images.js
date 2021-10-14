@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Image } = require('../../db/models');
-const {singlePublicFileUpload} = require('../../awsS3')
+const {singlePublicFileUpload, singleMulterUpload} = require('../../awsS3')
 
 const router = express.Router();
 
@@ -22,7 +22,9 @@ router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
     return res.json(image)
 }))
 
-router.post('/', requireAuth, asyncHandler (async (req, res) => {
+
+//s3
+router.post('/', requireAuth, singleMulterUpload("image"), asyncHandler (async (req, res) => {
     const { toyId } = req.body
     const imageS3 = await singlePublicFileUpload(req.file)
     const image = Image.create({ toyId, imageS3 })
@@ -31,6 +33,15 @@ router.post('/', requireAuth, asyncHandler (async (req, res) => {
         image,
     })
 }))
+
+// router.post('/', requireAuth, asyncHandler (async (req, res) => {
+//     const { toyId, url } = req.body
+//     const image = Image.create({ toyId, url })
+
+//     return res.json({
+//         image,
+//     })
+// }))
 
 router.delete('/:id', asyncHandler (async (req, res) => {
     const imageId = await Image.destroy({where: {
