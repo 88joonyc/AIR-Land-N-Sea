@@ -18,7 +18,8 @@ export default function AddImages ({hideForm}) {
 
     const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState('')
+    const [imageS3, setS3] = useState(null)
     const [id, setId] = useState('')
 
     useEffect(() => {
@@ -30,12 +31,13 @@ export default function AddImages ({hideForm}) {
 
         const payLoad = {
             toyId,
-            url
+            imageS3
         }
 
         let createdAlbum = null
 
-        if (url) {
+        if (imageS3) {
+            console.log(imageS3)
             createdAlbum = await dispatch(createAlbum(payLoad))
             dispatch(getImages(Number(toyId)))
             if (createdAlbum) {
@@ -63,6 +65,11 @@ export default function AddImages ({hideForm}) {
             showPic(!pic)
             setImage('')
         }
+    }
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setS3(file)
     }
 
     if (pic && image) {
@@ -98,8 +105,8 @@ export default function AddImages ({hideForm}) {
                         {/* <img className='img-pupup' src={url}/> */}
                             <button type="submit" className='add-picture' >Add an image</button>
                                 <input
-                                    // className='image-input'
-                                    // onChange={(e) => setUrl(e.target.value)}
+                                    className='image-input'
+                                    onChange={updateFile}
                                     // placeholder={'URL ADDRESS'}
                                     type='file'
                                 />

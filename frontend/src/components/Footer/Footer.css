@@ -69,6 +69,7 @@
     display: flex;
     align-self: center;
     text-decoration: none;
+    font-size: small;
 }
 
 .footer-links:hover {
