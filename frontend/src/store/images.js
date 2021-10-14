@@ -33,20 +33,34 @@ const initialState = {
 }
 
 export const createAlbum = (payload) => async dispatch => {
+    const formData = new FormData();
+    formData.append("image", payload)
+
     const album = await csrfFetch('/api/images', {
-        method: 'POST',
-        header: {"Content-Type": 'application/json'},
-        body: JSON.stringify(payload)
+        method: "POST",
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
     });
-
     const albumSet = await album.json();
-
-    // console.log('this album',albumSet)
-
-    if (album.ok) dispatch(setImage(albumSet));
-
-    return albumSet;
+    dispatch(setImage(albumSet.images));
 };
+
+// export const createAlbum = (payload) => async dispatch => {
+
+//     const album = await csrfFetch('/api/images', {
+//         method: 'POST',
+//         header: {"Content-Type": 'application/json'},
+//         body: JSON.stringify(payload)
+//     });
+
+//     const albumSet = await album.json();
+
+//     if (album.ok) dispatch(setImage(albumSet));
+
+//     return albumSet;
+// };
 
 export const deleteImage = (payload) => async dispatch => {
     const image = await csrfFetch(`/api/images/${payload}`, {
