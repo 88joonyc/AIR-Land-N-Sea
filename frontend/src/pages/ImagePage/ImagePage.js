@@ -18,7 +18,7 @@ export default function AddImages ({hideForm}) {
 
     const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState(null)
     const [id, setId] = useState('')
 
     useEffect(() => {
@@ -98,9 +98,10 @@ export default function AddImages ({hideForm}) {
                         {/* <img className='img-pupup' src={url}/> */}
                             <button type="submit" className='add-picture' >Add an image</button>
                                 <input
-                                    className='image-input'
-                                    onChange={(e) => setUrl(e.target.value)}
-                                    placeholder={'URL ADDRESS'}
+                                    // className='image-input'
+                                    // onChange={(e) => setUrl(e.target.value)}
+                                    // placeholder={'URL ADDRESS'}
+                                    type='file'
                                 />
                             {hideForm ? <button className='cancel-picture' onClick={() => hideForm()} type="button">back</button> : <button className='cancel-picture' onClick={history.push('/')}>home</button>}
                         </form>
