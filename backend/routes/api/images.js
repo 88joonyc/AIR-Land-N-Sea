@@ -5,6 +5,7 @@ const { check } = require('express-validator');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Image } = require('../../db/models');
+const {singlePublicFileUpload} = require('../../awsS3')
 
 const router = express.Router();
 
@@ -22,8 +23,9 @@ router.get('/:id', requireAuth, asyncHandler (async (req, res) => {
 }))
 
 router.post('/', requireAuth, asyncHandler (async (req, res) => {
-    const { toyId, url } = req.body
-    const image = Image.create({ toyId, url })
+    const { toyId } = req.body
+    const imageS3 = await singlePublicFileUpload(req.file)
+    const image = Image.create({ toyId, imageS3 })
 
     return res.json({
         image,

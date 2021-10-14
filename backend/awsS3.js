@@ -5,8 +5,8 @@ const airlandnsea = "aws-s3-pern-demo";
 const multer = require("multer");
 
 //  make sure to set environment variables in production for:
-//  AWS_ACCESS_KEY_ID
-//  AWS_SECRET_ACCESS_KEY
+AWS_ACCESS_KEY_ID=process.env.AWS_ACCESS_KEY_ID;
+AWS_SECRET_ACCESS_KEY=process.env.AWS_SECRET_ACCESS_KEY;
 //  and aws will automatically use those environment variables
 
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
