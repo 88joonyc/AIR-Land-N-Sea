@@ -39,11 +39,15 @@ export default function AddImages ({hideForm}) {
         if (imageS3) {
             createdAlbum = await dispatch(createAlbum(payLoad))
             dispatch(getImages(Number(toyId)))
-            if (createdAlbum) {
-                window.alert("image has been added!")
-            } else {
-                window.alert("did you mean to add an image?")
-            }
+            window.alert("image has been added!")
+
+            // console.log('fist',createdAlbum)
+            // if (createdAlbum) {
+            //     window.alert("image has been added!")
+            // } else {
+            //     console.log('secon',createdAlbum)
+            //     window.alert("did you mean to add an image?")
+            // }
         }
 
     }

@@ -80,11 +80,10 @@ const imageReducer = (state = initialState, action) => {
             }
         case SET_IMAGES:
             // console.log('this is action.cimages',action.images)
-            const imageState = {
+            return  {
                 ...state,
                 images: action.payload
             }
-            return imageState;
 
         case DELETE_IMAGE: {
             return {...state}

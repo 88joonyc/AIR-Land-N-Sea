@@ -24,6 +24,11 @@
 .image-input {
     padding: 20px 0;
     width: 300px;
+    background-color: beige;
+}
+
+input#file-image-upload {
+    background-color: black;
 }
 
 .add-picture {
@@ -32,7 +37,7 @@
     /* height: 100%; */
     font-size: large;
     color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 2px;
 }
 
@@ -43,8 +48,9 @@
 .cancel-picture {
     background-color: blue;
     color: white;
-    padding: 17px;
+    padding: 20px;
     font-size: large;
+    border: none;
 }
 
 .image-page-images {
