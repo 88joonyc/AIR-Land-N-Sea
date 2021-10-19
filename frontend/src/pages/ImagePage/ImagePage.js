@@ -107,11 +107,13 @@ export default function AddImages ({hideForm}) {
                             >
                         {/* <img className='img-pupup' src={url}/> */}
                             <button type="submit" className='add-picture' >Add an image</button>
+                            {/* <label className='file-image-upload' for='upload-image'> 📁 click or drag and drop your image</label> */}
                                 <input
                                     className='image-input'
                                     onChange={updateFile}
                                     // placeholder={'URL ADDRESS'}
                                     type='file'
+                                    id='upload-image'
                                 />
                             {hideForm ? <button className='cancel-picture' onClick={() => hideForm()} type="button">back</button> : <button className='cancel-picture' onClick={history.push('/')}>home</button>}
                         </form>

@@ -27,10 +27,6 @@
     background-color: beige;
 }
 
-input#file-image-upload {
-    background-color: black;
-}
-
 .add-picture {
     border: none;
     background-color: rgb(24, 11, 167);
@@ -39,6 +35,23 @@ input#file-image-upload {
     color: white;
     padding: 20px;
     border-radius: 2px;
+}
+/*
+.file-image-upload {
+    background-color: brown;
+    padding: 20px;
+    margin: 1px solid black;
+} */
+
+/* #upload-image {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+} */
+
+.add-picture:hover {
+    background-color: rgb(20, 74, 19);
+    transition: all .15s;
 }
 
 .add-label {
@@ -51,6 +64,10 @@ input#file-image-upload {
     padding: 20px;
     font-size: large;
     border: none;
+}
+
+.cancel-picture:hover {
+    background-color: rgb(223, 11, 11);
 }
 
 .image-page-images {
