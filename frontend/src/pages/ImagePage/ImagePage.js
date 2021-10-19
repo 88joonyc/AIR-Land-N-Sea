@@ -37,7 +37,7 @@ export default function AddImages ({hideForm}) {
         let createdAlbum = null
 
         if (imageS3) {
-            console.log(imageS3)
+            // console.log(imageS3)
             createdAlbum = await dispatch(createAlbum(payLoad))
             dispatch(getImages(Number(toyId)))
             if (createdAlbum) {
@@ -68,7 +68,7 @@ export default function AddImages ({hideForm}) {
     }
 
     const updateFile = (e) => {
-        console.log('thisisfile', e.target.files[0])
+        // console.log('thisisfile', e.target.files[0])
         const file = e.target.files[0];
         if (file) setS3(file)
         console.log('thisisfiles3', file)
