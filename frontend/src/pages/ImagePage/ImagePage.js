@@ -68,10 +68,8 @@ export default function AddImages ({hideForm}) {
     }
 
     const updateFile = (e) => {
-        // console.log('thisisfile', e.target.files[0])
         const file = e.target.files[0];
         if (file) setS3(file)
-        console.log('thisisfiles3', file)
     }
 
     if (pic && image) {
