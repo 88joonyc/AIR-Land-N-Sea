@@ -81,7 +81,7 @@ const imageReducer = (state = initialState, action) => {
             // console.log('this is action.cimages',action.images)
             const imageState = {
                 ...state,
-                images: action.images
+                images: action.payload
             }
             return imageState;
 

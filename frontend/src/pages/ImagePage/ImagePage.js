@@ -37,7 +37,6 @@ export default function AddImages ({hideForm}) {
         let createdAlbum = null
 
         if (imageS3) {
-            // console.log(imageS3)
             createdAlbum = await dispatch(createAlbum(payLoad))
             dispatch(getImages(Number(toyId)))
             if (createdAlbum) {
