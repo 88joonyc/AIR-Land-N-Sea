@@ -34,7 +34,7 @@ const initialState = {
 
 export const createAlbum = (payload) => async dispatch => {
     const formData = new FormData();
-    formData.append("image", payload)
+    formData.append("image", payload.imageS3)
 
     const album = await csrfFetch('/api/images', {
         method: "POST",

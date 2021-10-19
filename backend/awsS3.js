@@ -3,6 +3,7 @@ const AWS = require("aws-sdk");
 const airlandnsea = "aws-s3-pern-demo";
 
 const multer = require("multer");
+const NAME_OF_BUCKET = airlandnsea;
 
 //  make sure to set environment variables in production for:
 AWS_ACCESS_KEY_ID=process.env.AWS_ACCESS_KEY_ID;

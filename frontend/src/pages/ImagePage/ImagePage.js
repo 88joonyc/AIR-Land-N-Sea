@@ -16,7 +16,7 @@ export default function AddImages ({hideForm}) {
     const sessionUser = useSelector(state => state?.session?.user)
     const images = useSelector(state => state?.images?.images)
 
-    const [url, setUrl] = useState('')
+    // const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
     const [image, setImage] = useState('')
     const [imageS3, setS3] = useState(null)
@@ -68,8 +68,10 @@ export default function AddImages ({hideForm}) {
     }
 
     const updateFile = (e) => {
+        console.log('thisisfile', e.target.files[0])
         const file = e.target.files[0];
         if (file) setS3(file)
+        console.log('thisisfiles3', file)
     }
 
     if (pic && image) {
