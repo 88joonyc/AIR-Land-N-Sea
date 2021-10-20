@@ -18,3 +18,8 @@
     height: 50px;
 
 }
+
+.date-input:hover {
+    cursor: pointer;
+
+}
