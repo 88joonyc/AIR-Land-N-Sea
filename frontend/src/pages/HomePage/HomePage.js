@@ -4,9 +4,7 @@ import moment from 'moment'
 
 import SplashPage from '../SplashPage/SplashPage';
 import { getOneBooking } from '../../store/bookings';
-import { getOneToy } from '../../store/toys';
 import EditBookings from '../../components/EditBookings/EditBookings';
-import EditToys from '../UsersToy/UsersToy';
 
 import Toys from '../ToysPage/ToysPage';
 
@@ -14,11 +12,14 @@ import './HomePage.css'
 
 export default function Home () {
     const dispatch = useDispatch();
+
     const sessionUser = useSelector(state => state?.session?.user);
     const bookings = useSelector((state) => state?.bookings?.bookings)
-    const [elementId, setElementId] = useState(null)
 
-    const toys = useSelector((state) => state.toys)
+    const [ elementId, setElementId ] = useState(null)
+    const [ start, setStart ] = useState(null)
+    const [ end, setEnd ] = useState(null)
+
 
     useEffect(() => {
         dispatch(getOneBooking(sessionUser?.id))
@@ -32,7 +33,8 @@ export default function Home () {
         element_content = (
             <EditBookings
                 bookId={elementId}
-                booking={bookings}
+                start={start}
+                end={end}
                 hideForm={() => setElementId(null)}
             />
         )
@@ -50,7 +52,7 @@ export default function Home () {
                                     <div className='start-end'>
                                         <p>{moment(book?.startDate).format("MMM Do YYYY")} ➡ {moment(book?.endDate).format("MMM Do YYYY")}</p>
                                     </div>
-                                    <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
+                                    <button className='edit-button' onClick={()=> (setElementId(book?.id), setStart(book.startDate), setEnd(book.endDate))}>edit booking</button>
                                 </div>
                             </>
                         ))}

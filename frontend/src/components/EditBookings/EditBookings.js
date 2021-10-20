@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 
 import { getOneBooking } from '../../store/bookings';
 
@@ -8,22 +8,20 @@ import * as bookAction from '../../store/bookings';
 
 import './EditBooking.css'
 
-export default function EditBookings ({bookId, hideForm}) {
+export default function EditBookings ({bookId, start, end, hideForm}) {
 
     const dispatch = useDispatch();
     const { toyId } = useParams()
 
-    const bookings = useSelector((state) => state.bookings[bookId])
-    const calStart = bookings?.startDate.split("T")[0]
-    const calEnd = bookings?.endDate.split("T")[0]
+    const bookings = useSelector((state) => state.bookings)
+    const calStart = start.split("T")[0]
+    const calEnd = end.split("T")[0]
 
     const sessionUser = useSelector(state => state.session.user);
     const toy = useSelector((state) => state.toys[toyId])
 
-    const history = useHistory();
     const [startDate, setStart] = useState(calStart)
     const [endDate, setEnd] = useState(calEnd)
-
 
     const updateStart = (e) => setStart(e.target.value)
     const updateEnd = (e) => setEnd(e.target.value)
@@ -83,68 +81,68 @@ export default function EditBookings ({bookId, hideForm}) {
 
     return (
         <>
+            <div className='booking-back-container'>
+                <div className='booking-edit-form'>
+                    <button className='book-cancel-button' onClick={handleCancel} type='button'>X</button>
+                    <form
+                        onSubmit={handleSubmit}
+                        >
+                        <div>{toy?.price}</div>
 
-                <div className='booking-back-container'>
-                    <div className='booking-edit-form'>
-                        <button className='book-cancel-button' onClick={handleCancel} type='button'>X</button>
-                        <form
-                            onSubmit={handleSubmit}
-                            >
-                            <div>{toy?.price}</div>
-
-                            <div className='date-area'>
-                                <div className='book-timer'>
-                                    <div className='start-hour'>
-                                        <label
-                                            htmlFor='start'
-                                            >Start date</label>
-                                        <input
-                                            type='date'
-                                            value={startDate}
-                                            onChange={updateStart}
-                                        />
-                                        <label htmlFor='end'>Check-In</label>
-                                        <input
-                                            type='time'
-                                            value={endDate}
-                                            onChange={updateEnd}
-                                        />
-
-                                    </div>
-                                    <div className='end-hour'>
-                                        <label
-                                            htmlFor='start'
-                                            >End date</label>
-                                        <input
-                                            type='date'
-                                            value={endDate}
-                                            onChange={updateStart}
-                                        />
-                                        <label htmlFor='end'>Check-out</label>
-                                        <input
-                                            type='time'
-                                            value={null}
-                                            onChange={null}
-                                        />
-
-                                    </div>
+                        <div className='date-area'>
+                            <div className='book-timer'>
+                                <div className='start-hour'>
+                                    <label
+                                        htmlFor='start'
+                                        >Start date</label>
+                                    <input
+                                        type='date'
+                                        value={startDate}
+                                        onChange={updateStart}
+                                    />
+                                    <label htmlFor='end'>Check-In</label>
+                                    <input
+                                        type='time'
+                                        value={endDate}
+                                        onChange={updateEnd}
+                                    />
 
                                 </div>
-                                <div className='delete-edit-button'>
-                                    <button className='reserve-button' type='submit'>Edit Reservation</button>
-                                    <button className='reserve-button' onClick={deleteRes} type='button' >Cancel Reservation</button>
+                                <div className='end-hour'>
+                                    <label
+                                        htmlFor='start'
+                                        >End date</label>
+                                    <input
+                                        type='date'
+                                        value={endDate}
+                                        onChange={updateStart}
+                                    />
+                                    <label htmlFor='end'>Check-out</label>
+                                    <input
+                                        type='time'
+                                        value={null}
+                                        onChange={null}
+                                    />
+
                                 </div>
+
                             </div>
-                        </form>
-                    </div>
-                    {/* <div className='bot-info-container'>
-                        <h2>{toy?.description}</h2>
-                        <h2>{toy?.year}</h2>
-                        <h2>{toy?.make}</h2>
-                        <h2>{toy?.model}</h2>
-                        <h2>{toy?.id}</h2>
-                    </div> */}
+                            <div className='delete-edit-button'>
+                                <button className='reserve-button' type='submit'>Edit Reservation</button>
+                                <button className='reserve-button' onClick={deleteRes} type='button' >Cancel Reservation</button>
+                                <button className='reserve-button' onClick={() => console.log(bookings, start, end)} type='button' >dud</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+                {/* <div className='bot-info-container'>
+                    <h2>{toy?.description}</h2>
+                    <h2>{toy?.year}</h2>
+                    <h2>{toy?.make}</h2>
+                    <h2>{toy?.model}</h2>
+                    <h2>{toy?.id}</h2>
+                </div> */}
+            </div>
         </>
     )
 }
