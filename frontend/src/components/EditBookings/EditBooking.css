@@ -2,12 +2,12 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.281);
+    background-color: rgba(0, 0, 0, 0.544);
 }
 
 .booking-edit-form {
     position: relative;
-    top: 20%;
+    top: 25%;
     margin: 0 auto;
     width: 50%;
     border: 1px solid black;
