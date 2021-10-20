@@ -40,7 +40,6 @@ export default function Home () {
 
     content = (
         <div className='home-body-container'>
-            {/* <EditToys/> */}
             <div className='home-body'>
                 <div className='bookings-container'>
                         {bookings?.map(book =>(
@@ -49,9 +48,7 @@ export default function Home () {
                                     The Toy<h2>{book?.Toy?.year} {book?.Toy?.make} {book?.Toy?.model} <br/> {book?.Toy?.type}</h2>
                                     Price<h3>$ {book?.Toy?.price} per day </h3>
                                     <div className='start-end'>
-                                        <p>{moment(book?.startDate).format("MMMM Do YYYY, h:mm a")}</p>
-                                        <p> {'>'}</p>
-                                        <p>{moment(book?.endDate).format("MMMM Do YYYY, h:mm a")}</p>
+                                        <p>{moment(book?.startDate).format("MMM Do YYYY")} ➡ {moment(book?.endDate).format("MMM Do YYYY")}</p>
                                     </div>
                                     <button className='edit-button' onClick={()=> setElementId(book?.id)}>edit booking</button>
                                 </div>
