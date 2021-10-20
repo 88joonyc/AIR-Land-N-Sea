@@ -53,7 +53,7 @@
 
 ## Add / View all pictures
 *Users can view all images of the selected toy they own.*
-![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
+![Screen Shot 2021-10-19 at 8 35 10 PM](https://user-images.githubusercontent.com/79543569/138008799-7abfa512-4ed8-4528-bfda-4c58749efe1c.png)
 
 
 ## View / Delete picture
@@ -119,6 +119,7 @@
 - Heroku
 - Git
 - Vanilla CSS
+- AWS S3
 
 # Wiki Documentation
 - ### [Home](https://github.com/88joonyc/AIR-Land-N-Sea/wiki "Named link title")
@@ -133,7 +134,6 @@
 # Future Plans
 - implement search feature for added address details
 - link Google Maps API with added address details
-- AWS S3 photobucket for user images
 
 <!-- # Conclusion -->
 
