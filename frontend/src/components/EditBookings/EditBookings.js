@@ -13,7 +13,6 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
     const dispatch = useDispatch();
     const { toyId } = useParams()
 
-    const bookings = useSelector((state) => state.bookings)
     const calStart = start.split("T")[0]
     const calEnd = end.split("T")[0]
 
@@ -25,6 +24,7 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
 
     const updateStart = (e) => setStart(e.target.value)
     const updateEnd = (e) => setEnd(e.target.value)
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = sessionUser.id
@@ -99,6 +99,7 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                                         type='date'
                                         value={startDate}
                                         onChange={updateStart}
+                                        className='date-input'
                                     />
                                     {/* <label htmlFor='end'>Check-In</label>
                                     <input
@@ -115,7 +116,8 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                                     <input
                                         type='date'
                                         value={endDate}
-                                        onChange={updateStart}
+                                        onChange={updateEnd}
+                                        className='date-input'
                                     />
                                     {/* <label htmlFor='end'>Check-out</label>
                                     <input

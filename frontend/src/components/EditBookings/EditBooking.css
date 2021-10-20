@@ -13,3 +13,8 @@
     border: 1px solid black;
     background-color: white;
 }
+
+.date-input {
+    height: 50px;
+
+}
