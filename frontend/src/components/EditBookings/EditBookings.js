@@ -100,12 +100,12 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                                         value={startDate}
                                         onChange={updateStart}
                                     />
-                                    <label htmlFor='end'>Check-In</label>
+                                    {/* <label htmlFor='end'>Check-In</label>
                                     <input
                                         type='time'
                                         value={endDate}
                                         onChange={updateEnd}
-                                    />
+                                    /> */}
 
                                 </div>
                                 <div className='end-hour'>
@@ -117,12 +117,12 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                                         value={endDate}
                                         onChange={updateStart}
                                     />
-                                    <label htmlFor='end'>Check-out</label>
+                                    {/* <label htmlFor='end'>Check-out</label>
                                     <input
                                         type='time'
                                         value={null}
                                         onChange={null}
-                                    />
+                                    /> */}
 
                                 </div>
 
@@ -130,7 +130,6 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                             <div className='delete-edit-button'>
                                 <button className='reserve-button' type='submit'>Edit Reservation</button>
                                 <button className='reserve-button' onClick={deleteRes} type='button' >Cancel Reservation</button>
-                                <button className='reserve-button' onClick={() => console.log(bookings, start, end)} type='button' >dud</button>
                             </div>
                         </div>
                     </form>
