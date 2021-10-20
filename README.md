@@ -119,6 +119,7 @@
 - Heroku
 - Git
 - Vanilla CSS
+- AWS S3
 
 # Wiki Documentation
 - ### [Home](https://github.com/88joonyc/AIR-Land-N-Sea/wiki "Named link title")
@@ -133,7 +134,6 @@
 # Future Plans
 - implement search feature for added address details
 - link Google Maps API with added address details
-- AWS S3 photobucket for user images
 
 <!-- # Conclusion -->
 
