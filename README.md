@@ -53,7 +53,7 @@
 
 ## Add / View all pictures
 *Users can view all images of the selected toy they own.*
-![Screen Shot 2021-10-01 at 1 43 03 AM](https://user-images.githubusercontent.com/79543569/135771523-74eb5647-fd57-4c39-ab29-aff0ab69c32b.png)
+![Screen Shot 2021-10-19 at 8 33 26 PM](https://user-images.githubusercontent.com/79543569/138008664-3b512480-246e-49be-9e85-2816c4a7c165.png)
 
 
 ## View / Delete picture
