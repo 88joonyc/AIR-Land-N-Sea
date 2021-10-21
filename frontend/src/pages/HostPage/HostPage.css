@@ -70,6 +70,13 @@
     font-family: 'Roboto', sans-serif
 }
 
+.host-input:hover {
+    cursor: pointer;
+}
+
+.host-texarea:hover {
+    cursor: pointer;
+}
 
 /*
 .host-texarea:active::after {
