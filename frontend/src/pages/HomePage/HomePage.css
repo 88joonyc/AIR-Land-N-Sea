@@ -94,5 +94,5 @@ input {
     /* height: 800px; */
     margin-top: -30px;
     grid-template-columns: 2fr 6fr;
-    overflow-y: scroll;
+    overflow-y: overlay;
 }
