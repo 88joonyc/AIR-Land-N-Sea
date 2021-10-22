@@ -94,13 +94,13 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                                 <div className='start-hour'>
                                     <label
                                         htmlFor='start'
-                                        >Start date</label>
+                                        >Start date
                                     <input
                                         type='date'
                                         value={startDate}
                                         onChange={updateStart}
                                         className='date-input'
-                                    />
+                                    /></label>
                                     {/* <label htmlFor='end'>Check-In</label>
                                     <input
                                         type='time'
@@ -112,13 +112,13 @@ export default function EditBookings ({bookId, start, end, hideForm}) {
                                 <div className='end-hour'>
                                     <label
                                         htmlFor='start'
-                                        >End date</label>
+                                        >End date
                                     <input
                                         type='date'
                                         value={endDate}
                                         onChange={updateEnd}
                                         className='date-input'
-                                    />
+                                    /></label>
                                     {/* <label htmlFor='end'>Check-out</label>
                                     <input
                                         type='time'
