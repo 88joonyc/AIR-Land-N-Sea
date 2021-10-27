@@ -113,12 +113,13 @@
 # Technologies used
 - Javascript
 - React
-- Express
+- Node.js/Express
 - Redux
 - PosgreSQL
 - Heroku
 - Git
 - Vanilla CSS
+- Moment
 - AWS S3
 
 # Wiki Documentation
