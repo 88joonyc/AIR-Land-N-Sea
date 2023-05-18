@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { createAlbum, deleteImage, getImages } from '../../store/images';
-import { getOneToy } from '../../store/toys';
 
 import './ImagePage.css'
 
@@ -12,11 +11,9 @@ export default function AddImages ({hideForm}) {
     const history = useHistory();
     let {toyId} = useParams()
 
-    // const toy = useSelector((state) => state.toys[toyId])
     const sessionUser = useSelector(state => state?.session?.user)
     const images = useSelector(state => state?.images?.images)
 
-    // const [url, setUrl] = useState('')
     const [pic, showPic] = useState(false)
     const [image, setImage] = useState('')
     const [imageS3, setS3] = useState(null)
@@ -53,11 +50,6 @@ export default function AddImages ({hideForm}) {
     }
 
     let content = null
-
-
-    // const handleBack = () => {
-    //     history.push('/')
-    // }
 
     const deletePic = async () => {
 

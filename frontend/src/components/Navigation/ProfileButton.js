@@ -7,9 +7,10 @@ export default function ProfileButton({user}) {
     const dispatch = useDispatch();
     const [ showMenu, setShowMenu ] = useState(false);
 
-    const openMenu = () => {
+    const openMenu = (e) => {
+        e.stopPropagation()
         if (showMenu) return;
-        setShowMenu(true);
+        setShowMenu(!showMenu);
     };
 
     const history = useHistory();
@@ -17,7 +18,7 @@ export default function ProfileButton({user}) {
     useEffect(() => {
         if (!showMenu) return;
 
-        const closeMenu = () => {
+        const closeMenu = (e) => {
             setShowMenu(false);
         };
         document.addEventListener('click', closeMenu);

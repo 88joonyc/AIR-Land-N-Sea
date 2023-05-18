@@ -40,5 +40,8 @@
   "devDependencies": {
     "redux-logger": "^3.0.6"
   },
-  "proxy": "http://localhost:5218"
+  "proxy": "http://localhost:5218",
+  "engines": {
+    "node": "16.x"
+  }
 }

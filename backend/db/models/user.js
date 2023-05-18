@@ -96,6 +96,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
+  User.findEmail = async function({}){
+
+  }
+
   User.signup = async function({ firstName, lastName, email, username, password }) {
     const hashedPassword = bcrypt.hashSync(password)
     const user = await User.create({

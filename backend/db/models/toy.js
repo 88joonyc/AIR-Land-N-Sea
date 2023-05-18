@@ -5,11 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-        references: {
-          model: {
-            tableName: "Toys",
-          },
+      references: {
+        model: {
+          tableName: "Toys",
         },
+      },
     },
     description: {
       type: DataTypes.STRING,
